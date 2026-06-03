@@ -1,74 +1,69 @@
-/*
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './albunes.module.css';
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIEMBROS</title>
-    <link rel="stylesheet" href="acdc4.css">
-</head>
-<body>
+const AcdcGrupo = () => {
+    const currentMembers = [
+        { name: "Brian Johnson", role: "Vocalista", years: "1980–2016, 2020–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Brian_Johnson_2015.jpg/440px-Brian_Johnson_2015.jpg" },
+        { name: "Angus Young", role: "Guitarra solista", years: "1973–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Angus_Young_-_AC-DC_-_2008.jpg/440px-Angus_Young_-_AC-DC_-_2008.jpg" },
+        { name: "Stevie Young", role: "Guitarra rítmica", years: "1988, 2014–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Stevie_Young_2015.jpg/440px-Stevie_Young_2015.jpg" },
+        { name: "Cliff Williams", role: "Bajo", years: "1977–2016, 2020–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Cliff_Williams_2015.jpg/440px-Cliff_Williams_2015.jpg" },
+        { name: "Phil Rudd", role: "Batería", years: "1975–1983, 1995–2015, 2020–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Phil_Rudd_2010.jpg/440px-Phil_Rudd_2010.jpg" },
+    ];
 
-    <nav>
-        <a href="../INICIO.html" class="nav-item">INICIO</a> | 
-        <a href="acdc1.html" class="nav-item">ACDC</a> |
-        <a href="acdc2.html" class="nav-item">HISTORIA</a> |
-        <a href="acdc3.html" class="nav-item">ALBUNES</a> |
-        <a href="acdc4.html" class="nav-item">GRUPO</a>
-    </nav>
+    const pastMembers = [
+        { name: "Bon Scott †", role: "Vocalista (1974–1980) — Fallecido en 1980" },
+        { name: "Dave Evans", role: "Vocalista (1973–1974)" },
+        { name: "Malcolm Young †", role: "Guitarra rítmica (1973–2014) — Fallecido en 2017" },
+        { name: "Mark Evans", role: "Bajo (1975–1977)" },
+        { name: "Simon Wright", role: "Batería (1983–1989)" },
+        { name: "Chris Slade", role: "Batería (1990–1995, 2015–2020)" },
+        { name: "George Young †", role: "Bajo (1973–1975) — Fallecido en 2017" },
+    ];
 
-    <header>
-        <h1>👾MIEMBROS👾</h1>
-    </header>
+    return (
+        <div className={styles.rockContainer}>
+            <nav className={styles.rockNav}>
+                <Link to="/" className={styles.rockNavItem}>INICIO</Link> |
+                <Link to="/acdc" className={styles.rockNavItem}>ACDC</Link> |
+                <Link to="/acdc/historia" className={styles.rockNavItem}>HISTORIA</Link> |
+                <Link to="/acdc/albunes" className={styles.rockNavItem}>ÁLBUMES</Link> |
+                <Link to="/acdc/grupo" className={`${styles.rockNavItem} ${styles.rockActive}`}>GRUPO</Link>
+            </nav>
 
-    <section>
-        <h2>👽CONOSE TODOS LOS MIEMBROS QUE FURON PARTE DE ESTA MARAVILLOSA BANDA👽 </h2>
-        <p>
-            🎸Miembros actuales🎸 <br>
-            
+            <header className={styles.rockHeader}>
+                <h1 className={styles.rockTitle}>👾 MIEMBROS 👾</h1>
+                <div className={styles.guitarRiff}></div>
+            </header>
 
-            <br><br>
-            Brian Johnson: vocalista, (1980-2016) (2020-presente)<br><br>
-            Angus Young: guitarra solista, (1973-presente)<br><br>
-            Stevie Young: guitarra rítmica, coros (1988) (2014-presente)<br><br>
-            Cliff Williams: bajo eléctrico, coros (1977-2016) (2020-presente)<br><br>
-            Phil Rudd: batería, percusión (1975-1983) (1995-2015) (2020-presente)<br><br><br>
-            <img src="https://imagenes.expreso.ec/files/image_700_402/uploads/2020/10/07/5f7e2463e77de.png">
-     
-            <br><br>
+            <section className={styles.rockContent}>
+                <h2 className={styles.rockSubtitle}>🎸 MIEMBROS ACTUALES 🎸</h2>
+                <div className={styles.rockAlbumsGrid}>
+                    {currentMembers.map((m) => (
+                        <div key={m.name} className={styles.rockAlbumCard} style={{cursor:'default'}}>
+                            <h3 className={styles.rockAlbumTitle}>{m.name}</h3>
+                            <img src={m.img} alt={m.name} className={styles.rockAlbumCover} style={{height:'220px', objectFit:'cover', objectPosition:'top'}} />
+                            <p className={styles.rockAlbumInfo} style={{paddingTop:'10px'}}>{m.role}<br/>{m.years}</p>
+                        </div>
+                    ))}
+                </div>
 
-            🎸Músicos de Tour🎸<br><br>
+                <h2 className={styles.rockSubtitle} style={{marginTop:'40px'}}>🎸 MIEMBROS ANTERIORES 🎸</h2>
+                <div className={styles.rockAlbumsGrid} style={{gridTemplateColumns:'1fr'}}>
+                    {pastMembers.map((m) => (
+                        <div key={m.name} className={styles.rockAlbumCard} style={{cursor:'default'}}>
+                            <h3 className={styles.rockAlbumTitle}>{m.name}</h3>
+                            <p className={styles.rockAlbumInfo}>{m.role}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
 
-            Matt Laug: batería, percusión (2023-presente) <br><br>
-            
-            Chris Chaney: bajo, coros (2024-presente) <br><br>
+            <footer className={styles.rockFooter}>
+                <p className={styles.rockFooterText}>© {new Date().getFullYear()} R.A.V.V ⚡ AC/DC ⚡</p>
+            </footer>
+        </div>
+    );
+};
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX5FXAJSbGnMx2ey6q-mNznvXD3zfYq4gmvQ&s">
-            <br><br>
-            <br><br><br>
-
-            🎸Miembros anteriores🎸<br><br>
-            
-            Dave Evans: vocalista (1973)<br><br>
-            Bon Scott † - vocalista (1974-1980; fallecido en 1980)<br><br>
-            Malcolm Young † - guitarra rítmica, coros (1973-2014) (fallecido en 2017)<br><br>
-            Mark Evans - bajo eléctrico (1975-1977)<br><br>
-            Simon Wright - batería, percusión (1983-1989)<br><br>
-            Axl Rose - vocalista (2016; miembro de gira)<br><br>
-            George Young † - bajo eléctrico (1973-1975) (fallecido en 2017)<br><br>
-            Chris Slade - batería, percusión (1990-1995) (2015-2020)<br><br></p>
-
-            <img src="https://mariskalrock.com/wp-content/uploads/2019/08/acdc-sesion-bon-scott-web.jpg">
-     
-            <br><br>
-
-    </section>
-
-    <footer>
-        <p>© R.A.V.V ⚡AC/DC⚡</p>
-    </footer>
-
-</body>
-</html>
-*/
+export default AcdcGrupo;

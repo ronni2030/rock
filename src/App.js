@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import ACDC from './pages/acdc/ACDC';
 import Albunes from './pages/acdc/albunes';
+import AcdcHistoria from './pages/acdc/historia';
+import AcdcGrupo from './pages/acdc/grupo';
 import Ozzy from './pages/ozzy/OZZY';
 import OzzyHistoria from './pages/ozzy/OzzyHistoria';
 import OzzyAlbunes from './pages/ozzy/OzzyAlbunes';
@@ -19,6 +21,10 @@ import BlackSabbath from './pages/Black Sabbath/BlackSabbath';
 import BlackSabbathHistoria from './pages/Black Sabbath/BlackSabbathHistoria';
 import BlackSabbathAlbunes from './pages/Black Sabbath/BlackSabbathAlbunes';
 import BlackSabbathGrupo from './pages/Black Sabbath/BlackSabbathGrupo';
+import Queen from './pages/Queen/queen';
+import QueenHistoria from './pages/Queen/queenHistoria';
+import QueenAlbunes from './pages/Queen/queenAlbunes';
+import QueenGrupo from './pages/Queen/queenGrupo';
 
 const App = () => {
     return (
@@ -27,7 +33,9 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/acdc" element={<ACDC />} />
-                    <Route path="/albunes" element={<Albunes />} />
+                    <Route path="/acdc/historia" element={<AcdcHistoria />} />
+                    <Route path="/acdc/albunes" element={<Albunes />} />
+                    <Route path="/acdc/grupo" element={<AcdcGrupo />} />
                     <Route path="/ozzy" element={<Ozzy />} />
                     <Route path="/ozzy/historia" element={<OzzyHistoria />} />
                     <Route path="/ozzy/albunes" element={<OzzyAlbunes />} />
@@ -44,6 +52,10 @@ const App = () => {
                     <Route path="/blacksabbath/historia" element={<BlackSabbathHistoria />} />
                     <Route path="/blacksabbath/albunes" element={<BlackSabbathAlbunes />} />
                     <Route path="/blacksabbath/grupo" element={<BlackSabbathGrupo />} />
+                    <Route path="/queen" element={<Queen />} />
+                    <Route path="/queen/historia" element={<QueenHistoria />} />
+                    <Route path="/queen/albunes" element={<QueenAlbunes />} />
+                    <Route path="/queen/grupo" element={<QueenGrupo />} />
                 </Routes>
             </div>
         </Router>
