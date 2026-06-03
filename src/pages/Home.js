@@ -1,6 +1,14 @@
 import React, { useState, useRef } from 'react';
 import styles from './Home.module.css';
 
+// 📸 imágenes locales (corrige la ruta según tu estructura)
+import acdc from "../images/Home/acdc.jpg";
+import ozzy from "../images/Home/ozzy.jpeg";
+import kiss from "../images/Home/kiss.jpg";
+import ironmaiden from "../images/Home/ironmaiden.jpg";
+import blacksabbath from "../images/Home/blacksabbath.jpg";
+import queen from "../images/Home/queen.jpg";
+
 const Card = ({ title, image, link }) => (
     <a href={link} className={styles.card}>
         <img src={image} alt={title} className={styles.card__img} />
@@ -11,9 +19,11 @@ const Card = ({ title, image, link }) => (
 const Home = () => {
 
     const audioRef = useRef(null);
+
     const [index, setIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
 
+    // 🎧 PLAYLIST (desde public/Musicas)
     const playlist = [
         "/Musicas/acdc1.mp3",
         "/Musicas/acdc2.mp3",
@@ -52,69 +62,76 @@ const Home = () => {
         "/Musicas/blacksabbath4.mp3",
     ];
 
+    // ▶️ reproducir
     const play = () => {
         const audio = audioRef.current;
+        if (!audio) return;
+
         audio.src = playlist[index];
-        audio.play();
+        audio.play().catch(() => {});
         setIsPlaying(true);
     };
 
+    // ⏸ pausa
     const pause = () => {
-        audioRef.current.pause();
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        audio.pause();
         setIsPlaying(false);
     };
 
+    // ⏭ siguiente
     const next = () => {
         const newIndex = (index + 1) % playlist.length;
         setIndex(newIndex);
 
         const audio = audioRef.current;
         audio.src = playlist[newIndex];
-        audio.play();
+        audio.play().catch(() => {});
         setIsPlaying(true);
     };
 
+    // ⏮ anterior
     const prev = () => {
         const newIndex = (index - 1 + playlist.length) % playlist.length;
         setIndex(newIndex);
 
         const audio = audioRef.current;
         audio.src = playlist[newIndex];
-        audio.play();
+        audio.play().catch(() => {});
         setIsPlaying(true);
     };
 
+    // 🔁 cuando termina una canción
     const handleEnd = () => {
         const newIndex = (index + 1) % playlist.length;
         setIndex(newIndex);
 
         const audio = audioRef.current;
         audio.src = playlist[newIndex];
-        audio.play();
+        audio.play().catch(() => {});
         setIsPlaying(true);
     };
 
+    // 🎸 cards
     const bands = [
-        { title: "⚡AC/DC⚡", image: "https://w1.pngwing.com/pngs/821/327/png-transparent-child-logo-acdc-badge-red-text.png", link: "/acdc" },
-        { title: "🦇Ozzy🦇", image: "https://thumbs.dreamstime.com/b/logotipo-vectorial-de-ozzy-osbourne-aislado-en-fondo-blanco-306334145.jpg", link: "/ozzy" },
-        { title: "👅Kiss👅", image: "https://cdn11.bigcommerce.com/s-c9a80/images/stencil/1280x1280/products/12978/44885/kiss_chunky_magnet__22190.1649795023.png?c=2", link: "/kiss" },
-        { title: "🔥Iron Maiden🔥", image: "https://mussica.info/wp-content/uploads/2021/09/iron-maiden-intro.jpeg", link: "/ironmaiden" },
-        { title: "🦇Black Sabbath🦇", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCIexR8SNEIi24ZwWfCk5UY2oVwHZTHTpNBw&s", link: "/blacksabbath" },
-        { title: "👑Queen👑", image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Queen_logo.svg", link: "/queen" }
+        { title: "⚡AC/DC⚡", image: acdc, link: "/acdc" },
+        { title: "🦇Ozzy🦇", image: ozzy, link: "/ozzy" },
+        { title: "👅Kiss👅", image: kiss, link: "/kiss" },
+        { title: "🔥Iron Maiden🔥", image: ironmaiden, link: "/ironmaiden" },
+        { title: "🦇Black Sabbath🦇", image: blacksabbath, link: "/blacksabbath" },
+        { title: "👑Queen👑", image: queen, link: "/queen" }
     ];
 
     return (
         <div className={styles.page}>
 
-            <nav className={styles.mainNav}>
-                <div className={styles.logo}></div>
-            </nav>
-
             <section className={styles.heroSection}>
                 <div className={styles.heroOverlay}></div>
 
                 <div className={styles.heroContent}>
-                    <h1>ROCK<br/>LEGENDS</h1>
+                    <h1>ROCK<br />LEGENDS</h1>
 
                     <span className={styles.subtitle}>
                         LEYENDAS DEL ROCK
@@ -124,7 +141,7 @@ const Home = () => {
                         Explora las bandas más legendarias del rock y el metal en una sola experiencia.
                     </p>
 
-                    {/* 🎧 PLAYER */}
+                    {/* 🎧 REPRODUCTOR */}
                     <div className={styles.player}>
                         <audio ref={audioRef} onEnded={handleEnd} />
 
@@ -141,11 +158,12 @@ const Home = () => {
                         </div>
 
                         <p className={styles.nowPlaying}>
-                            🎧 {playlist[index].split("/").pop()}
+                            🎧 {playlist[index]?.split("/").pop()}
                         </p>
                     </div>
                 </div>
 
+                {/* 🎸 CARDS */}
                 <div className={styles.cardSection}>
                     {bands.map((b, i) => (
                         <Card key={i} title={b.title} image={b.image} link={b.link} />
