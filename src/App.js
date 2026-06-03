@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { MusicProvider } from './context/MusicContext';   // 👈 NUEVO
+import MiniPlayer from './components/MiniPlayer';         // 👈 NUEVO
 import Home from './pages/Home';
 import ACDC from './pages/acdc/ACDC';
 import Albunes from './pages/acdc/albunes';
@@ -29,35 +31,38 @@ import QueenGrupo from './pages/Queen/queenGrupo';
 const App = () => {
     return (
         <Router>
-            <div className="App">
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/acdc" element={<ACDC />} />
-                    <Route path="/acdc/historia" element={<AcdcHistoria />} />
-                    <Route path="/acdc/albunes" element={<Albunes />} />
-                    <Route path="/acdc/grupo" element={<AcdcGrupo />} />
-                    <Route path="/ozzy" element={<Ozzy />} />
-                    <Route path="/ozzy/historia" element={<OzzyHistoria />} />
-                    <Route path="/ozzy/albunes" element={<OzzyAlbunes />} />
-                    <Route path="/ozzy/grupo" element={<OzzyGrupo />} />
-                    <Route path="/kiss" element={<Kiss />} />
-                    <Route path="/kiss/historia" element={<KissHistoria />} />
-                    <Route path="/kiss/albunes" element={<KissAlbunes />} />
-                    <Route path="/kiss/grupo" element={<KissGrupo />} />
-                    <Route path="/ironmaiden" element={<IronMaiden />} />
-                    <Route path="/ironmaiden/historia" element={<IronMaidenHistoria />} />
-                    <Route path="/ironmaiden/albunes" element={<IronMaidenAlbunes />} />
-                    <Route path="/ironmaiden/grupo" element={<IronMaidenGrupo />} />
-                    <Route path="/blacksabbath" element={<BlackSabbath />} />
-                    <Route path="/blacksabbath/historia" element={<BlackSabbathHistoria />} />
-                    <Route path="/blacksabbath/albunes" element={<BlackSabbathAlbunes />} />
-                    <Route path="/blacksabbath/grupo" element={<BlackSabbathGrupo />} />
-                    <Route path="/queen" element={<Queen />} />
-                    <Route path="/queen/historia" element={<QueenHistoria />} />
-                    <Route path="/queen/albunes" element={<QueenAlbunes />} />
-                    <Route path="/queen/grupo" element={<QueenGrupo />} />
-                </Routes>
-            </div>
+            <MusicProvider>
+                <div className="App">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/acdc" element={<ACDC />} />
+                        <Route path="/acdc/historia" element={<AcdcHistoria />} />
+                        <Route path="/acdc/albunes" element={<Albunes />} />
+                        <Route path="/acdc/grupo" element={<AcdcGrupo />} />
+                        <Route path="/ozzy" element={<Ozzy />} />
+                        <Route path="/ozzy/historia" element={<OzzyHistoria />} />
+                        <Route path="/ozzy/albunes" element={<OzzyAlbunes />} />
+                        <Route path="/ozzy/grupo" element={<OzzyGrupo />} />
+                        <Route path="/kiss" element={<Kiss />} />
+                        <Route path="/kiss/historia" element={<KissHistoria />} />
+                        <Route path="/kiss/albunes" element={<KissAlbunes />} />
+                        <Route path="/kiss/grupo" element={<KissGrupo />} />
+                        <Route path="/ironmaiden" element={<IronMaiden />} />
+                        <Route path="/ironmaiden/historia" element={<IronMaidenHistoria />} />
+                        <Route path="/ironmaiden/albunes" element={<IronMaidenAlbunes />} />
+                        <Route path="/ironmaiden/grupo" element={<IronMaidenGrupo />} />
+                        <Route path="/blacksabbath" element={<BlackSabbath />} />
+                        <Route path="/blacksabbath/historia" element={<BlackSabbathHistoria />} />
+                        <Route path="/blacksabbath/albunes" element={<BlackSabbathAlbunes />} />
+                        <Route path="/blacksabbath/grupo" element={<BlackSabbathGrupo />} />
+                        <Route path="/queen" element={<Queen />} />
+                        <Route path="/queen/historia" element={<QueenHistoria />} />
+                        <Route path="/queen/albunes" element={<QueenAlbunes />} />
+                        <Route path="/queen/grupo" element={<QueenGrupo />} />
+                    </Routes>
+                    <MiniPlayer />
+                </div>
+            </MusicProvider>
         </Router>
     );
 };
