@@ -1,107 +1,187 @@
-/* Define el estilo global para el cuerpo de la página */
-body {
-    font-family: Arial, sans-serif; /* Fuente general de la página */
-    text-align: center; /* Alinea el texto al centro */
-    margin: 0; /* Elimina los márgenes por defecto del cuerpo */
-    padding: 0; /* Elimina el padding por defecto del cuerpo */
-    background-image: url('https://p4.wallpaperbetter.com/wallpaper/241/1014/535/band-music-ac-dc-wallpaper-preview.jpg'); /* Imagen de fondo */
-    background-size: cover; /* Asegura que la imagen de fondo cubra toda el área visible */
-    background-position: center center; /* Centra la imagen de fondo */
-    background-attachment: fixed; /* Fija la imagen de fondo en su posición al hacer scroll */
-    color: #fff; /* Color del texto */
+.page {
+    min-height: 100vh;
+    color: white;
+    font-family: Arial, sans-serif;
+
+    background-image: url("../../images/acdc/portada.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    position: relative;
 }
 
-
-/* Estilos para el menú de navegación */
-nav {
-    background: linear-gradient(to bottom, #000000, #423b3a); /* Degradado de color de negro a gris oscuro */
-    color: #ffffff; /* Color del texto en el menú de navegación */
-    text-align: center; /* Alinea el texto al centro */
-    padding: 1em; /* Espaciado interno del menú de navegación */
-    margin: 0; /* Elimina el margen para que se quede pegado al borde superior */
-    position: fixed; /* Fija el menú de navegación en la parte superior */
-    top: 0; /* Alinea el menú de navegación en la parte superior */
-    width: 100%; /* Ancho completo de la ventana */
-    z-index: 1000; /* Asegura que el menú de navegación esté por encima de otros elementos */
+/* overlay claro */
+.page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    pointer-events: none;
 }
 
-nav a {
-    color: white; /* Color del texto en los enlaces de navegación */
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    padding: 10px; /* Espaciado interno de los enlaces */
-    margin: 0 10px; /* Espaciado lateral entre los enlaces */
-    position: relative; /* Asegura que el emoticono se posicione correctamente */
+.page > * {
+    position: relative;
+    z-index: 1;
 }
 
-nav a:first-child {
-    margin-left: 0; /* Elimina el margen izquierdo del primer enlace */
+/* NAV */
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    padding: 15px;
+
+    background: #000;
+    border-bottom: 2px solid red;
 }
 
-nav a:last-child {
-    margin-right: 0; /* Elimina el margen derecho del último enlace */
+.link {
+    color: #aaa;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-/* Estilos para el header */
-header {
-    padding: 2em 0; /* Espaciado interno del header */
-    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el header */
-    margin-top: 80px; /* Espacio adicional para separar el header del menú de navegación fijo */
+.link:hover {
+    color: yellow;
+    text-shadow: 0 0 10px red;
 }
 
-/* Ajusta el espaciado del contenido debajo del menú de navegación */
-section {
-    padding: 2em; /* Espaciado interno del contenido de la sección */
-    text-align: justify; /* Alinea el texto justificadamente */
-    margin-top: 80px; /* Espacio adicional para separar el contenido del menú de navegación fijo */
+.active {
+    color: red;
 }
 
-footer {
-    background-color: #000000; /* Color de fondo del pie de página */
-    color: #fff; /* Color del texto en el pie de página */
-    text-align: center; /* Alinea el texto al centro */
-    padding: 0.5em; /* Espaciado interno reducido */
-    position: fixed; /* Fija el pie de página en la parte inferior de la ventana */
-    bottom: 0; /* Alinea el pie de página en la parte inferior */
-    width: 100%; /* Ancho completo de la ventana */
-    height: 35px; /* Altura fija del pie de página */
-    font-size: 12px; /* tamaño del texto */
+/* HEADER */
+.header {
+    margin-top: 100px;
+    text-align: center;
+    padding: 20px;
+
+    background: rgba(0,0,0,0.5);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Emoticones para cada enlace */
-.nav-item::after {
-    content: '⚡'; /* Emoticón general */
-    position: absolute; /* Posiciona el emoticono en relación al enlace */
-    right: -30px; /* Ajusta la posición horizontal del emoticono */
-    top: 50%; /* Ajusta la posición vertical del emoticono */
-    transform: translateY(-50%); /* Centra verticalmente el emoticono */
-    font-size: 1.5em; /* Tamaño del emoticono */
-    transition: opacity 0.3s ease; /* Transición suave para la opacidad del emoticono */
-    opacity: 0; /* El emoticono es invisible por defecto */
+/* SECCIONES */
+.section {
+    margin: 70px auto;
+    max-width: 1400px;
+    padding: 20px;
 }
 
-/* Mostrar el emoticono al pasar el cursor */
-.nav-item:hover::after {
-    opacity: 1; /* Hace visible el emoticono */
+.sectionTitle {
+    text-align: center;
+    color: #ffcc00;
+    text-shadow: 0 0 15px red;
+    margin-bottom: 30px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    justify-items: center;
+}
+
+/* POSTERS */
+.poster {
+    width: 260px;
+    height: 380px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+
+    border: 2px solid rgba(255,0,0,0.4);
+    box-shadow: 0 0 20px rgba(255,0,0,0.3);
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.poster:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px red;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+
+    background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+
+    text-align: center;
+}
+
+.overlay h3 {
+    color: #ffcc00;
+}
+
+.overlay p {
+    color: white;
+}
+
+.overlay span {
+    color: #aaa;
+    font-size: 12px;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    width: 80%;
+    max-width: 900px;
+
+    display: flex;
+    gap: 20px;
+
+    background: #111;
+    border: 2px solid red;
+    box-shadow: 0 0 40px red;
+}
+
+.modalContent img {
+    width: 40%;
+}
+
+.modalContent div {
+    padding: 20px;
+}
+
+/* FOOTER */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+
+    background: black;
+    border-top: 2px solid red;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 12px;
 }

@@ -1,84 +1,170 @@
-/* Define el estilo global para el cuerpo de la página */
-body {
-    font-family: Arial, sans-serif; /* Fuente general de la página */
-    text-align: center; /* Alinea el texto al centro */
-    margin: 0; /* Elimina los márgenes por defecto del cuerpo */
-    padding: 0; /* Elimina el padding por defecto del cuerpo */
-    background-image: url('https://p4.wallpaperbetter.com/wallpaper/241/1014/535/band-music-ac-dc-wallpaper-preview.jpg'); /* Imagen de fondo */
-    background-size: cover; /* Asegura que la imagen de fondo cubra toda el área visible */
-    background-position: center center; /* Centra la imagen de fondo */
-    background-attachment: fixed; /* Fija la imagen de fondo en su posición al hacer scroll */
-    color: #fff; /* Color del texto */
+.page {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    font-family: Arial, sans-serif;
+    position: relative;
 }
 
-/* Estilos para el menú de navegación */
-nav {
-    background: linear-gradient(to bottom, #000000, #423b3a); /* Degradado de color de negro a gris oscuro */
-    color: #ffffff; /* Color del texto en el menú de navegación */
-    text-align: center; /* Alinea el texto al centro */
-    padding: 1em; /* Espaciado interno del menú de navegación */
-    margin: 0; /* Elimina el margen para que se quede pegado al borde superior */
-    position: fixed; /* Fija el menú de navegación en la parte superior */
-    top: 0; /* Alinea el menú de navegación en la parte superior */
-    width: 100%; /* Ancho completo de la ventana */
-    z-index: 1000; /* Asegura que el menú de navegación esté por encima de otros elementos */
+/* 🔥 overlay para que la portada se vea clara */
+.page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    pointer-events: none;
 }
 
-nav a {
-    color: white; /* Color del texto en los enlaces de navegación */
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    padding: 10px; /* Espaciado interno de los enlaces */
-    margin: 0 10px; /* Espaciado lateral entre los enlaces */
-    position: relative; /* Asegura que el emoticono se posicione correctamente */
+/* NAV */
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
 }
 
-nav a:first-child {
-    margin-left: 0; /* Elimina el margen izquierdo del primer enlace */
+.link {
+    color: white;
+    text-decoration: none;
 }
 
-nav a:last-child {
-    margin-right: 0; /* Elimina el margen derecho del último enlace */
+.active {
+    color: red;
+    text-shadow: 0 0 10px red;
 }
 
-/* Estilos para el header */
-header {
-    padding: 2em 0; /* Espaciado interno del header */
-    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el header */
-    margin-top: 80px; /* Espacio adicional para separar el header del menú de navegación fijo */
+/* HEADER */
+.header {
+    margin-top: 100px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.5);
 }
 
-/* Ajusta el espaciado del contenido debajo del header */
-section {
-    padding: 2em; /* Espaciado interno del contenido de la sección */
-    text-align: justify; /* Alinea el texto justificadamente */
-    margin-top: 0; /* Espacio adicional para separar el contenido del header */
+/* TIMELINE */
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 60px auto;
 }
 
-footer {
-    background-color: #000000; /* Color de fondo del pie de página */
-    color: #fff; /* Color del texto en el pie de página */
-    text-align: center; /* Alinea el texto al centro */
-    padding: 0.5em; /* Espaciado interno reducido */
-    position: fixed; /* Fija el pie de página en la parte inferior de la ventana */
-    bottom: 0; /* Alinea el pie de página en la parte inferior */
-    width: 100%; /* Ancho completo de la ventana */
-    height: 35px; /* Altura fija del pie de página */
-    font-size: 12px; /* tamaño del texto */
+/* LÍNEA CENTRAL */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: linear-gradient(red, yellow, red);
+    box-shadow: 0 0 20px red;
 }
 
-/* Emoticones para cada enlace */
-.nav-item::after {
-    content: '⚡'; /* Emoticón general */
-    position: absolute; /* Posiciona el emoticono en relación al enlace */
-    right: -30px; /* Ajusta la posición horizontal del emoticono */
-    top: 50%; /* Ajusta la posición vertical del emoticono */
-    transform: translateY(-50%); /* Centra verticalmente el emoticono */
-    font-size: 1.5em; /* Tamaño del emoticono */
-    transition: opacity 0.3s ease; /* Transición suave para la opacidad del emoticono */
-    opacity: 0; /* El emoticono es invisible por defecto */
+/* ITEM */
+.itemLeft,
+.itemRight {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 70px 0;
+    position: relative;
 }
 
-/* Mostrar el emoticono al pasar el cursor */
-.nav-item:hover::after {
-    opacity: 1; /* Hace visible el emoticono */
+/* CONTENIDO */
+.content {
+    width: 40%;
+    background: rgba(0,0,0,0.75);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid red;
+    position: relative;
+    z-index: 2;
+}
+
+/* IMAGEN */
+.timelineImage {
+    width: 40%;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 2px solid rgba(255,0,0,0.6);
+    box-shadow: 0 0 25px rgba(255,0,0,0.3);
+}
+
+.timelineImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoomCine 12s ease-in-out infinite alternate;
+    transition: transform 0.5s ease;
+}
+
+/* PARALLAX / ZOOM AL PASAR */
+.timelineImage:hover img {
+    transform: scale(1.15);
+}
+
+/* NODO */
+.node {
+    width: 18px;
+    height: 18px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px red;
+    animation: pulse 2s infinite;
+    z-index: 3;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: black;
+    color: white;
+}
+
+/* ANIMACIONES */
+@keyframes zoomCine {
+    from { transform: scale(1); }
+    to { transform: scale(1.12); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px red; }
+    50% { box-shadow: 0 0 25px red, 0 0 50px orange; }
+    100% { box-shadow: 0 0 10px red; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .itemLeft,
+    .itemRight {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 50px;
+    }
+
+    .content,
+    .timelineImage {
+        width: 100%;
+    }
+
+    .node {
+        left: 20px;
+    }
 }

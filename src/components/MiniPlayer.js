@@ -5,17 +5,26 @@ import styles from './MiniPlayer.module.css';
 const MiniPlayer = () => {
   const { currentTrack, isPlaying, togglePlay, next, prev } = useMusic();
 
-  if (!currentTrack) return null; // No se muestra si no hay canción
+  if (!currentTrack) return null;
 
   return (
-    <div className={styles.miniPlayer}>
-      <span className={styles.trackName}>{currentTrack.title}</span>
+    <div className={styles.player}>
+      <span className={styles.trackTitle}>{currentTrack.title}</span>
       <div className={styles.controls}>
-        <button onClick={prev} title="Anterior">⏮️</button>
-        <button onClick={togglePlay} title={isPlaying ? 'Pausar' : 'Reproducir'}>
+        {/* Botón Anterior */}
+        <button onClick={prev} className={`${styles.btn} ${styles.sideBtn}`} title="Anterior">
+          ⏮️
+        </button>
+
+        {/* Botón Play / Pause */}
+        <button onClick={togglePlay} className={styles.playBtn}>
           {isPlaying ? '⏸️' : '▶️'}
         </button>
-        <button onClick={next} title="Siguiente">⏭️</button>
+
+        {/* Botón Siguiente */}
+        <button onClick={next} className={`${styles.btn} ${styles.sideBtn}`} title="Siguiente">
+          ⏭️
+        </button>
       </div>
     </div>
   );

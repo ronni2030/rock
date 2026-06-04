@@ -1,73 +1,114 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './albunes.module.css';
+import styles from './historia.module.css';
 
-const AcdcHistoria = () => {
+import portada from "../../images/acdc/portada.jpg";
+
+import img1 from "../../images/acdc/7.jpg";
+import img2 from "../../images/acdc/8.jpg";
+import img3 from "../../images/acdc/9.jpg";
+import img4 from "../../images/acdc/10.jpg";
+import img5 from "../../images/acdc/11.jpg";
+
+const historia = () => {
     return (
-        <div className={styles.rockContainer}>
-            <nav className={styles.rockNav}>
-                <Link to="/" className={styles.rockNavItem}>INICIO</Link> |
-                <Link to="/acdc" className={styles.rockNavItem}>ACDC</Link> |
-                <Link to="/acdc/historia" className={`${styles.rockNavItem} ${styles.rockActive}`}>HISTORIA</Link> |
-                <Link to="/acdc/albunes" className={styles.rockNavItem}>ÁLBUMES</Link> |
-                <Link to="/acdc/grupo" className={styles.rockNavItem}>GRUPO</Link>
+        <div
+            className={styles.page}
+            style={{ backgroundImage: `url(${portada})` }}
+        >
+
+            {/* NAV */}
+            <nav className={styles.nav}>
+                <Link to="/" className={styles.link}>INICIO</Link>
+                <Link to="/acdc" className={styles.link}>ACDC</Link>
+                <Link to="/acdc/historia" className={styles.active}>HISTORIA</Link>
+                <Link to="/acdc/albunes" className={styles.link}>ÁLBUMES</Link>
+                <Link to="/acdc/grupo" className={styles.link}>GRUPO</Link>
             </nav>
 
-            <header className={styles.rockHeader}>
-                <h1 className={styles.rockTitle}>👑 HISTORIA 👑</h1>
-                <div className={styles.guitarRiff}></div>
+            {/* HEADER */}
+            <header className={styles.header}>
+                <h1>⚡ HISTORIA AC/DC ⚡</h1>
+                <p>El viaje del rock más poderoso del mundo</p>
             </header>
 
-            <section className={styles.rockContent}>
-                <h2 className={styles.rockSubtitle}>👑 CONOCE SU HISTORIA PASO A PASO 👑</h2>
+            {/* TIMELINE */}
+            <section className={styles.timeline}>
 
-                <div style={{textAlign:'center', marginBottom:'30px'}}>
-                    <img width="200" height="200" src="https://cdn.pixabay.com/photo/2021/11/14/15/32/ac-dc-6794857_1280.png" alt="Logo de AC/DC" style={{borderRadius:'10px'}} />
-                </div>
-
-                <div className={styles.rockAlbumsGrid} style={{gridTemplateColumns:'1fr'}}>
-                    <div className={styles.rockAlbumCard} style={{cursor:'default'}}>
-                        <h3 className={styles.rockAlbumTitle}>🎸 Primeros años</h3>
-                        <p className={styles.rockAlbumInfo} style={{textAlign:'justify', padding:'20px'}}>
-                            En noviembre de 1973, Malcolm Young y Angus Young formaron AC/DC, reclutando al bajista Larry Van Kriedt, al cantante Dave Evans y al baterista Colin Burgess. En los festivales de Año Nuevo de 1973, tocaron su primer concierto en el club «Chequers» en Sídney. En 1974 grabaron su primer sencillo «Can I Sit Next to You Girl». Angus Young adoptó su característico uniforme escolar, idea de su hermana Margaret.
-                        </p>
+                <div className={styles.itemLeft}>
+                    <div className={styles.timelineImage}>
+                        <img src={img1} alt="1973 AC/DC" />
                     </div>
 
-                    <div className={styles.rockAlbumCard} style={{cursor:'default'}}>
-                        <h3 className={styles.rockAlbumTitle}>🎸 Éxito internacional (1976–1978)</h3>
-                        <p className={styles.rockAlbumInfo} style={{textAlign:'justify', padding:'20px'}}>
-                            En 1975, firmaron con Atlantic Records y realizaron giras en Europa junto a grandes del hard rock como Kiss, Aerosmith y Blue Öyster Cult. Publicaron álbumes como High Voltage, Dirty Deeds Done Dirt Cheap y Let There Be Rock, ganando reconocimiento mundial.
-                        </p>
-                    </div>
+                    <div className={styles.node}></div>
 
-                    <div className={styles.rockAlbumCard} style={{cursor:'default'}}>
-                        <h3 className={styles.rockAlbumTitle}>🎸 Muerte de Bon Scott (1980)</h3>
-                        <p className={styles.rockAlbumInfo} style={{textAlign:'justify', padding:'20px'}}>
-                            El 19 de febrero de 1980, Bon Scott falleció en Londres por intoxicación etílica. Su pérdida marcó profundamente a la banda, pero también impulsó su siguiente gran etapa.
-                        </p>
-                    </div>
-
-                    <div className={styles.rockAlbumCard} style={{cursor:'default'}}>
-                        <h3 className={styles.rockAlbumTitle}>🎸 Llegada de Brian Johnson (1980–1983)</h3>
-                        <p className={styles.rockAlbumInfo} style={{textAlign:'justify', padding:'20px'}}>
-                            Con Brian Johnson, grabaron Back in Black (1980), dedicado a Bon Scott. El disco se convirtió en uno de los más vendidos de la historia. Luego lanzaron For Those About to Rock (We Salute You), consolidándose como leyendas del rock.
-                        </p>
-                    </div>
-
-                    <div className={styles.rockAlbumCard} style={{cursor:'default'}}>
-                        <h3 className={styles.rockAlbumTitle}>🎸 Actualidad / Power Up (2018–2023)</h3>
-                        <p className={styles.rockAlbumInfo} style={{textAlign:'justify', padding:'20px'}}>
-                            En 2020, AC/DC regresó con Power Up, grabado por la formación clásica. El álbum fue un tributo a Malcolm Young. En 2023, anunciaron su participación en el festival Power Trip junto a leyendas como Metallica y Guns N' Roses.
-                        </p>
+                    <div className={styles.content}>
+                        <h3>⚡ INICIO (1973)</h3>
+                        <p>Malcolm y Angus Young forman AC/DC en Australia. Nace la energía cruda del rock.</p>
                     </div>
                 </div>
+
+                <div className={styles.itemRight}>
+                    <div className={styles.content}>
+                        <h3>🔥 ASCENSO (1976–1978)</h3>
+                        <p>Giras internacionales y discos como High Voltage. El mundo empieza a escuchar el rugido.</p>
+                    </div>
+
+                    <div className={styles.node}></div>
+
+                    <div className={styles.timelineImage}>
+                        <img src={img2} alt="Ascenso AC/DC" />
+                    </div>
+                </div>
+
+                <div className={styles.itemLeft}>
+                    <div className={styles.timelineImage}>
+                        <img src={img3} alt="Bon Scott era" />
+                    </div>
+
+                    <div className={styles.node}></div>
+
+                    <div className={styles.content}>
+                        <h3>👑 TRAGEDIA Y RENACIMIENTO (1980)</h3>
+                        <p>Muere Bon Scott. Entra Brian Johnson. Nace Back in Black.</p>
+                    </div>
+                </div>
+
+                <div className={styles.itemRight}>
+                    <div className={styles.content}>
+                        <h3>⚡ GLORIA TOTAL</h3>
+                        <p>Back in Black se convierte en leyenda. AC/DC domina estadios del mundo.</p>
+                    </div>
+
+                    <div className={styles.node}></div>
+
+                    <div className={styles.timelineImage}>
+                        <img src={img4} alt="Gloria AC/DC" />
+                    </div>
+                </div>
+
+                <div className={styles.itemLeft}>
+                    <div className={styles.timelineImage}>
+                        <img src={img5} alt="Actualidad AC/DC" />
+                    </div>
+
+                    <div className={styles.node}></div>
+
+                    <div className={styles.content}>
+                        <h3>🎸 LEYENDA VIVA</h3>
+                        <p>Power Up y legado eterno del rock. AC/DC nunca muere.</p>
+                    </div>
+                </div>
+
             </section>
 
-            <footer className={styles.rockFooter}>
-                <p className={styles.rockFooterText}>© {new Date().getFullYear()} R.A.V.V ⚡ AC/DC ⚡</p>
+            {/* FOOTER */}
+            <footer className={styles.footer}>
+                © {new Date().getFullYear()} AC/DC ⚡ ROCK LEGEND
             </footer>
+
         </div>
     );
 };
 
-export default AcdcHistoria;
+export default historia;

@@ -54,7 +54,7 @@ const ACDC = () => {
             </nav>
 
             <header className={styles.hero}>
-                <h1 className={styles.logo}>AC<span>/</span>DC</h1>
+                <h1 className={styles.logo}>⚡AC<span>/</span>DC⚡</h1>
                 <p className={styles.tagline}>HIGH VOLTAGE ROCK EXPERIENCE</p>
                 <span className={styles.year}>SINCE 1973</span>
             </header>
