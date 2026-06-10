@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Permanent+Marker&family=Cinzel:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BASE DE LA PÁGINA (Colores e importaciones idénticas a tu muestra) */
+.maidenPage {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 130px; 
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.maidenPage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(2, 6, 17, 0.7) 0%, rgba(5, 8, 15, 0.95) 100%);
+    z-index: 0;
+}
+
+/* TOP BAR */
+.topBar {
+    background: black;
+    color: #8a8a8a;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 6px 20px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #111;
+}
+
+/* MENÚ DE NAVEGACIÓN FIJO (Centrado con logo a la derecha, colores exactos cian) */
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.maidenNav {
+    background: linear-gradient(to right, #020611, #08111f, #020611);
+    padding: 15px 0;
+    border-bottom: 3px solid #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+.navContainer { 
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* El navSpacer equilibra los extremos para garantizar un centrado perfecto de los links */
+.navSpacer {
+    width: 240px;
+    display: block;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+}
+
+.navItem {
+    color: #cfd8dc;
+    text-decoration: none;
+    font-size: 1.05rem;
+    padding: 10px 12px; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-weight: 700;
+}
+
+.navItem:hover { 
+    color: #00ffff; 
+    text-shadow: 0 0 10px #00ffff; 
+}
+
+.maidenActive { 
+    color: #00ffff; 
+    text-shadow: 0 0 15px #00ffff;
+    border-bottom: 2px solid #00ffff;
+}
+
+.navLogo {
+    font-family: 'Permanent Marker', cursive;
+    color: #e51313;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    line-height: 1;
+    text-shadow: 2px 2px 0px #000, -1px -1px 0px #fff;
+    letter-spacing: -1px;
+    white-space: nowrap;
+    width: 240px;
+    text-align: right;
+}
+
+/* SECCIÓN DEL TÍTULO DE LA PÁGINA */
+.logoContainer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin: 40px 0 30px 0;
+}
+
+.logo {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: #ffffff;
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: #ffcc00;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-top: 5px;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+}
+
+.rockSection {
+    margin-bottom: 60px;
+}
+
+.sectionTitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titleOutline {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    -webkit-text-stroke: 1px rgba(0, 255, 255, 0.1);
+    letter-spacing: 6px;
+    line-height: 1;
+}
+
+.titleMain {
+    display: block;
+    font-size: 1.6rem;
+    color: #ffffff;
+    margin-top: -20px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   DISEÑO MEJORADO DE CARDS (Estilo Eddie / Robusto pero con Colores Originales Cian)
+   ========================================================================== */
+.membersGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.memberCard {
+    background: rgba(10, 17, 31, 0.6);
+    border: 2px solid #233554;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 10px 25px rgba(0,0,0,0.5);
+    border-radius: 6px;
+    padding: 25px 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+}
+
+.cardHeaderDecoration {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 8px;
+    width: 100%;
+    left: 0;
+    padding: 0 15px;
+    opacity: 0.3;
+}
+
+.bolt {
+    color: #00ffff;
+    font-size: 0.75rem;
+    transition: all 0.3s;
+}
+
+/* Efecto hover metalero neón cian combinado */
+.memberCard:hover {
+    transform: translateY(-5px);
+    border-color: #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), inset 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+.memberCard:hover .cardHeaderDecoration {
+    opacity: 0.8;
+}
+
+/* Contenedor de imágenes estilizado con marco cian */
+.imgWrapper {
+    position: relative;
+    width: 140px;
+    height: 165px;
+    margin: 10px auto 20px auto;
+    overflow: hidden;
+    border: 1px solid #00ffff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease;
+}
+
+.memberCard:hover .imgWrapper {
+    transform: scale(1.04);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.memberImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.frameOverlay {
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+    pointer-events: none;
+}
+
+/* Textos dentro de la tarjeta */
+.infoWrapper {
+    margin-top: 10px;
+}
+
+.memberName {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.memberCard:hover .memberName {
+    color: #ffcc00;
+}
+
+/* Badge estilizado para los roles en color amarillo de tus textos de era */
+.roleBadge {
+    display: inline-block;
+    color: #ffcc00;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding: 2px 10px;
+    border: 1px solid rgba(255, 204, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.memberCard:hover .roleBadge {
+    background: rgba(255, 204, 0, 0.15);
+    border-color: #ffcc00;
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+}
+
+.memberYears {
+    color: #90a4ae;
+    font-size: 0.8rem;
+}
+
+/* MIEMBROS ANTERIORES */
+.pastMembersList {
+    background: rgba(10, 17, 31, 0.6);
+    border: 2px solid #233554;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 10px 25px rgba(0,0,0,0.5);
+    border-radius: 6px;
+    padding: 10px 25px;
+}
+
+.pastMemberItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #1e2d4a;
+}
+
+.pastMemberItem:last-child {
+    border-bottom: none;
+}
+
+.pastMemberName {
+    font-weight: bold;
+    color: #cfd8dc;
+}
+
+.pastMemberRole {
+    color: #90a4ae;
+    font-size: 0.9rem;
+}
+
+/* FOOTER original intacto */
+.footer {
+    position: relative;
+    z-index: 1;
+    background: #020611;
+    padding: 30px 20px;
+    margin-top: auto;
+    border-top: 2px solid #333;
+}
+
+.footerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    color: #607d8b;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.socialIcons {
+    display: flex;
+    gap: 15px;
+    font-size: 1.3rem;
+}
+
+.icon {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.3);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1100px) {
+    .membersGrid { grid-template-columns: repeat(2, 1fr); }
+    .navSpacer { display: none; }
+    .navContainer { flex-direction: column; gap: 10px; padding: 10px; }
+    .navLogo { text-align: center; width: auto; }
+}
+
+@media (max-width: 768px) {
+    .membersGrid { grid-template-columns: 1fr; }
+    .navLinks { flex-wrap: wrap; justify-content: center; }
+    .footerContent { flex-direction: column; gap: 15px; text-align: center; }
+    .logo { font-size: 2.8rem; }
+}

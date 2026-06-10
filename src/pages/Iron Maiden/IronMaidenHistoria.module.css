@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BASE DE LA PÁGINA (Original intacto) */
+.maidenPage {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 130px; 
+    overflow-x: hidden;
+}
+
+.maidenPage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(2, 6, 17, 0.7) 0%, rgba(5, 8, 15, 0.95) 100%);
+    z-index: 0;
+}
+
+/* TOP BAR (Original intacto) */
+.topBar {
+    background: black;
+    color: #8a8a8a;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 6px 20px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #111;
+}
+
+/* MENÚ DE NAVEGACIÓN FIJO (Original intacto) */
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.maidenNav {
+    background: linear-gradient(to right, #020611, #08111f, #020611);
+    padding: 15px 0;
+    border-bottom: 3px solid #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+.navContainer { 
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 35px;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navItem {
+    color: #cfd8dc;
+    text-decoration: none;
+    font-size: 1.05rem;
+    padding: 10px 12px; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-weight: 700;
+}
+
+.navItem:hover { 
+    color: #00ffff; 
+    text-shadow: 0 0 10px #00ffff; 
+}
+
+.maidenActive { 
+    color: #00ffff; 
+    text-shadow: 0 0 15px #00ffff;
+    border-bottom: 2px solid #00ffff;
+}
+
+.navLogo {
+    font-family: 'Permanent Marker', cursive;
+    color: #e51313;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    line-height: 1;
+    padding-left: 15px;
+    text-shadow: 2px 2px 0px #000, -1px -1px 0px #fff;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+/* SECCIÓN DEL TÍTULO DE LA PÁGINA (Original intacto) */
+.logoContainer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin: 40px 0 30px 0;
+}
+
+.logo {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: #ffffff;
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: #ffcc00;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-top: 5px;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
+}
+
+/* CONTENEDOR GENERAL DE LA LÍNEA DE TIEMPO VISUAL */
+.timelineContainer {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.eraBlock {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* ENCABEZADOS DE ERA DESDE LA IMAGEN */
+.eraHeader {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.eraSub {
+    display: block;
+    color: #ffcc00;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.eraTitle {
+    font-size: 1.7rem;
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin: 4px 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.eraYears {
+    display: block;
+    color: #a3a3a3;
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+/* INTERFAZ EN CUADRICULA DE 3 COLUMNAS */
+.eraBody {
+    display: grid;
+    grid-template-columns: 280px 1fr 380px;
+    gap: 25px;
+    align-items: center;
+}
+
+/* ESTILO DE TARJETA EDDIE */
+.eddieCard {
+    background: rgba(10, 17, 31, 0.6);
+    border: 2px solid #233554;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 10px 25px rgba(0,0,0,0.5);
+    border-radius: 6px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.avatarWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 1px solid #00ffff;
+}
+
+.eddieImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.eddieCard:hover .eddieImage {
+    transform: scale(1.05);
+}
+
+.frameOverlay {
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+    pointer-events: none;
+}
+
+.eddieInfoBox {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.eddieInfoBox h3 {
+    font-size: 1rem;
+    color: #ffcc00;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* CONTENEDOR DE TEXTO CENTRAL */
+.historyTextContainer {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.historyText {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #b0bec5;
+    text-align: justify;
+}
+
+/* TARJETA DE ÁLBUM (COLUMNA DERECHA) */
+.albumCard {
+    background: rgba(10, 17, 31, 0.6);
+    border: 2px solid #233554;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    padding: 20px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+}
+
+.albumFlex {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.albumCover {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border: 2px solid #00ffff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+}
+
+.albumMeta h4 {
+    color: #ffcc00;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.albumMeta p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #90a4ae;
+}
+
+/* SEPARADORES CON ENGRANAJES MECÁNICOS */
+.timelineDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 35px;
+    opacity: 0.4;
+}
+
+.chainLine {
+    flex: 1;
+    height: 3px;
+    background: repeating-linear-gradient(90deg, #00ffff, #00ffff 4px, transparent 4px, transparent 8px);
+}
+
+.gearIcon {
+    font-size: 1.4rem;
+    margin: 0 15px;
+    color: #00ffff;
+}
+
+/* FOOTER (Original intacto) */
+.footer {
+    position: relative;
+    z-index: 1;
+    background: #020611;
+    padding: 30px 20px;
+    margin-top: 80px;
+    border-top: 2px solid #333;
+}
+
+.footerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    color: #607d8b;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.socialIcons {
+    display: flex;
+    gap: 15px;
+    font-size: 1.3rem;
+}
+
+.icon {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.3);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1100px) {
+    .eraBody {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .eddieCard, .albumCard {
+        max-width: 500px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .historyTextContainer {
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .navContainer { 
+        flex-direction: column; 
+        padding: 10px; 
+        gap: 10px; 
+    }
+    .navLinks { 
+        justify-content: center; 
+        flex-wrap: wrap; 
+    }
+    .navItem { 
+        font-size: 0.95rem; 
+        padding: 5px 8px; 
+    }
+    .navLogo { 
+        padding-left: 0; 
+        font-size: 1.6rem; 
+    }
+    .logo {
+        font-size: 2.8rem;
+    }
+    .footerContent {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}

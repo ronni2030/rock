@@ -1,80 +1,163 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './IronMaiden.module.css';
+import styles from './IronMaidenHistoria.module.css';
+
+// Importación de la imagen de fondo de la página
+import portada from '../../images/ironmaiden/portada2.jpg';
+
+// Importaciones estáticas de las imágenes de Eddies (Rutas exactas basados en tu raíz)
+import earlyEddie from '../../images/ironmaiden/EARLY EDDIE.jpg';
+import powerslaveEddie from '../../images/ironmaiden/POWERSLAVE EDDIE.jpg';
+import xfactorEddie from '../../images/ironmaiden/X-FACTOR EDDIE.jpg';
+import bookOfSoulsEddie from '../../images/ironmaiden/BOOK OF SOULS EDDIE.jpg';
+
+// Importaciones estáticas de las portadas de álbumes/giras (Rutas exactas basados en tu raíz)
+import theFirstTours from '../../images/ironmaiden/THE FIRST TOURS.jpg';
+import theNumberOfTheBeast from '../../images/ironmaiden/THE NUMBER OF THE BEAST.jpg';
+import theVirtualEra from '../../images/ironmaiden/THE VIRTUAL ERA.jpg';
+import theSeventhSonTour from '../../images/ironmaiden/THE SEVENTH SON TOUR.jpg';
 
 const IronMaidenHistoria = () => {
-    return (
-        <div className={styles.maidenPage}>
-            <nav className={styles.maidenNav}>
-                <div className={styles.navContainer}>
-                    <Link to="/" className={styles.navItem}>INICIO</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/ironmaiden" className={styles.navItem}>IRON MAIDEN</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/ironmaiden/historia" className={`${styles.navItem} ${styles.maidenActive}`}>HISTORIA</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/ironmaiden/albunes" className={styles.navItem}>ÁLBUMES</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/ironmaiden/grupo" className={styles.navItem}>GRUPO</Link>
-                </div>
-            </nav>
+    // Array de datos vinculando directamente las imágenes importadas arriba
+    const erasData = [
+        {
+            id: 1,
+            subtitulo: "ERA 1:",
+            titulo: "LOS ORÍGENES Y EL DEBUT",
+            años: "(1975–1981)",
+            eddieName: "EARLY EDDIE",
+            eddieImg: earlyEddie, 
+            albumImg: theFirstTours,
+            albumTitle: "THE FIRST TOURS",
+            resumenAlbum: "El amanecer del NWOBHM. El sonido crudo de los clubs de Londres capturado en un vinilo que cambió la historia del Metal para siempre.",
+            textoHistoria: "Steve Harris fundó Iron Maiden en 1975 en el East End de Londres. Inspirado por bandas como Deep Purple y Black Sabbath, Harris quería crear algo más agresivo y épico. Tras años de formaciones cambiantes, la banda comenzó a consolidarse. En 1979 lanzaron su primer sencillo 'Running Free' y en 1980 su álbum debut homónimo."
+        },
+        {
+            id: 2,
+            subtitulo: "ERA 2:",
+            titulo: "LA ERA DORADA ABSOLUTA",
+            años: "(1982–1993)",
+            eddieName: "POWERSLAVE EDDIE",
+            eddieImg: powerslaveEddie,
+            albumImg: theNumberOfTheBeast,
+            albumTitle: "THE NUMBER OF THE BEAST",
+            resumenAlbum: "La llegada de Bruce Dickinson desató un torbellino de óperas metaleras, giras colosales en estadios y la consolidación de Eddie como icono cultural.",
+            textoHistoria: "Con grabaciones de obras maestras absolutas como 'The Number of the Beast' (1982), 'Piece of Mind' (1983) y 'Powerslave' (1984), la banda rompió récords globales. Sus giras mundiales eran eventos épicos con el gigantesco Eddie apareciendo en el escenario, inmortalizado en el legendario 'Live After Death'."
+        },
+        {
+            id: 3,
+            subtitulo: "ERA 3:",
+            titulo: "EL PERÍODO OSCURO",
+            años: "(1994–1999)",
+            eddieName: "X-FACTOR EDDIE",
+            eddieImg: xfactorEddie,
+            albumImg: theVirtualEra,
+            albumTitle: "THE VIRTUAL ERA",
+            resumenAlbum: "Una etapa marcada por composiciones densas, atmósferas sombrías y una experimentación digital que desafió a los puristas de la vieja escuela.",
+            textoHistoria: "Tras la salida de Bruce Dickinson en 1993, Blaze Bayley asumió la voz. Con él grabaron 'The X Factor' (1995) y 'Virtual XI' (1998), álbumes oscuros y conceptuales que dividieron a los fans pero demostraron la cruda resiliencia y versatilidad de la composición de Steve Harris."
+        },
+        {
+            id: 4,
+            subtitulo: "ERA 4:",
+            titulo: "A BRAVE NEW FRONTIER",
+            años: "(1999–PRESENTE)",
+            eddieName: "BOOK OF SOULS EDDIE",
+            eddieImg: bookOfSoulsEddie,
+            albumImg: theSeventhSonTour,
+            albumTitle: "THE SEVENTH SON TOUR",
+            resumenAlbum: "El regreso de los hijos pródigos y la expansión a una alineación de tres guitarras demoledoras. La leyenda viva sigue facturando himnos progresivos.",
+            textoHistoria: "En 1999, Bruce Dickinson y Adrian Smith regresaron. Con 'Brave New World' (2000) recuperaron toda su gloria. Álbumes posteriores como 'The Book of Souls' (2015) y el colosal 'Senjutsu' (2021) redefinieron su estatus de reyes indiscutibles del Heavy Metal moderno."
+        }
+    ];
 
+    return (
+        <div 
+            className={styles.maidenPage}
+            style={{ backgroundImage: `url(${portada})` }}
+        >
+            {/* TOP BAR + NAV CENTRADO (TOTALMENTE INTACTO) */}
+            <header className={styles.header}>
+
+                <nav className={styles.maidenNav}>
+                    <div className={styles.navContainer}>
+                        <div className={styles.navLinks}>
+                            <Link to="/" className={styles.navItem}>INICIO</Link>
+                            <Link to="/ironmaiden" className={styles.navItem}>IRON MAIDEN</Link>
+                            <Link to="/ironmaiden/historia" className={`${styles.navItem} ${styles.maidenActive}`}>HISTORIA</Link>
+                            <Link to="/ironmaiden/albunes" className={styles.navItem}>ÁLBUMES</Link>
+                            <Link to="/ironmaiden/grupo" className={styles.navItem}>GRUPO</Link>
+                        </div>
+
+                        <div className={styles.navLogo}>
+                            IRON MAIDEN
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            {/* TÍTULO PRINCIPAL DE LA PÁGINA */}
             <div className={styles.logoContainer}>
                 <h1 className={styles.logo}>HISTORIA</h1>
                 <p className={styles.tagline}>LA ÉPICA SAGA DE IRON MAIDEN</p>
             </div>
 
-            <div className={styles.content}>
-                <section className={styles.rockSection}>
-                    <h2 className={styles.sectionTitle}>
-                        <span className={styles.titleOutline}>IRON</span>
-                        <span className={styles.titleMain}>⚔️ Los Orígenes (1975–1980)</span>
-                    </h2>
-                    <p className={styles.rockText}>
-                        <strong>Steve Harris</strong> fundó Iron Maiden en 1975 en el East End de Londres. Inspirado por bandas como Deep Purple y Black Sabbath, Harris quería crear algo más agresivo y épico. Tras años de formaciones cambiantes, la banda comenzó a consolidarse en los clubs de Londres.
-                    </p>
-                    <p className={styles.rockText}>
-                        En 1979 lanzaron su primer sencillo <em>"Running Free"</em> y en 1980 su álbum debut homónimo, que los catapultó al frente del movimiento <strong>NWOBHM</strong> (New Wave of British Heavy Metal).
-                    </p>
-                </section>
+            {/* CONTENEDOR DE LA LÍNEA DE TIEMPO ESTILO RESTRUCTURADO */}
+            <div className={styles.timelineContainer}>
+                {erasData.map((era) => (
+                    <div key={era.id} className={styles.eraBlock}>
+                        
+                        {/* Encabezado de Era */}
+                        <div className={styles.eraHeader}>
+                            <span className={styles.eraSub}>{era.subtitulo}</span>
+                            <h2 className={styles.eraTitle}>{era.titulo}</h2>
+                            <span className={styles.eraYears}>{era.años}</span>
+                        </div>
 
-                <section className={styles.rockSection}>
-                    <h2 className={styles.sectionTitle}>
-                        <span className={styles.titleOutline}>DICKINSON</span>
-                        <span className={styles.titleMain}>🔥 La Era Dorada con Dickinson (1981–1993)</span>
-                    </h2>
-                    <p className={styles.rockText}>
-                        La llegada del vocalista <strong>Bruce Dickinson</strong> en 1981 marcó el comienzo de la era más brillante de Iron Maiden. Con él grabaron obras maestras absolutas: <em>"The Number of the Beast"</em> (1982), <em>"Piece of Mind"</em> (1983), <em>"Powerslave"</em> (1984) y <em>"Somewhere in Time"</em> (1986).
-                    </p>
-                    <p className={styles.rockText}>
-                        Sus giras mundiales eran eventos épicos con el gigantesco Eddie apareciendo en el escenario. El álbum en vivo <em>"Live After Death"</em> (1985) es considerado uno de los mejores discos en directo de la historia del rock.
-                    </p>
-                </section>
+                        {/* Estructura Split Screen de 3 Columnas sin Botones */}
+                        <div className={styles.eraBody}>
+                            
+                            {/* Columna Izquierda: Imagen del Eddie */}
+                            <div className={styles.eddieCard}>
+                                <div className={styles.avatarWrapper}>
+                                    <img src={era.eddieImg} alt={era.eddieName} className={styles.eddieImage} />
+                                    <div className={styles.frameOverlay}></div>
+                                </div>
+                                <div className={styles.eddieInfoBox}>
+                                    <h3>{era.eddieName}</h3>
+                                </div>
+                            </div>
 
-                <section className={styles.rockSection}>
-                    <h2 className={styles.sectionTitle}>
-                        <span className={styles.titleOutline}>BLAZE</span>
-                        <span className={styles.titleMain}>⚡ El Período Blaze Bayley (1994–1999)</span>
-                    </h2>
-                    <p className={styles.rockText}>
-                        Tras la salida de Bruce Dickinson en 1993, <strong>Blaze Bayley</strong> asumió la voz. Con él grabaron <em>"The X Factor"</em> (1995) y <em>"Virtual XI"</em> (1998), álbumes oscuros y conceptuales que dividieron a los fans pero demostraron la versatilidad de la banda.
-                    </p>
-                </section>
+                            {/* Columna Central: Texto Crónica */}
+                            <div className={styles.historyTextContainer}>
+                                <p className={styles.historyText}>{era.textoHistoria}</p>
+                            </div>
 
-                <section className={styles.rockSection}>
-                    <h2 className={styles.sectionTitle}>
-                        <span className={styles.titleOutline}>REUNION</span>
-                        <span className={styles.titleMain}>🤘 El Regreso Triunfal (2000–Presente)</span>
-                    </h2>
-                    <p className={styles.rockText}>
-                        En 1999, Bruce Dickinson y el guitarrista <strong>Adrian Smith</strong> regresaron a Iron Maiden. Con <em>"Brave New World"</em> (2000) recuperaron toda su gloria. Álbumes posteriores como <em>"A Matter of Life and Death"</em> (2006) y <em>"The Book of Souls"</em> (2015) reafirmaron su estatus de leyenda viva.
-                    </p>
-                    <p className={styles.rockText}>
-                        En 2023 lanzaron <em>"Senjutsu"</em>, una obra épica de casi hora y media que demuestra que Iron Maiden sigue siendo insuperables después de casi 50 años de carrera.
-                    </p>
-                </section>
+                            {/* Columna Derecha: Tarjeta de Álbum */}
+                            <div className={styles.albumCard}>
+                                <div className={styles.albumFlex}>
+                                    <img src={era.albumImg} alt={era.albumTitle} className={styles.albumCover} />
+                                    <div className={styles.albumMeta}>
+                                        <h4>{era.albumTitle}</h4>
+                                        <p>{era.resumenAlbum}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        {/* Divisores de engranajes intermedios */}
+                        {era.id !== erasData.length && (
+                            <div className={styles.timelineDivider}>
+                                <div className={styles.chainLine}></div>
+                                <div className={styles.gearIcon}>⚙️</div>
+                                <div className={styles.chainLine}></div>
+                            </div>
+                        )}
+                    </div>
+                ))}
             </div>
 
+            {/* FOOTER */}
             <footer className={styles.footer}>
                 <div className={styles.footerContent}>
                     <p className={styles.copyright}>© {new Date().getFullYear()} R.A.V.V 🔥 IRON MAIDEN 🔥</p>

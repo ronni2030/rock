@@ -1,15 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './IronMaiden.module.css';
+import styles from './IronMaidenGrupo.module.css';
+
+// Importación de la portada estática
+import portadaImg from '../../images/ironmaiden/portada2.jpg';
+
+// Importaciones locales de las fotos de los integrantes según tu árbol de archivos
+import bruceImg from '../../images/ironmaiden/brucedickinson.jpg';
+import steveImg from '../../images/ironmaiden/steveharris.jpg';
+import daveImg from '../../images/ironmaiden/davemurray.jpg';
+import adrianImg from '../../images/ironmaiden/adriansmith.jpg';
+import janickImg from '../../images/ironmaiden/janickgers.jpg';
+import nickoImg from '../../images/ironmaiden/nickomcBrain.jpeg'; // Extensión .jpeg según tu árbol
 
 const IronMaidenGrupo = () => {
     const currentMembers = [
-        { name: "Bruce Dickinson", role: "Vocalista", years: "1981–1993, 1999–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Bruce_Dickinson_-_Iron_Maiden_-_2011.jpg/440px-Bruce_Dickinson_-_Iron_Maiden_-_2011.jpg" },
-        { name: "Steve Harris", role: "Bajo, Coros", years: "1975–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Steve_Harris_-_Iron_Maiden_-_2011.jpg/440px-Steve_Harris_-_Iron_Maiden_-_2011.jpg" },
-        { name: "Dave Murray", role: "Guitarra", years: "1976–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Dave_Murray_-_Iron_Maiden_-_2011.jpg/440px-Dave_Murray_-_Iron_Maiden_-_2011.jpg" },
-        { name: "Adrian Smith", role: "Guitarra, Coros", years: "1980–1990, 1999–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Adrian_Smith_-_Iron_Maiden_-_2011.jpg/440px-Adrian_Smith_-_Iron_Maiden_-_2011.jpg" },
-        { name: "Janick Gers", role: "Guitarra", years: "1990–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Janick_Gers_-_Iron_Maiden_-_2011.jpg/440px-Janick_Gers_-_Iron_Maiden_-_2011.jpg" },
-        { name: "Nicko McBrain", role: "Batería", years: "1982–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Nicko_McBrain_-_Iron_Maiden_-_2011.jpg/440px-Nicko_McBrain_-_Iron_Maiden_-_2011.jpg" },
+        { name: "Bruce Dickinson", role: "Vocalista", years: "1981–1993, 1999–presente", img: bruceImg },
+        { name: "Steve Harris", role: "Bajo, Coros", years: "1975–presente", img: steveImg },
+        { name: "Dave Murray", role: "Guitarra", years: "1976–presente", img: daveImg },
+        { name: "Adrian Smith", role: "Guitarra, Coros", years: "1980–1990, 1999–presente", img: adrianImg },
+        { name: "Janick Gers", role: "Guitarra", years: "1990–presente", img: janickImg },
+        { name: "Nicko McBrain", role: "Batería", years: "1982–presente", img: nickoImg },
     ];
 
     const pastMembers = [
@@ -24,20 +35,29 @@ const IronMaidenGrupo = () => {
     ];
 
     return (
-        <div className={styles.maidenPage}>
-            <nav className={styles.maidenNav}>
-                <div className={styles.navContainer}>
-                    <Link to="/" className={styles.navItem}>INICIO</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/ironmaiden" className={styles.navItem}>IRON MAIDEN</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/ironmaiden/historia" className={styles.navItem}>HISTORIA</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/ironmaiden/albunes" className={styles.navItem}>ÁLBUMES</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/ironmaiden/grupo" className={`${styles.navItem} ${styles.maidenActive}`}>GRUPO</Link>
-                </div>
-            </nav>
+        <div className={styles.maidenPage} style={{ backgroundImage: `url(${portadaImg})` }}>
+            {/* Cabecera de la página */}
+            <div className={styles.header}>
+                
+                <nav className={styles.maidenNav}>
+                    <div className={styles.navContainer}>
+                        {/* Espacio invisible simétrico a la izquierda para garantizar el centrado exacto */}
+                        <div className={styles.navSpacer}></div>
+                        
+                        {/* Enlaces de navegación perfectamente centrados */}
+                        <div className={styles.navLinks}>
+                            <Link to="/" className={styles.navItem}>INICIO</Link>
+                            <Link to="/ironmaiden" className={styles.navItem}>IRON MAIDEN</Link>
+                            <Link to="/ironmaiden/historia" className={styles.navItem}>HISTORIA</Link>
+                            <Link to="/ironmaiden/albunes" className={styles.navItem}>ÁLBUMES</Link> 
+                            <Link to="/ironmaiden/grupo" className={`${styles.navItem} ${styles.maidenActive}`}>GRUPO</Link>
+                        </div>
+
+                        {/* Logo de Iron Maiden a la extrema derecha */}
+                        <div className={styles.navLogo}>IRON MAIDEN</div>
+                    </div>
+                </nav>
+            </div>
 
             <div className={styles.logoContainer}>
                 <h1 className={styles.logo}>GRUPO</h1>
@@ -53,10 +73,19 @@ const IronMaidenGrupo = () => {
                     <div className={styles.membersGrid}>
                         {currentMembers.map((m) => (
                             <div key={m.name} className={styles.memberCard}>
-                                <img src={m.img} alt={m.name} className={styles.memberImg} />
-                                <h3 className={styles.memberName}>{m.name}</h3>
-                                <p className={styles.memberRole}>{m.role}</p>
-                                <p className={styles.memberYears}>{m.years}</p>
+                                <div className={styles.cardHeaderDecoration}>
+                                    <span className={styles.bolt}>⚙️</span>
+                                    <span className={styles.bolt}>⚙️</span>
+                                </div>
+                                <div className={styles.imgWrapper}>
+                                    <img src={m.img} alt={m.name} className={styles.memberImg} />
+                                    <div className={styles.frameOverlay}></div>
+                                </div>
+                                <div className={styles.infoWrapper}>
+                                    <h3 className={styles.memberName}>{m.name}</h3>
+                                    <div className={styles.roleBadge}>{m.role}</div>
+                                    <p className={styles.memberYears}>{m.years}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
