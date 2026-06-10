@@ -2,96 +2,201 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './KissAlbunes.module.css';
 
+/* =========================
+   COVERS (SOLO ESTUDIO)
+========================= */
+
+import imgKiss from '../../images/kiss/kiss.jpg';
+import imgHotterThanHell from '../../images/kiss/hotterthanhell.jpg';
+import imgDressedToKill from '../../images/kiss/dressedtokill.jpg';
+import imgDestroyer from '../../images/kiss/destroyer.jpg';
+import imgRockAndRollOver from '../../images/kiss/rockandrollover.jpg';
+import imgLoveGun from '../../images/kiss/lovegun.jpg';
+import imgDynasty from '../../images/kiss/dynasty.jpg';
+import imgUnmasked from '../../images/kiss/unmasked.jpg';
+import imgElder from '../../images/kiss/musicfromtheelder.jpg';
+import imgCreatures from '../../images/kiss/creaturesofthenight.jpg';
+import imgLickItUp from '../../images/kiss/lickitup.jpg';
+import imgAnimalize from '../../images/kiss/animalize.jpg';
+import imgAsylum from '../../images/kiss/asylum.jpg';
+import imgCrazyNights from '../../images/kiss/crazynights.jpg';
+import imgHotInShade from '../../images/kiss/hotintheshade.jpg';
+import imgRevenge from '../../images/kiss/revenge.jpg';
+import imgCarnival from '../../images/kiss/carnivalofsoulsthefinalsessions.jpg';
+import imgPsycho from '../../images/kiss/psychocircus.jpg';
+import imgSonicBoom from '../../images/kiss/sonicboom.jpg';
+import imgMonster from '../../images/kiss/monster.jpg';
+
 const KissAlbunes = () => {
-    const [currentVideo, setCurrentVideo] = useState("https://www.youtube.com/embed/SuKT5BDlNMU");
+    const [currentVideo, setCurrentVideo] = useState(
+    "https://www.youtube.com/embed/yiSB7G732Eg"
+);
+
     const videoRef = useRef(null);
 
-    const albumVideos = {
-        "Kiss": "https://www.youtube.com/embed/SuKT5BDlNMU",
-        "Hotter Than Hell": "https://www.youtube.com/embed/e1Ow7eWmjGM",
-        "Dressed to Kill": "https://www.youtube.com/embed/g9X9KAIz0Go",
-        "Destroyer": "https://www.youtube.com/embed/pB3aOBDFZdA",
-        "Rock and Roll Over": "https://www.youtube.com/embed/h3h6RCsWL28",
-        "Love Gun": "https://www.youtube.com/embed/k80uY9sfSF8",
-        "Dynasty": "https://www.youtube.com/embed/MUipAjRiSfE",
-        "Unmasked": "https://www.youtube.com/embed/Qyg5U5vfbWU",
-        "Creatures of the Night": "https://www.youtube.com/embed/i6A7b9cpMrc",
-        "Lick It Up": "https://www.youtube.com/embed/wJuNKlJwFqA",
-        "Animalize": "https://www.youtube.com/embed/j0lFPl4OVl4",
-        "Asylum": "https://www.youtube.com/embed/MHlTJ2XLNL0",
-        "Crazy Nights": "https://www.youtube.com/embed/sDMmS1nkBfk",
-        "Hot in the Shade": "https://www.youtube.com/embed/D9bTQV2AQfM",
-        "Revenge": "https://www.youtube.com/embed/CcFMcTJE5xI",
-        "Carnival of Souls": "https://www.youtube.com/embed/zz23kZ-JXBU",
-        "Psycho Circus": "https://www.youtube.com/embed/A23fmNlFnJY",
-        "Sonic Boom": "https://www.youtube.com/embed/LvC7MDz7E0I",
-        "Monster": "https://www.youtube.com/embed/a5u1RV44NtM",
-    };
+    /* =========================
+       VIDEOS (ESTUDIO ONLY)
+    ========================= */
+
+   const albumVideos = {
+    "Kiss": "https://www.youtube.com/embed/4q4RCnf1BmM",
+    "Hotter Than Hell": "https://www.youtube.com/embed/ub04RvbvOIM",
+    "Dressed to Kill": "https://www.youtube.com/embed/Ff9efKdyz84",
+    "Destroyer": "https://www.youtube.com/embed/WxNvdQCbLco",
+    "Rock and Roll Over": "https://www.youtube.com/embed/CRMnCRoDguc",
+    "Love Gun": "https://www.youtube.com/embed/l-eePttM-Gc",
+    "Dynasty": "https://www.youtube.com/embed/ZhIsAZO5gl0",
+    "Unmasked": "https://www.youtube.com/embed/jwp54MwzGIk",
+
+    "Music from The Elder": "https://www.youtube.com/embed/A9SLgcNEpyM",
+    "Creatures of the Night": "https://www.youtube.com/embed/LMcDg2HwOnM",
+    "Lick It Up": "https://www.youtube.com/embed/Gcj34XixuYg",
+    "Animalize": "https://www.youtube.com/embed/EZjevnnkA20",
+    "Asylum": "https://www.youtube.com/embed/lEwnfhuPJGs",
+    "Crazy Nights": "https://www.youtube.com/embed/BlRS7j8lK24",
+    "Hot in the Shade": "https://www.youtube.com/embed/d_RKO5ozLVo",
+    "Revenge": "https://www.youtube.com/embed/qrn6GcDMHBY",
+    "Carnival of Souls": "https://www.youtube.com/embed/Zi5oTlnoJ5A",
+    "Psycho Circus": "https://www.youtube.com/embed/BWIW6Ti0PbE",
+    "Sonic Boom": "https://www.youtube.com/embed/a6rRP95Kvpw",
+    "Monster": "https://www.youtube.com/embed/m13xXcH0UWA"
+};
+
+    /* =========================
+       SOLO ÁLBUMES DE ESTUDIO
+    ========================= */
 
     const albums = [
-        { name: "Kiss", year: "1974", label: "Casablanca Records", cover: "https://upload.wikimedia.org/wikipedia/en/7/7a/Kiss_-_Kiss.jpg" },
-        { name: "Hotter Than Hell", year: "1974", label: "Casablanca Records", cover: "https://upload.wikimedia.org/wikipedia/en/3/3c/Kiss-hotter_than_hell.jpg" },
-        { name: "Dressed to Kill", year: "1975", label: "Casablanca Records", cover: "https://upload.wikimedia.org/wikipedia/en/8/80/Kiss_dressed_to_kill.jpg" },
-        { name: "Destroyer", year: "1976", label: "Casablanca Records", cover: "https://upload.wikimedia.org/wikipedia/en/9/9e/KISSDestroyer.jpg" },
-        { name: "Rock and Roll Over", year: "1976", label: "Casablanca Records", cover: "https://upload.wikimedia.org/wikipedia/en/0/05/Kiss-Rock_and_Roll_Over.jpg" },
-        { name: "Love Gun", year: "1977", label: "Casablanca Records", cover: "https://upload.wikimedia.org/wikipedia/en/6/6d/Kiss-LoveGun.jpg" },
-        { name: "Dynasty", year: "1979", label: "Casablanca Records", cover: "https://upload.wikimedia.org/wikipedia/en/3/30/Kiss_-_Dynasty.jpg" },
-        { name: "Unmasked", year: "1980", label: "Casablanca Records", cover: "https://upload.wikimedia.org/wikipedia/en/b/b8/Kiss_-_Unmasked.jpg" },
-        { name: "Creatures of the Night", year: "1982", label: "Casablanca Records", cover: "https://upload.wikimedia.org/wikipedia/en/0/0a/Kiss_-_Creatures_of_the_Night.jpg" },
-        { name: "Lick It Up", year: "1983", label: "Mercury Records", cover: "https://upload.wikimedia.org/wikipedia/en/1/19/Kiss_lick_it_up.jpg" },
-        { name: "Animalize", year: "1984", label: "Mercury Records", cover: "https://upload.wikimedia.org/wikipedia/en/e/e0/Kiss_animalize.jpg" },
-        { name: "Asylum", year: "1985", label: "Mercury Records", cover: "https://upload.wikimedia.org/wikipedia/en/d/da/Kiss_Asylum_album_cover.jpg" },
-        { name: "Crazy Nights", year: "1987", label: "Mercury Records", cover: "https://upload.wikimedia.org/wikipedia/en/2/2d/KissCrazyNights.jpg" },
-        { name: "Hot in the Shade", year: "1989", label: "Mercury Records", cover: "https://upload.wikimedia.org/wikipedia/en/e/ed/Kiss_-_Hot_in_the_Shade.jpg" },
-        { name: "Revenge", year: "1992", label: "Mercury Records", cover: "https://upload.wikimedia.org/wikipedia/en/2/20/Kiss-Revenge.jpg" },
-        { name: "Carnival of Souls", year: "1997", label: "Mercury Records", cover: "https://upload.wikimedia.org/wikipedia/en/b/b7/Kiss_-_Carnival_of_Souls.jpg" },
-        { name: "Psycho Circus", year: "1998", label: "Mercury Records", cover: "https://upload.wikimedia.org/wikipedia/en/5/5e/Kiss_-_Psycho_Circus.jpg" },
-        { name: "Sonic Boom", year: "2009", label: "Universal", cover: "https://upload.wikimedia.org/wikipedia/en/2/2e/Kiss_-_Sonic_Boom.jpg" },
-        { name: "Monster", year: "2012", label: "Universal Republic", cover: "https://upload.wikimedia.org/wikipedia/en/4/44/Kiss_Monster.jpg" },
+        { name: "Kiss", year: "1974", cover: imgKiss },
+        { name: "Hotter Than Hell", year: "1974", cover: imgHotterThanHell },
+        { name: "Dressed to Kill", year: "1975", cover: imgDressedToKill },
+        { name: "Destroyer", year: "1976", cover: imgDestroyer },
+        { name: "Rock and Roll Over", year: "1976", cover: imgRockAndRollOver },
+        { name: "Love Gun", year: "1977", cover: imgLoveGun },
+        { name: "Dynasty", year: "1979", cover: imgDynasty },
+        { name: "Unmasked", year: "1980", cover: imgUnmasked },
+
+        { name: "Music from The Elder", year: "1981", cover: imgElder },
+        { name: "Creatures of the Night", year: "1982", cover: imgCreatures },
+
+        { name: "Lick It Up", year: "1983", cover: imgLickItUp },
+        { name: "Animalize", year: "1984", cover: imgAnimalize },
+        { name: "Asylum", year: "1985", cover: imgAsylum },
+        { name: "Crazy Nights", year: "1987", cover: imgCrazyNights },
+        { name: "Hot in the Shade", year: "1989", cover: imgHotInShade },
+        { name: "Revenge", year: "1992", cover: imgRevenge },
+
+        { name: "Carnival of Souls", year: "1997", cover: imgCarnival },
+        { name: "Psycho Circus", year: "1998", cover: imgPsycho },
+        { name: "Sonic Boom", year: "2009", cover: imgSonicBoom },
+        { name: "Monster", year: "2012", cover: imgMonster }
     ];
+
+    /* =========================
+       CLICK
+    ========================= */
 
     const handleAlbumClick = (name) => {
         setCurrentVideo(albumVideos[name] || "https://www.youtube.com/embed/SuKT5BDlNMU");
         videoRef.current.scrollIntoView({ behavior: 'smooth' });
     };
 
+    const half = Math.ceil(albums.length / 2);
+    const leftAlbums = albums.slice(0, half);
+    const rightAlbums = albums.slice(half);
+
     return (
         <div className={styles.rockContainer}>
+
+            {/* NAV */}
             <nav className={styles.rockNav}>
-                <Link to="/" className={styles.rockNavItem}>INICIO</Link> |
-                <Link to="/kiss" className={styles.rockNavItem}>KISS</Link> |
-                <Link to="/kiss/historia" className={styles.rockNavItem}>HISTORIA</Link> |
-                <Link to="/kiss/albunes" className={`${styles.rockNavItem} ${styles.rockActive}`}>ÁLBUMES</Link> |
+                <Link to="/" className={styles.rockNavItem}>INICIO</Link>
+                <Link to="/kiss" className={styles.rockNavItem}>KISS</Link>
+                <Link to="/kiss/historia" className={styles.rockNavItem}>HISTORIA</Link>
+                <Link to="/kiss/albunes" className={`${styles.rockNavItem} ${styles.rockActive}`}>ÁLBUMES</Link>
                 <Link to="/kiss/grupo" className={styles.rockNavItem}>GRUPO</Link>
             </nav>
 
+            {/* HEADER */}
             <header className={styles.rockHeader}>
-                <h1 className={styles.rockTitle}>💽 ÁLBUMES 💽</h1>
+                <h1 className={styles.rockTitle}>ÁLBUMES</h1>
                 <div className={styles.guitarRiff}></div>
             </header>
 
+            {/* CONTENT */}
             <section className={styles.rockContent}>
-                <h2 className={styles.rockSubtitle}>📀 DISCOGRAFÍA COMPLETA 📀</h2>
-                <div className={styles.rockVideoContainer} ref={videoRef}>
-                    <iframe width="560" height="315" src={currentVideo} title="KISS Discografía"
-                        frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen className={styles.rockVideo}></iframe>
-                </div>
-                <div className={styles.rockAlbumsGrid}>
-                    {albums.map((album) => (
-                        <div key={album.name} className={styles.rockAlbumCard} onClick={() => handleAlbumClick(album.name)}>
-                            <h3 className={styles.rockAlbumTitle}>{album.name}</h3>
-                            <p className={styles.rockAlbumInfo}>{album.year}<br />{album.label}</p>
-                            <img src={album.cover} alt={album.name} className={styles.rockAlbumCover} />
-                            <div className={styles.rockAlbumOverlay}>💋</div>
+                <h2 className={styles.rockSubtitle}>📀 DISCOGRAFÍA DE ESTUDIO 📀</h2>
+
+                <div className={styles.rockLayoutGrid}>
+
+                    {/* LEFT */}
+                    <div className={styles.rockSideColumn}>
+                        {leftAlbums.map((album) => (
+                            <div
+                                key={album.name}
+                                className={styles.rockStarCard}
+                                onClick={() => handleAlbumClick(album.name)}
+                            >
+                                <div
+                                    className={styles.rockStarShape}
+                                    style={{ backgroundImage: `url(${album.cover})` }}
+                                >
+                                    <div className={styles.rockStarOverlay}>
+                                        <span>{album.name}</span>
+                                        <span>{album.year}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* VIDEO */}
+                    <div className={styles.rockCenterColumn} ref={videoRef}>
+                        <div className={styles.rockVideoContainer}>
+                            <iframe
+                                width="560"
+                                height="315"
+                                src={currentVideo}
+                                title="KISS"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className={styles.rockVideo}
+                            />
                         </div>
-                    ))}
+                    </div>
+
+                    {/* RIGHT */}
+                    <div className={styles.rockSideColumn}>
+                        {rightAlbums.map((album) => (
+                            <div
+                                key={album.name}
+                                className={styles.rockStarCard}
+                                onClick={() => handleAlbumClick(album.name)}
+                            >
+                                <div
+                                    className={styles.rockStarShape}
+                                    style={{ backgroundImage: `url(${album.cover})` }}
+                                >
+                                    <div className={styles.rockStarOverlay}>
+                                        <span>{album.name}</span>
+                                        <span>{album.year}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
             </section>
 
+            {/* FOOTER */}
             <footer className={styles.rockFooter}>
-                <p className={styles.rockFooterText}>© {new Date().getFullYear()} R.A.V.V 💋 KISS 💋</p>
+                <p className={styles.rockFooterText}>
+                    © {new Date().getFullYear()} R.A.V.V 💋 KISS 💋
+                </p>
             </footer>
+
         </div>
     );
 };

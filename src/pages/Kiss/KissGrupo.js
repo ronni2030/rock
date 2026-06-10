@@ -1,88 +1,221 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Kiss.module.css';
+import styles from './KissGrupo.module.css';
+
+import portada from '../../images/kiss/portada.jpg';
+
+import paul from '../../images/kiss/paulstanley.jpg';
+import gene from '../../images/kiss/genesimmons.jpg';
+import ace from '../../images/kiss/acefrehley.jpg';
+import peter from '../../images/kiss/petercriss.jpg';
+
+import ericCarr from '../../images/kiss/ericcarr.jpg';
+import vinnie from '../../images/kiss/vinnievincent.jpg';
+import bruce from '../../images/kiss/brucekulick.jpg';
+import ericSinger from '../../images/kiss/ericsinger.jpg';
+import tommy from '../../images/kiss/tommythayer.jpg';
+import mark from '../../images/kiss/markstjohn.jpg';
+
+const originals = [
+    {
+        name: "Paul Stanley",
+        character: "STARCHILD",
+        icon: "⭐",
+        phrase: "I was made for lovin' you...",
+        className: "starchild",
+        image: paul
+    },
+    {
+        name: "Gene Simmons",
+        character: "DEMON",
+        icon: "🔥",
+        phrase: "God of Thunder!",
+        className: "demon",
+        image: gene
+    },
+    {
+        name: "Ace Frehley",
+        character: "SPACEMAN",
+        icon: "🚀",
+        phrase: "Shock Me!",
+        className: "spaceman",
+        image: ace
+    },
+    {
+        name: "Peter Criss",
+        character: "CATMAN",
+        icon: "🐱",
+        phrase: "Beth, I hear you calling...",
+        className: "catman",
+        image: peter
+    }
+];
+
+const warriors = [
+    {
+        name: "Eric Carr",
+        years: "1980 - 1991",
+        icon: "🦊",
+        fact: "Creó el personaje The Fox y se convirtió en uno de los miembros más queridos de KISS.",
+        image: ericCarr
+    },
+    {
+        name: "Vinnie Vincent",
+        years: "1982 - 1984",
+        icon: "⚡",
+        fact: "Participó en la composición de varios éxitos de la era de los 80.",
+        image: vinnie
+    },
+    {
+        name: "Bruce Kulick",
+        years: "1984 - 1996",
+        icon: "🎸",
+        fact: "Fue el guitarrista principal durante toda la era sin maquillaje.",
+        image: bruce
+    },
+    {
+        name: "Eric Singer",
+        years: "1991 - Presente",
+        icon: "🥁",
+        fact: "También tocó con Alice Cooper y Black Sabbath.",
+        image: ericSinger
+    },
+    {
+        name: "Tommy Thayer",
+        years: "2002 - Presente",
+        icon: "🚀",
+        fact: "Pasó de trabajar detrás de escena a convertirse en el nuevo Spaceman.",
+        image: tommy
+    },
+    {
+        name: "Mark St. John",
+        years: "1984",
+        icon: "⚕️",
+        fact: "Su paso por KISS fue breve debido a una enfermedad en sus manos.",
+        image: mark
+    }
+];
 
 const KissGrupo = () => {
-    const currentMembers = [
-        { name: "Paul Stanley", role: "Voz, Guitarra — El Hombre Estrella", years: "1973–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Paul_Stanley_2010.jpg/440px-Paul_Stanley_2010.jpg" },
-        { name: "Gene Simmons", role: "Bajo, Voz — El Demonio", years: "1973–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Gene_Simmons_2012.jpg/440px-Gene_Simmons_2012.jpg" },
-        { name: "Tommy Thayer", role: "Guitarra — El Spaceman", years: "2002–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Tommy_Thayer_2012.jpg/440px-Tommy_Thayer_2012.jpg" },
-        { name: "Eric Singer", role: "Batería — El Gato", years: "1991–1994, 1996–presente", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Eric_Singer.jpg/440px-Eric_Singer.jpg" },
-    ];
-
-    const pastMembers = [
-        { name: "Ace Frehley", role: "Guitarra — El Spaceman (1973–1982, 1996–2002)" },
-        { name: "Peter Criss", role: "Batería — El Gato (1973–1980, 1996–2004)" },
-        { name: "Vinnie Vincent", role: "Guitarra (1982–1984)" },
-        { name: "Mark St. John", role: "Guitarra (1984)" },
-        { name: "Bruce Kulick", role: "Guitarra (1984–1996)" },
-        { name: "Eric Carr †", role: "Batería (1980–1991) — Fallecido en 1991" },
-    ];
-
     return (
-        <div className={styles.kissPage}>
+        <div
+            className={styles.kissPage}
+            style={{
+                '--bg-image': `url(${portada})`
+            }}
+        >
             <nav className={styles.kissNav}>
-                <div className={styles.navContainer}>
-                    <Link to="/" className={styles.navItem}>INICIO</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/kiss" className={styles.navItem}>KISS</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/kiss/historia" className={styles.navItem}>HISTORIA</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/kiss/albunes" className={styles.navItem}>ÁLBUMES</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/kiss/grupo" className={`${styles.navItem} ${styles.kissActive}`}>GRUPO</Link>
+    <div className={styles.navContainer}>
+        <Link to="/" className={styles.navItem}>
+            INICIO
+        </Link>
+
+        <Link to="/kiss" className={styles.navItem}>
+            KISS
+        </Link>
+
+        <Link
+            to="/kiss/historia"
+            className={`${styles.navItem} ${styles.active}`}
+        >
+            HISTORIA
+        </Link>
+
+        <Link to="/kiss/albunes" className={styles.navItem}>
+            ÁLBUMES
+        </Link>
+
+        <Link to="/kiss/grupo" className={styles.navItem}>
+            GRUPO
+        </Link>
+    </div>
+</nav>
+
+            <header className={styles.hero}>
+                <h1>GRUPO</h1>
+
+                <p>LOS GUERREROS DEL ROCK</p>
+            </header>
+
+            <section className={styles.section}>
+                <h2 className={styles.bigTitle}>
+                    LOS 4 ORIGINALES
+                </h2>
+
+                <p className={styles.sectionSubtitle}>
+                    NO FUERON SOLO MÚSICOS.
+                    <br />
+                    CREARON PERSONAJES INMORTALES.
+                </p>
+
+                <div className={styles.originalGrid}>
+                    {originals.map(member => (
+                        <div
+                            key={member.name}
+                            className={`${styles.originalCard} ${styles[member.className]}`}
+                            style={{
+                                backgroundImage: `url(${member.image})`
+                            }}
+                        >
+                            <div className={styles.overlay}></div>
+
+                            <div className={styles.cardContent}>
+                                <div className={styles.originalIcon}>
+                                    {member.icon}
+                                </div>
+
+                                <h3>{member.character}</h3>
+
+                                <h4>{member.name}</h4>
+
+                                <p>{member.phrase}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            </nav>
+            </section>
 
-            <div className={styles.logoContainer}>
-                <h1 className={styles.logo}>GRUPO</h1>
-                <p className={styles.tagline}>LOS GUERREROS DEL ROCK</p>
-            </div>
+            <section className={styles.section}>
+                <h2 className={styles.bigTitle}>
+                    LOS GUERREROS DE KISS
+                </h2>
 
-            <div className={styles.content}>
-                <section className={styles.rockSection}>
-                    <h2 className={styles.sectionTitle}>
-                        <span className={styles.titleOutline}>BAND</span>
-                        <span className={styles.titleMain}>💋 MIEMBROS ACTUALES 💋</span>
-                    </h2>
-                    <div className={styles.membersGrid}>
-                        {currentMembers.map((m) => (
-                            <div key={m.name} className={styles.memberCard}>
-                                <img src={m.img} alt={m.name} className={styles.memberImg} />
-                                <h3 className={styles.memberName}>{m.name}</h3>
-                                <p className={styles.memberRole}>{m.role}</p>
-                                <p className={styles.memberYears}>{m.years}</p>
+                <p className={styles.sectionSubtitle}>
+                    EL LEGADO CONTINUÓ GRACIAS A ELLOS.
+                </p>
+
+                <div className={styles.warriorsGrid}>
+                    {warriors.map(member => (
+                        <div
+                            key={member.name}
+                            className={styles.warriorCard}
+                        >
+                            <img
+                                src={member.image}
+                                alt={member.name}
+                                className={styles.warriorImage}
+                            />
+
+                            <div className={styles.warriorInfo}>
+                                <div className={styles.warriorIcon}>
+                                    {member.icon}
+                                </div>
+
+                                <h3>{member.name}</h3>
+
+                                <span>{member.years}</span>
+
+                                <p>{member.fact}</p>
                             </div>
-                        ))}
-                    </div>
-                </section>
-
-                <section className={styles.rockSection}>
-                    <h2 className={styles.sectionTitle}>
-                        <span className={styles.titleOutline}>PAST</span>
-                        <span className={styles.titleMain}>🔥 MIEMBROS ANTERIORES 🔥</span>
-                    </h2>
-                    <div className={styles.pastMembersList}>
-                        {pastMembers.map((m) => (
-                            <div key={m.name} className={styles.pastMemberItem}>
-                                <span className={styles.pastMemberName}>{m.name}</span>
-                                <span className={styles.pastMemberRole}>{m.role}</span>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
 
             <footer className={styles.footer}>
-                <div className={styles.footerContent}>
-                    <p className={styles.copyright}>© {new Date().getFullYear()} R.A.V.V 💋 KISS 💋</p>
-                    <div className={styles.socialIcons}>
-                        <span className={styles.icon}>🎸</span>
-                        <span className={styles.icon}>💋</span>
-                        <span className={styles.icon}>🤘</span>
-                    </div>
-                </div>
+                <p>
+                    © {new Date().getFullYear()} R.A.V.V • KISS • ROCK AND ROLL
+                </p>
             </footer>
         </div>
     );
