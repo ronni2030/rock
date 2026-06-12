@@ -65,7 +65,7 @@ const IronMaiden = () => {
                 <div className={styles.heroContainer}>
                     <div className={styles.heroContent}>
                         <h2>
-                            LEGACY OF THE BEAST WORLD TOUR: <span>NORTH AMERICA</span> – TICKETS ON SALE NOW!
+                            LA DONCELLA DE HIERRO. <span>LEYENDA DEL HEAVY METAL.</span> – EXPLORÁ LA DISCOGRAFÍA, LA HISTORIA Y EL LEGADO DE LA BANDA QUE CONQUISTÓ EL MUNDO.
                         </h2> 
 
                         <a
