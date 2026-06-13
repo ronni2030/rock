@@ -1,10 +1,12 @@
 .rockContainer {
     font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
-    background-image: url('https://wallpapercave.com/wp/wp1816505.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+    
+    /* ESTILOS PARA LA IMAGEN ESTATICA */
+    background-size: cover;          /* Cubre todo el espacio */
+    background-position: center;     /* Centrada */
+    background-repeat: no-repeat;    /* No se repite */
+    background-attachment: fixed;    /* ESTO HACE QUE SEA ESTATICA */
+    
     color: #fff;
     position: relative;
     display: flex;

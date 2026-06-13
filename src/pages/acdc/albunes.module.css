@@ -2,11 +2,18 @@
     min-height: 100vh;
     color: white;
     font-family: 'Montserrat', sans-serif;
-
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,0,0,0.18), transparent 40%),
-        radial-gradient(circle at 80% 60%, rgba(255,204,0,0.10), transparent 45%),
-        linear-gradient(180deg, #000, #0a0a0a, #000);
+    
+    /* MODIFICA ESTA PARTE AQUÍ */
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), /* Filtro oscuro para que se lea el texto */
+        url('../../images/acdc/portada2.jpg'); /* RUTA DE TU IMAGEN */
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* ESTO ES LO QUE LO HACE ESTÁTICO */
+    
+    /* Asegúrate de borrar la otra propiedad background que tenías antes */
 }
 
 /* NAV */

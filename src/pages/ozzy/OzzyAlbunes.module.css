@@ -1,66 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
 
-.rockContainer {
-    min-height: 100vh;
-    color: white;
-    overflow-x: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Orbitron', sans-serif;
-    background:
-        radial-gradient(circle at top, rgba(255,255,255,.08), transparent 25%),
-        radial-gradient(circle at bottom, rgba(255,255,255,.03), transparent 40%),
-        linear-gradient(180deg, #000, #050505, #090909, #000);
+
+
+.rockContainer{
+
+    min-height:100vh;
+
+    color:white;
+
+    overflow-x:hidden;
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    font-family:'Orbitron',sans-serif;
+
+    background-color:black;
+
 }
+
+
 
 /* OVERLAY BACKGROUND */
+
 .rockContainer::before {
+
     content: "";
+
     position: fixed;
+
     inset: 0;
+
     background: linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.25), rgba(0,0,0,.45));
+
     pointer-events: none;
+
     z-index: 0;
+
 }
+
+
 
 .rockContainer > * {
+
     position: relative;
+
     z-index: 1;
+
 }
 
-/* NAVBAR */
-/* NAVBAR estilo OZZY aplicado */
-/* ================================= */
-/* NAVBAR (OZZY STYLE CORRECTO 1:1) */
-/* ================================= */
+
+
+/* NAVBAR (Estilo OZZY CORRECTO 1:1) */
 
 .rockNav {
+
     position: fixed;
+
     top: 0;
+
     width: 100%;
+
     z-index: 999;
 
     background: rgba(0,0,0,.9);
+
     backdrop-filter: blur(12px);
 
     border-bottom: 1px solid rgba(255,255,255,.08);
+
 }
 
+
+
 .rockNavContainer {
+
     max-width: 1200px;
+
     margin: 0 auto;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     padding: 18px 0;
+
     flex-wrap: wrap;
+
 }
 
+
+
 .rockNavItem {
+
     color: #bdbdbd;
+
     text-decoration: none;
 
     padding: 10px 16px;
@@ -68,438 +107,547 @@
     font-weight: 700;
 
     display: flex;
+
     align-items: center;
 
     transition: .3s;
+
 }
+
+
 
 .rockNavItem:hover {
+
     color: white;
+
 }
 
+
+
 .rockDivider {
+
     color: #555;
 
     display: flex;
+
     align-items: center;
 
     padding: 0 6px;
+
 }
+
+
 
 .rockActive {
+
     color: white;
+
 }
+
+
 
 /* HEADER */
+
 .rockHeader {
+
     text-align: center;
+
     padding-top: 130px;
-    margin-bottom: 40px;
+
+    margin-bottom: 20px;
+
     position: relative;
+
     z-index: 2;
+
 }
+
+
 
 .rockTitle {
-    font-size: 9rem;
+
+    font-size: 8rem;
+
     font-weight: 900;
+
     letter-spacing: 8px;
+
     line-height: .9;
+
     color: white;
+
     animation: titleGlow 4s ease-in-out infinite alternate;
+
 }
+
+
 
 .logoSub {
+
     display: block;
-    font-size: 3rem;
-    letter-spacing: 14px;
+
+    font-size: 2.5rem;
+
+    letter-spacing: 10px;
+
     color: #8d8d8d;
-    margin-top: 15px;
+
+    margin-top: 10px;
+
 }
+
+
 
 /* CONTENIDO Y VIDEO */
-.rockContent {
-    width: 95%;
-    max-width: 1400px;
-    margin: auto;
-    padding: 20px 20px 80px;
+
+.rockContent{
+    width:95%;
+    max-width:1600px;
+
+    margin:auto;
+
+    padding:20px 20px 200px;
+
+    position:relative;
 }
 
-.rockVideoContainer {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    margin-bottom: 70px;
-    border-radius: 25px;
-    background: rgba(255,255,255,.04);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,.08);
-    box-shadow: 0 0 30px rgba(255,255,255,.03), inset 0 0 25px rgba(255,255,255,.02);
+
+
+.rockVideoContainer{
+
+    width:60%;
+
+    max-width:680px;
+
+    margin:120px auto 0;
+
+    position:relative;
+
+    padding-bottom:33%;
+
+    height:0;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:rgba(0,0,0,.5);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 0 50px rgba(0,0,0,.8);
+
+    z-index:20;
+
 }
+
+.rockVideo{
+    width:100%;
+    height:100%;
+}
+
+
 
 .rockVideo {
+
     position: absolute;
+
     top: 0;
+
     left: 0;
+
     width: 100%;
+
     height: 100%;
+
 }
 
-/* VHS GRID */
-.vhsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    gap: 40px;
-    perspective: 1000px;
+
+
+/* --- ESTILOS DE LA CUEVA DE MURCIÉLAGOS (BAT CAVE) --- */
+
+
+
+.batCave{
+    position:relative;
+
+    width:100%;
+
+    height:780px;
+
+    margin-top:-520px;
+
+    z-index:1;
 }
 
-.vhsCassette {
-    height: 245px;
-    background: #141417;
-    background-image: 
-        radial-gradient(rgba(255,255,255,0.03) 1px, transparent 0),
-        radial-gradient(rgba(255,255,255,0.02) 1px, transparent 0);
-    background-size: 3px 3px;
-    background-position: 0 0, 1.5px 1.5px;
-    border-radius: 8px;
-    position: relative;
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.85),
-        inset 0 4px 4px rgba(255, 255, 255, 0.06),
-        inset 0 -4px 8px rgba(0, 0, 0, 0.8);
-    border: 2px solid #0d0d0f;
-    padding: 12px;
+
+
+/* Contenedor individual para posicionamiento aleatorio (JS) y animación */
+
+.batAlbumContainer {
+
+    position: absolute; /* Esencial para el caos de JS */
+
     cursor: pointer;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease, z-index 0s;
+
     transform-style: preserve-3d;
+
+    pointer-events:auto;
+
+   
+
+    /* Animación de vuelo suave por defecto */
+
+    animation: batFlight infinite ease-in-out;
+
 }
 
-.vhsCassette::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(transparent 50%, rgba(0,0,0,0.12) 50%);
-    background-size: 100% 4px;
-    z-index: 10;
-    pointer-events: none;
-    opacity: 0.4;
+
+
+/* Hover: El murciélago se endereza, se agranda y se ilumina */
+
+.batAlbumContainer:hover {
+
+    transform: scale(1.15) rotate(0deg) !important; /* Anula la rotación aleatoria de JS */
+
+    z-index: 99; /* Se pone al frente */
+
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.6));
+
+    animation-play-state: paused; /* Para la animación de vuelo */
+
 }
 
-.vhsCassette:hover {
-    transform: translateY(-12px) rotateX(8deg) scale(1.02);
-    box-shadow: 
-        0 35px 60px rgba(0, 0, 0, 0.95),
-        0 0 30px rgba(255, 255, 255, 0.05);
-}
 
-/* Tornillos */
-.screw {
-    position: absolute;
-    width: 7px;
-    height: 7px;
-    background: linear-gradient(135deg, #555, #222);
-    border-radius: 50%;
-    border: 1px solid #111;
-    box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 0 1px 1px rgba(0,0,0,0.5);
-}
-.screw::before {
-    content: '';
-    position: absolute;
-    top: 2px; left: 1px; width: 4px; height: 1px;
-    background: #111;
-}
-.screwTl { top: 8px; left: 8px; }
-.screwTr { top: 8px; right: 8px; }
-.screwBl { bottom: 8px; left: 8px; }
-.screwBr { bottom: 8px; right: 8px; }
 
-.vhsIndent {
-    position: absolute;
-    left: 50%; transform: translateX(-50%);
-    top: 0; width: 130px; height: 5px;
-    background: #09090b;
-    border-radius: 0 0 5px 5px;
-}
-.vhsBottomCutout {
-    position: absolute;
-    bottom: 0; left: 25%; width: 50%; height: 4px;
-    background: #09090b;
-    border-radius: 4px 4px 0 0;
-}
+/* --- LA FORMA DE MURCIÉLAGO (MÁSCARA CSS) --- */
 
-/* Ventanas */
-.vhsWindowsWrapper {
-    display: flex;
-    justify-content: space-between;
+.batShape {
+
     width: 100%;
-    height: 72px;
-    margin-top: 6px;
-    margin-bottom: 12px;
-    padding: 0 10px;
-}
 
-.vhsWindow {
-    width: 46%;
-    height: 100%;
-    background: #060607;
-    border-radius: 4px;
+    height: auto;
+
+    padding-bottom: 65%; /* Mantiene la proporción del PNG del murciélago */
+
     position: relative;
+
     overflow: hidden;
-    border: 3px solid #0f0f12;
-    box-shadow: inset 0 4px 8px rgba(0,0,0,0.9);
+
+    background-color: #111; /* Color de fondo fallback */
+
+   
+
+    /* MÁSCARA CSS: Aquí es donde ocurre la magia */
+
+    /* IMPORTANTE: Necesitas este archivo PNG transparente en tu carpeta de imágenes */
+
+    -webkit-mask-image: url('../../images/ozzy/bat-mask.jpg');
+
+    mask-image: url('../../images/ozzy/bat-mask.jpg');
+
+   
+
+    -webkit-mask-size: contain;
+
+    mask-size: contain;
+
+    -webkit-mask-repeat: no-repeat;
+
+    mask-repeat: no-repeat;
+
+    -webkit-mask-position: center;
+
+    mask-position: center;
+
+   
+
+    /* Borde sutil rojo alrededor de la forma masked */
+
+    border: 1px solid rgba(255, 26, 26, 0.3);
+
 }
 
-.vhsWindow::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 45%);
-    z-index: 5;
-    pointer-events: none;
-}
 
-.vhsSpool {
-    position: absolute;
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    top: -19px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.8);
-    transition: transform 0.8s ease;
-}
 
-.vhsSpool::before {
-    content: '';
-    position: absolute;
-    top: 55px; width: 22px; height: 22px;
-    background: #e6e6e6;
-    border-radius: 50%;
-    border: 4px dotted #777;
-    left: 44px;
-}
+/* Arte del álbum (imagen de fondo dentro del murciélago) */
 
-.spoolLeft { left: -15px; }
-.spoolRight { right: -15px; }
-
-.spoolLeftHeavy .spoolLeft {
-    background: radial-gradient(circle, #fff 0%, #cc0 12%, #111 18%, #222 22%, #15151a 68%, #000 73%);
-}
-.spoolLeftHeavy .spoolRight {
-    background: radial-gradient(circle, #fff 0%, #cc0 12%, #111 18%, #222 22%, #15151a 35%, #000 45%);
-}
-.spoolRightHeavy .spoolLeft {
-    background: radial-gradient(circle, #fff 0%, #cc0 12%, #111 18%, #222 22%, #15151a 35%, #000 45%);
-}
-.spoolRightHeavy .spoolRight {
-    background: radial-gradient(circle, #fff 0%, #cc0 12%, #111 18%, #222 22%, #15151a 68%, #000 73%);
-}
-
-.vhsCassette:hover .vhsSpool {
-    transform: rotate(40deg);
-}
-
-/* ======================================================== */
-/* EN RELACIÓN AL ARTE DEL ÁLBUM DETRÁS DE LAS LETRAS       */
-/* ======================================================== */
-.vhsLabelCover {
-    width: 100%;
-    height: 125px;
-    border-radius: 3px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.95), 0 2px 4px rgba(0,0,0,0.6);
-    border: 1px solid #1a1a1c;
-    border-left: 6px solid #ff1a1a; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px 14px;
-    background: #0d0d0f; 
-}
-
-/* Capa de la imagen del álbum local cargada al fondo */
 .coverBgArt {
+
     position: absolute;
+
     inset: 0;
+
     background-size: cover;
-    background-position: center 25%; /* Ajuste para centrar rostros o logos */
-    opacity: 0.5; /* Equilibrio perfecto: nitidez del arte sin opacar las fuentes */
-    filter: contrast(1.15) brightness(0.9);
-    transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s;
+
+    background-position: center;
+
+    opacity: 0.8; /* Un poco translúcido por defecto */
+
+    filter: contrast(1.1) brightness(0.8);
+
+    transition: opacity 0.4s ease, filter 0.4s ease;
+
     z-index: 1;
+
 }
 
-/* Brillo completo al pasar el mouse encima */
-.vhsCassette:hover .coverBgArt {
-    opacity: 0.85;
-    filter: contrast(1.25) brightness(1.05);
+
+
+.batAlbumContainer:hover .coverBgArt {
+
+    opacity: 1;
+
+    filter: contrast(1.2) brightness(1.1);
+
 }
 
-/* Máscara de gradiente técnico para aislar el texto en capas complejas */
+
+
+/* Gradiente de superposición para legibilidad de texto */
+
 .coverGrid {
+
     position: absolute;
+
     inset: 0;
+
     background: linear-gradient(
-        to bottom, 
-        rgba(0, 0, 0, 0.65) 0%, 
-        rgba(0, 0, 0, 0.25) 45%, 
-        rgba(0, 0, 0, 0.8) 100%
+
+        to bottom,
+
+        rgba(0, 0, 0, 0.9) 0%,
+
+        rgba(0, 0, 0, 0.2) 50%,
+
+        rgba(0, 0, 0, 1) 100%
+
     );
+
     z-index: 2;
-    pointer-events: none;
+
 }
 
-/* Elementos de la tipografía por encima del arte */
-.labelHeader, .labelBody, .labelFooter {
-    position: relative;
+
+
+/* --- ESTILOS DE TEXTO ADAPTADOS A LA FORMA --- */
+
+.labelBody {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 70%; /* Centrado en el cuerpo del murciélago */
+
+    text-align: center;
+
     z-index: 3;
+
 }
 
-.brandBadge {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
-    font-weight: bold;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.85);
-    padding: 3px 8px;
-    border-radius: 2px;
-    letter-spacing: 1px;
-    border: 1px solid rgba(255,255,255,0.25);
-    text-shadow: 0 1px 2px #000;
-}
 
-.formatVhsText {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    letter-spacing: 2px;
-    color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
-}
 
 .mainTitle {
+
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
+
+    font-size: 2.2rem; /* Más grande, ya que hay menos texto */
+
     line-height: 1;
+
     color: #ffffff;
+
     letter-spacing: 1px;
+
     text-transform: uppercase;
-    /* Delineado robusto en CSS (Text stroke) para garantizar legibilidad */
-    text-shadow: 
+
+    text-shadow:
+
         2px 2px 0px #000,
-       -2px 2px 0px #000,
-        2px -2px 0px #000,
-       -2px -2px 0px #000,
+
+        -1px 1px 0px #000,
+
         0px 3px 6px rgba(0,0,0,0.9);
+
     margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
 }
+
+
 
 .subChapters {
-    font-size: 11px;
-    font-family: monospace;
-    color: #ffffff;
+
+    font-size: 14px;
+
+    font-family: 'Share Tech Mono', monospace;
+
+    color: #e0e0e0;
+
     font-weight: bold;
-    margin-top: 5px;
-    text-shadow: 1px 1px 2px #000, -1px 1px 2px #000;
+
+    margin-top: 8px;
+
+    text-shadow: 0 2px 4px #000;
+
 }
+
+
 
 .labelFooter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.3);
-    padding-top: 5px;
+
+    position: absolute;
+
+    bottom: 8%;
+
+    width: 100%;
+
+    text-align: center;
+
     font-family: 'Share Tech Mono', monospace;
+
     font-size: 10px;
-    color: #ffffff;
-    text-shadow: 0 1px 3px #000;
+
+    color: #aaaaaa;
+
+    z-index: 3;
+
+    text-transform: uppercase;
+
 }
 
-.statusRec {
-    color: #ff2a5f;
-    animation: blink 1.5s infinite;
-    font-weight: bold;
-}
 
-.statusPlay {
-    color: #2ae8ff;
-    font-weight: bold;
-}
-
-/* Efecto temblor analógico en hover */
-.vhsCassette:hover .vhsLabelCover {
-    animation: trackingShake 0.4s infinite;
-}
 
 /* ANIMACIONES */
+
 @keyframes titleGlow {
+
     from { text-shadow: 0 0 20px rgba(255,255,255,.15), 0 0 50px rgba(255,255,255,.05); }
+
     to { text-shadow: 0 0 25px rgba(255,255,255,.3), 0 0 90px rgba(255,255,255,.1); }
+
 }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.2; }
+
+
+/* Animación sutil de vuelo/flotado */
+
+@keyframes batFlight {
+
+    0%, 100% { transform: translateY(0px) rotate(var(--js-rotate, 0deg)); }
+
+    50% { transform: translateY(-15px) rotate(calc(var(--js-rotate, 0deg) + 5deg)); }
+
 }
 
-@keyframes trackingShake {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(-0.3px, 0.3px); }
-    50% { transform: translate(0.3px, -0.3px); }
-    75% { transform: translate(-0.3px, -0.3px); }
-    100% { transform: translate(0, 0); }
-}
+
 
 /* Efectos de fondo */
+
 .fog {
+
     position: fixed; left: 0; bottom: 0; width: 200%; height: 220px;
-    background: radial-gradient(circle, rgba(255,255,255,.03), transparent 70%);
+
+    background: radial-gradient(circle, rgba(255,0,0,.03), transparent 70%); /* Niebla rojiza sutil */
+
     animation: fogMove 35s linear infinite;
+
     pointer-events: none; z-index: 0;
+
 }
+
 @keyframes fogMove {
+
     from { transform: translateX(0); }
+
     to { transform: translateX(-50%); }
+
 }
 
-.bat1, .bat2, .bat3 {
-    position: fixed; opacity: .06; pointer-events: none; z-index: 0;
-    animation: floatBat linear infinite;
-}
-.bat1 { top: 18%; left: -100px; font-size: 40px; animation-duration: 25s; }
-.bat2 { top: 45%; left: -100px; font-size: 30px; animation-duration: 35s; }
-.bat3 { top: 70%; left: -100px; font-size: 50px; animation-duration: 45s; }
 
-@keyframes floatBat {
-    from { transform: translateX(0); }
-    to { transform: translateX(calc(100vw + 200px)); }
-}
 
-.cross1, .cross2 { position: fixed; opacity: .03; color: white; pointer-events: none; z-index: 0; }
+.cross1, .cross2 { position: fixed; opacity: .02; color: white; pointer-events: none; z-index: 0; }
+
 .cross1 { top: 20%; right: 8%; font-size: 8rem; }
+
 .cross2 { bottom: 15%; left: 8%; font-size: 6rem; }
 
+
+
 /* MEDIA QUERIES RESPONSIVE */
+
 @media(max-width: 1200px) {
-    .vhsGrid {
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 25px;
-    }
-    .vhsCassette { height: 220px; }
-    .vhsLabelCover { height: 110px; }
-    .mainTitle { font-size: 1.5rem; }
+
+    .rockTitle { font-size: 6rem; }
+
+    .logoSub { font-size: 2rem; }
+
+    .batShape .mainTitle { font-size: 1.8rem; }
+
 }
+
+
 
 @media(max-width: 768px) {
-    .rockTitle { font-size: 3.5rem; }
-    .logoSub { font-size: 1.1rem; letter-spacing: 4px; }
-    .vhsGrid { grid-template-columns: 1fr; }
+
+    .rockTitle { font-size: 4rem; }
+
+    .logoSub { font-size: 1.2rem; letter-spacing: 4px; }
+
+   
+
+    /* En móvil el desorden total es injugable. Revertimos a un layout más ordenado. */
+
+    .batCave {
+
+        height: auto;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        margin-top: 20px;
+
+        position: static;
+
+    }
+
+   
+
+    .batAlbumContainer {
+
+        position: static !important; /* Anula JS */
+
+        width: 90% !important;
+
+        margin-bottom: 20px;
+
+        transform: rotate(0deg) !important;
+
+        animation: none !important;
+
+    }
+
+   
+
     .cross1, .cross2 { display: none; }
+
 }
 
+
+
 @media(max-width: 480px) {
-    .rockTitle { font-size: 2.4rem; letter-spacing: 3px; }
-    .rockNavItem { font-size: .8rem; margin: 0 5px; }
+
+    .rockTitle { font-size: 2.8rem; letter-spacing: 3px; }
+
+    .rockNavItem { font-size: .8rem; padding: 8px; }
+
 }

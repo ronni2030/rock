@@ -27,6 +27,10 @@ import imgPsycho from '../../images/kiss/psychocircus.jpg';
 import imgSonicBoom from '../../images/kiss/sonicboom.jpg';
 import imgMonster from '../../images/kiss/monster.jpg';
 
+
+import portada from '../../images/kiss/portada2.jpg';
+
+
 const KissAlbunes = () => {
     const [currentVideo, setCurrentVideo] = useState(
     "https://www.youtube.com/embed/yiSB7G732Eg"
@@ -106,8 +110,10 @@ const KissAlbunes = () => {
     const rightAlbums = albums.slice(half);
 
     return (
-        <div className={styles.rockContainer}>
-
+        <div 
+            className={styles.rockContainer} 
+            style={{ backgroundImage: `url(${portada})` }}
+        >
             {/* NAV */}
             <nav className={styles.rockNav}>
                 <Link to="/" className={styles.rockNavItem}>INICIO</Link>
