@@ -15,7 +15,7 @@ const Historia = () => {
 
             <nav className={styles.nav}>
                 <Link to="/" className={styles.link}>INICIO</Link>
-                <Link to="/acdc" className={styles.link}>ACDC</Link>
+                <Link to="/acdc" className={styles.link}>AC/DC</Link>
                 <Link to="/acdc/historia" className={styles.active}>HISTORIA</Link>
                 <Link to="/acdc/albunes" className={styles.link}>ÁLBUMES</Link>
                 <Link to="/acdc/grupo" className={styles.link}>GRUPO</Link>

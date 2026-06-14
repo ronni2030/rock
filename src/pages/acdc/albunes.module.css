@@ -208,28 +208,63 @@
 
 /* Móviles (pantallas menores a 600px) */
 @media (max-width: 600px) {
-    .nav { gap: 10px; font-size: 0.75rem; }
-    
-    .stage {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas para móviles */
-        margin: 20px auto;
+    /* 1. Navegación más compacta */
+    .nav { 
+        flex-wrap: wrap; /* Permite que los enlaces bajen si no caben */
         padding: 10px;
+        gap: 10px 15px; 
+    }
+    
+    /* 2. Grid de vinilos: Ajuste crítico */
+    .stage {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas fijas */
+        gap: 15px 10px; 
+        padding: 10px;
+        margin: 20px auto;
     }
 
+    .vinyl {
+        width: 100%; /* Ajusta al ancho de la celda del grid */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vinylDisc {
+        width: 100px; /* Tamaño más cómodo para pantallas pequeñas */
+        height: 100px;
+    }
+
+    /* 3. Video responsivo real */
     .videoBox {
-        height: 250px;
-        margin-top: 10px;
+        grid-column: 1 / -1; 
+        height: 220px;
+        margin: 10px 0;
+        border-width: 1px; /* Borde más fino para que no se coma el espacio */
     }
 
+    /* 4. Info panel: Mejora de legibilidad */
     .infoBox {
-        flex-direction: column; /* Apila imagen e info */
-        text-align: center;
+        flex-direction: column;
+        margin: 0 10px;
     }
 
     .infoBox img {
         width: 100%;
-        height: 250px;
+        height: 200px; /* Altura controlada */
     }
+
+    .infoText {
+        padding: 15px;
+        font-size: 0.9rem; /* Texto ligeramente más pequeño */
+    }
+
+    /* 5. Ajuste de encabezado */
+    .header {
+        margin-top: 100px;
+        padding: 0 10px;
+    }
+    .header h1 { font-size: 1.4rem; }
 }
 
 /* Ajuste general para mejor fluidez */

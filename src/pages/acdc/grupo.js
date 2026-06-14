@@ -66,7 +66,7 @@ const AcdcGrupo = () => {
         <div className={styles.page}>
             <nav className={styles.nav}>
                 <Link to="/" className={styles.link}>INICIO</Link>
-                <Link to="/acdc" className={styles.link}>ACDC</Link>
+                <Link to="/acdc" className={styles.link}>AC/DC</Link>
                 <Link to="/acdc/historia" className={styles.link}>HISTORIA</Link>
                 <Link to="/acdc/albunes" className={styles.link}>ÁLBUMES</Link>
                 <Link to="/acdc/grupo" className={`${styles.link} ${styles.active}`}>GRUPO</Link>
