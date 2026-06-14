@@ -236,41 +236,104 @@
 
 /* ================= RESPONSIVE DESIGN ================= */
 
-/* Tablets (pantallas menores a 992px) */
-@media (max-width: 992px) {
-    .logo { font-size: 4rem; }
-    .cardsGrid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1024px) {
+  .page {
+    background-attachment: scroll;
+  }
+  .logo {
+    font-size: 4.5rem;
+  }
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 20px;
+  }
 }
-
-/* Móviles (pantallas menores a 600px) */
-@media (max-width: 600px) {
-    .nav { 
-        gap: 10px; 
-        font-size: 0.8rem;
-        padding: 10px 5px;
-    }
-
-    .hero { margin-top: 100px; }
-    .logo { font-size: 2.5rem; }
-    
-    .slider { width: 95%; }
-    
-    .cardsGrid { 
-        grid-template-columns: 1fr; /* Una sola columna en móvil */
-        margin: 40px 20px;
-    }
-    
-    .hoverCard { height: 200px; }
-    
-    .officialButton {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-}
-
-/* Ajuste adicional: Evitar problemas en móviles con el fondo fijo */
+ 
 @media (max-width: 768px) {
-    .page {
-        background-attachment: scroll; /* Mejora el rendimiento en móviles */
-    }
+  .nav {
+    gap: 8px;
+    padding: 12px 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .link {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+  .hero {
+    margin-top: 90px;
+    padding: 0 15px;
+  }
+  .logo {
+    font-size: 3.2rem;
+    letter-spacing: 2px;
+  }
+  .tagline {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+  }
+  .year {
+    font-size: 0.75rem;
+  }
+  .sliderSection {
+    margin-top: 30px;
+  }
+  .slider {
+    width: 95%;
+  }
+  .info {
+    padding: 0 20px;
+    margin: 40px auto;
+  }
+  .info h2 {
+    font-size: 1.1rem;
+  }
+  .info p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 40px auto;
+  }
+  .hoverCard {
+    height: 220px;
+  }
+  .officialSection {
+    margin: 50px auto 30px;
+    padding: 0 20px;
+  }
+  .officialButton {
+    padding: 12px 24px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .logo {
+    font-size: 2.4rem;
+  }
+  .nav {
+    gap: 6px;
+    padding: 10px 5px;
+  }
+  .link {
+    font-size: 0.68rem;
+    padding: 4px 6px;
+  }
+  .hoverCard {
+    height: 180px;
+  }
+}
+ 
+@media (max-width: 360px) {
+  .logo {
+    font-size: 2rem;
+  }
+  .link {
+    font-size: 0.62rem;
+  }
 }

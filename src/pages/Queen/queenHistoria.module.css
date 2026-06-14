@@ -226,7 +226,7 @@
 .cardIconLarge { font-size: 2.3rem; color: #ffd700; display: block; text-shadow: 0 0 15px #ffd700; }
 
 /* ==========================================================================
-   FOOTER Y RESPONSIVE
+   FOOTER 
    ========================================================================== */
 .footer { background: linear-gradient(to right, #000, #0d0900, #000); padding: 20px 0; border-top: 3px solid #d4af37; margin-top: 40px; position: relative; z-index: 1; width: 100%; }
 .footerContent { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 0 20px; }
@@ -235,8 +235,102 @@
 .icon { font-size: 1.5rem; transition: all 0.3s ease; }
 .icon:hover { transform: scale(1.3); }
 
-@media (max-width: 1100px) {
-    .cardsContainer { height: auto; display: flex; flex-direction: column; align-items: center; }
-    .card { position: relative !important; top: auto !important; left: auto !important; right: auto !important; width: 100% !important; max-width: 550px; margin-bottom: 25px; }
-    .mainTitle { font-size: 3.5rem; }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+   @media (max-width: 1200px) {
+  .cardsContainer {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 580px;
+    margin-bottom: 22px;
+  }
+}
+ 
+@media (max-width: 768px) {
+  .queenPage {
+    background-attachment: scroll;
+  }
+  .queenNav {
+    padding: 10px 0;
+  }
+  .navContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+  .navDivider {
+    display: none;
+  }
+  .navItem {
+    font-size: 0.8rem;
+    padding: 7px 8px;
+    margin: 0 2px;
+  }
+  .mainContentContainer {
+    margin-top: 65px;
+  }
+  .mainLogoContainer {
+    padding: 28px 15px 8px;
+  }
+  .mainTitle {
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+  }
+  .tagline {
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+  }
+  .cardsMosaicSection {
+    padding: 20px 14px 40px;
+  }
+  .card {
+    max-width: 96% !important;
+    padding: 18px 16px !important;
+    border-radius: 14px !important;
+  }
+  .cardGlass,
+  .cardGoldDark,
+  .cardDark {
+    border-radius: 14px;
+  }
+  .cardTitle {
+    font-size: 1.2rem;
+  }
+  .cardText {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .cardIcon {
+    text-align: center;
+  }
+  .cardIconLarge {
+    font-size: 2rem;
+  }
+  .footerContent {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+  .navItem {
+    font-size: 0.72rem;
+  }
 }

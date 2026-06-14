@@ -367,62 +367,99 @@
    OPTIMIZACIÓN RESPONSIVA PARA IRON MAIDEN GRUPO
    ========================================================================== */
 
-/* Ajustes para tabletas grandes y pantallas menores a 1100px */
-@media (max-width: 1100px) {
-    .membersGrid { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 20px;
-    }
-}
 
-/* Ajustes para móviles (768px hacia abajo) */
+   @media (max-width: 1100px) {
+  .membersGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+ 
 @media (max-width: 768px) {
-    .maidenPage { padding-top: 150px; } /* Más espacio para el nav en columna */
-    
-    /* Centrar logo y tagline */
-    .logo { font-size: 2.5rem; }
-    .tagline { font-size: 1rem; letter-spacing: 2px; }
-
-    /* Layout en una sola columna para tarjetas */
-    .membersGrid { 
-        grid-template-columns: 1fr; 
-        padding: 0 10px;
-    }
-    
-    .memberCard { 
-        max-width: 350px; 
-        margin: 0 auto; 
-        width: 100%;
-    }
-
-    /* Lista de miembros anteriores */
-    .pastMembersList { padding: 10px 15px; }
-    .pastMemberItem { 
-        flex-direction: column; 
-        align-items: flex-start; 
-        gap: 5px; 
-        padding: 12px 0;
-    }
-    .pastMemberRole { font-size: 0.8rem; }
+  .maidenPage {
+    background-attachment: scroll;
+    padding-top: 145px;
+  }
+  .navContainer {
+    flex-direction: column;
+    padding: 8px;
+    gap: 6px;
+  }
+  .navLinks {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .navItem {
+    font-size: 0.76rem;
+    padding: 5px 8px;
+  }
+  .navLogo {
+    font-size: 1.3rem;
+    padding-left: 0;
+  }
+  .logo {
+    font-size: 2.8rem;
+    letter-spacing: 3px;
+  }
+  .tagline {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+  .content {
+    padding: 15px;
+  }
+  .membersGrid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+    gap: 18px;
+  }
+  .memberCard {
+    max-width: 100%;
+    padding: 18px;
+  }
+  .imgWrapper {
+    width: 120px;
+    height: 145px;
+  }
+  .memberName {
+    font-size: 1.1rem;
+  }
+  .roleBadge {
+    font-size: 0.8rem;
+  }
+  .pastMembersList {
+    padding: 10px 14px;
+  }
+  .pastMemberItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 10px 0;
+  }
+  .pastMemberName {
+    font-size: 0.92rem;
+  }
+  .pastMemberRole {
+    font-size: 0.78rem;
+  }
+  .footerContent {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 0 15px;
+  }
 }
-
-/* Ajustes para pantallas muy pequeñas */
+ 
 @media (max-width: 480px) {
-    .navLogo { font-size: 1.2rem; }
-    .titleOutline { font-size: 2.2rem; }
-    .titleMain { font-size: 1.2rem; }
-}
-
-/* Mejora para dispositivos táctiles (evita comportamientos de hover persistentes) */
-@media (hover: none) {
-    .memberCard:hover {
-        transform: none;
-        border-color: #233554;
-        box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
-    }
-    .memberCard:hover .memberName { color: #ffffff; }
-    .memberCard:hover .roleBadge { 
-        background: rgba(0, 0, 0, 0.3); 
-        border-color: rgba(255, 204, 0, 0.2); 
-    }
+  .logo {
+    font-size: 2.2rem;
+  }
+  .titleMain {
+    font-size: 1.1rem;
+  }
+  .titleOutline {
+    font-size: 2rem;
+  }
 }

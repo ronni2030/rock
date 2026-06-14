@@ -191,83 +191,268 @@
 
 /* ================= RESPONSIVE DESIGN ================= */
 
-/* Tablets (pantallas menores a 1024px) */
+/* ============================================================
+   AC/DC ÁLBUMES — RESPONSIVE V2
+   Solo reemplaza los @media en: src/pages/acdc/albunes.module.css
+   ============================================================ */
+
+/* ── TABLET GRANDE (1024px) ──
+   Mantiene el grid original pero más compacto.
+   Video en el centro, vinilos en los laterales igual que desktop.
+*/
 @media (max-width: 1024px) {
-    .stage {
-        grid-template-columns: repeat(4, 1fr); /* 4 columnas para tablets */
-        grid-template-rows: auto;
-        gap: 20px;
-    }
-    .videoBox {
-        grid-column: 1 / -1; /* Ocupa todo el ancho */
-        grid-row: auto;
-        height: 400px;
-        margin: 20px 0;
-    }
+  .container {
+    background-attachment: scroll;
+  }
+
+  .stage {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 150px);
+    gap: 18px;
+    padding: 15px;
+    max-width: 100%;
+    margin: 40px auto;
+  }
+
+  .vinyl {
+    width: 110px;
+  }
+
+  .vinylDisc {
+    width: 110px;
+    height: 110px;
+  }
+
+  .albumName {
+    font-size: 0.65rem;
+  }
+
+  /* Video ocupa el mismo centro 2-5 col / 2-4 row */
+  .videoBox {
+    grid-column: 2 / 6;
+    grid-row: 2 / 5;
+    height: 100%;
+  }
+
+  .header {
+    margin-top: 100px;
+  }
 }
 
-/* Móviles (pantallas menores a 600px) */
-@media (max-width: 600px) {
-    /* 1. Navegación más compacta */
-    .nav { 
-        flex-wrap: wrap; /* Permite que los enlaces bajen si no caben */
-        padding: 10px;
-        gap: 10px 15px; 
-    }
-    
-    /* 2. Grid de vinilos: Ajuste crítico */
-    .stage {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas fijas */
-        gap: 15px 10px; 
-        padding: 10px;
-        margin: 20px auto;
-    }
-
-    .vinyl {
-        width: 100%; /* Ajusta al ancho de la celda del grid */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .vinylDisc {
-        width: 100px; /* Tamaño más cómodo para pantallas pequeñas */
-        height: 100px;
-    }
-
-    /* 3. Video responsivo real */
-    .videoBox {
-        grid-column: 1 / -1; 
-        height: 220px;
-        margin: 10px 0;
-        border-width: 1px; /* Borde más fino para que no se coma el espacio */
-    }
-
-    /* 4. Info panel: Mejora de legibilidad */
-    .infoBox {
-        flex-direction: column;
-        margin: 0 10px;
-    }
-
-    .infoBox img {
-        width: 100%;
-        height: 200px; /* Altura controlada */
-    }
-
-    .infoText {
-        padding: 15px;
-        font-size: 0.9rem; /* Texto ligeramente más pequeño */
-    }
-
-    /* 5. Ajuste de encabezado */
-    .header {
-        margin-top: 100px;
-        padding: 0 10px;
-    }
-    .header h1 { font-size: 1.4rem; }
-}
-
-/* Ajuste general para mejor fluidez */
+/* ── TABLET CHICO (768px) ──
+   3 vinilos arriba | video en medio | 3 vinilos abajo
+   Los demás vinilos forman 2 columnas laterales de 3 cada lado.
+   Efecto: vinilos enmarcan el video.
+*/
 @media (max-width: 768px) {
-    .container { background-attachment: scroll; }
+  .container {
+    background-attachment: scroll;
+  }
+
+  .header {
+    margin-top: 88px;
+    padding: 15px;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+  }
+
+  .nowPlaying {
+    font-size: 0.78rem;
+  }
+
+  /* Grid: 5 columnas — col1 y col5 son los vinilos laterales,
+     col 2-4 es el video en el centro */
+  .stage {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr 1fr 100px;
+    grid-template-rows: repeat(6, auto);
+    gap: 10px;
+    padding: 12px;
+    max-width: 100%;
+    margin: 30px auto;
+    justify-items: center;
+    align-items: center;
+  }
+
+  /* Video: columnas 2-4, filas 2-5 */
+  .videoBox {
+    grid-column: 2 / 5;
+    grid-row: 2 / 6;
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    border-width: 1px;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.7);
+  }
+
+  /* Distribución manual de vinilos:
+     Columna izquierda (col 1): vinilos 1,2,3,4,5,6
+     Columna derecha  (col 5): vinilos 7,8,9,10,11,12
+     Fila 1 (arriba del video): vinilos 13,14,15,16
+     Fila 6 (abajo del video): vinilos 17,18
+  */
+  .vinyl:nth-child(1)  { grid-column: 1; grid-row: 2; }
+  .vinyl:nth-child(2)  { grid-column: 1; grid-row: 3; }
+  .vinyl:nth-child(3)  { grid-column: 1; grid-row: 4; }
+  .vinyl:nth-child(4)  { grid-column: 1; grid-row: 5; }
+  .vinyl:nth-child(5)  { grid-column: 5; grid-row: 2; }
+  .vinyl:nth-child(6)  { grid-column: 5; grid-row: 3; }
+  .vinyl:nth-child(7)  { grid-column: 5; grid-row: 4; }
+  .vinyl:nth-child(8)  { grid-column: 5; grid-row: 5; }
+  .vinyl:nth-child(9)  { grid-column: 2; grid-row: 1; }
+  .vinyl:nth-child(10) { grid-column: 3; grid-row: 1; }
+  .vinyl:nth-child(11) { grid-column: 4; grid-row: 1; }
+  .vinyl:nth-child(12) { grid-column: 1; grid-row: 1; }
+  .vinyl:nth-child(13) { grid-column: 5; grid-row: 1; }
+  .vinyl:nth-child(14) { grid-column: 2; grid-row: 6; }
+  .vinyl:nth-child(15) { grid-column: 3; grid-row: 6; }
+  .vinyl:nth-child(16) { grid-column: 4; grid-row: 6; }
+  .vinyl:nth-child(17) { grid-column: 1; grid-row: 6; }
+  .vinyl:nth-child(18) { grid-column: 5; grid-row: 6; }
+
+  .vinyl {
+    width: 82px;
+  }
+
+  .vinylDisc {
+    width: 82px;
+    height: 82px;
+  }
+
+  .albumName {
+    font-size: 0.55rem;
+    margin-top: 5px;
+  }
+
+  .infoPanel {
+    margin: 30px 12px 70px;
+    padding: 0;
+  }
+
+  .infoBox {
+    flex-direction: column;
+  }
+
+  .infoBox img {
+    width: 100%;
+    height: 180px;
+  }
+
+  .infoText {
+    padding: 15px;
+    font-size: 0.88rem;
+  }
+
+  .infoText h2 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+}
+
+/* ── MÓVIL (480px) ──
+   Video arriba a pantalla completa.
+   Vinilos en grid 3 columnas debajo — compacto pero visible.
+*/
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+  }
+
+  .stage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    padding: 10px;
+    margin: 20px auto;
+  }
+
+  /* Video arriba, ocupa las 3 columnas */
+  .videoBox {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    height: 210px;
+    min-height: unset;
+    order: -1;
+    margin-bottom: 6px;
+  }
+
+  /* Reset posicionamiento manual del breakpoint anterior */
+  .vinyl:nth-child(n) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .vinyl {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vinylDisc {
+    width: 80px;
+    height: 80px;
+  }
+
+  .albumName {
+    font-size: 0.58rem;
+    margin-top: 5px;
+    text-align: center;
+  }
+
+  .infoBox {
+    flex-direction: column;
+    margin: 0 10px;
+  }
+
+  .infoBox img {
+    width: 100%;
+    height: 160px;
+  }
+
+  .infoText {
+    padding: 14px;
+    font-size: 0.85rem;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    padding: 10px 8px;
+    gap: 8px 12px;
+  }
+
+  .link {
+    font-size: 0.7rem;
+  }
+}
+
+/* ── MÓVIL PEQUEÑO (360px) ── */
+@media (max-width: 360px) {
+  .stage {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .vinylDisc {
+    width: 68px;
+    height: 68px;
+  }
+
+  .videoBox {
+    height: 180px;
+  }
+
+  .albumName {
+    font-size: 0.52rem;
+  }
+
+  .header h1 {
+    font-size: 1.2rem;
+  }
 }

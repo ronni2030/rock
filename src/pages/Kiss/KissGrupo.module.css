@@ -272,18 +272,110 @@
 /* ============================
    RESPONSIVE
 ============================ */
-@media (max-width: 1400px) {
-    .originalGrid { grid-template-columns: repeat(2, 1fr); }
-}
 
-@media (max-width: 1000px) {
-    .warriorsGrid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1200px) {
+  .originalGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .originalCard {
+    height: 600px;
+  }
 }
-
+ 
+@media (max-width: 900px) {
+  .warriorsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+ 
 @media (max-width: 768px) {
-    .navContainer { gap: 15px; flex-wrap: wrap; }
-    .originalGrid, .warriorsGrid { grid-template-columns: 1fr; }
-    .originalCard { height: 600px; }
-    .hero { min-height: 60vh; }
-    .cardContent h3 { font-size: 2rem; }
+  .kissNav {
+    position: sticky;
+  }
+  .navContainer {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 14px 10px;
+    justify-content: center;
+  }
+  .navItem {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    padding: 0 8px;
+  }
+  .hero {
+    min-height: 55vh;
+    padding-top: 0;
+  }
+  .hero h1 {
+    font-size: 5rem;
+    letter-spacing: 8px;
+  }
+  .hero p {
+    font-size: 1rem;
+    letter-spacing: 4px;
+  }
+  .section {
+    padding: 60px 15px;
+  }
+  .bigTitle {
+    font-size: 2rem;
+    letter-spacing: 3px;
+  }
+  .sectionSubtitle {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+  }
+  .originalGrid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+  .originalCard {
+    height: 540px;
+  }
+  .originalCard p {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  .cardContent h3 {
+    font-size: 2rem;
+  }
+  .warriorsGrid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+  .warriorImage {
+    height: 280px;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 3.8rem;
+    letter-spacing: 5px;
+  }
+  .bigTitle {
+    font-size: 1.6rem;
+  }
+  .originalCard {
+    height: 460px;
+  }
+  .cardContent h3 {
+    font-size: 1.7rem;
+  }
+  .navItem {
+    font-size: 0.72rem;
+  }
+}
+ 
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
 }

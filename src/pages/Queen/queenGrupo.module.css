@@ -243,24 +243,95 @@
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
-@media (max-width: 1200px) {
-    .posterContainer {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-    .posterCard { height: 550px; }
-}
 
+   @media (max-width: 1200px) {
+  .posterContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .posterCard {
+    height: 540px;
+  }
+}
+ 
 @media (max-width: 768px) {
-    .logo { font-size: 3.5rem; }
-    .posterContainer {
-        grid-template-columns: 1fr;
-        padding: 0 20px;
-    }
-    .posterCard { height: 500px; }
-    .footerContent {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
+  .queenPage {
+    background-attachment: scroll;
+  }
+  .queenNav {
+    padding: 10px 0;
+  }
+  .navContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+  .navDivider {
+    display: none;
+  }
+  .navItem {
+    font-size: 0.8rem;
+    padding: 7px 8px;
+    margin: 0 2px;
+  }
+  .logoContainer {
+    margin: 90px 0 28px;
+  }
+  .logo {
+    font-size: 3.2rem;
+    letter-spacing: 3px;
+  }
+  .tagline {
+    font-size: 0.95rem;
+    letter-spacing: 3px;
+  }
+  .posterContainer {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto 40px;
+    padding: 0 15px;
+    gap: 20px;
+  }
+  .posterCard {
+    height: 500px;
+  }
+  .posterName {
+    font-size: 1.5rem;
+  }
+  .posterRole {
+    font-size: 0.92rem;
+  }
+  .posterBio {
+    font-size: 0.8rem;
+  }
+  .footerContent {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 0 15px;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .logo {
+    font-size: 2.5rem;
+  }
+  .posterCard {
+    height: 440px;
+  }
+  .posterInfo {
+    min-height: 190px;
+  }
+  .navItem {
+    font-size: 0.72rem;
+  }
+}
+ 
+@media (max-width: 360px) {
+  .logo {
+    font-size: 2rem;
+  }
+  .navItem {
+    font-size: 0.65px;
+  }
 }

@@ -219,66 +219,92 @@
 
 /* ================= RESPONSIVE DESIGN ================= */
 
-/* Tablets y pantallas medianas (hasta 992px) */
-@media (max-width: 992px) {
-    .concertTitle { font-size: 7rem; }
-    .concertTitle span { font-size: 3.5rem; }
-    .spotlight { display: none; } /* Ocultamos focos pesados en tablet/móvil para mejorar rendimiento */
+
+@media (max-width: 1024px) {
+  .concertTitle {
+    font-size: 7rem;
+  }
+  .concertTitle span {
+    font-size: 3.5rem;
+  }
+  .spotlight {
+    display: none;
+  }
 }
-
-/* Móviles (pantallas menores a 600px) */
-@media (max-width: 600px) {
-    .sabbathNav { padding: 10px 0; }
-    
-    .navContainer {
-        gap: 5px;
-        flex-direction: column; /* Apila el menú en vertical si es necesario */
-    }
-
-    .navDivider { display: none; } /* Quitamos divisores en móvil para ganar espacio */
-
-    .navItem { 
-        font-size: 0.9rem; 
-        padding: 5px; 
-    }
-
-    .heroContent {
-        padding: 0 15px;
-        margin-top: 50px;
-    }
-
-    .concertTitle { 
-        font-size: 3.5rem; 
-        letter-spacing: 4px;
-        line-height: 1;
-    }
-
-    .concertTitle span { 
-        font-size: 1.8rem; 
-        letter-spacing: 6px; 
-    }
-
-    .concertSubtitle { 
-        font-size: 0.9rem; 
-        letter-spacing: 3px; 
-        margin-top: 15px;
-    }
-
-    /* Ajuste del Footer */
-    .footerContent {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-}
-
-/* Ajustes de rendimiento para móviles */
+ 
 @media (max-width: 768px) {
-    .sabbathPage {
-        background-attachment: scroll; /* Vital para que no dé tirones en iOS/Android */
-    }
-    
-    .particles {
-        display: none; /* Opcional: Desactivar partículas en móvil mejora mucho la batería y fluidez */
-    }
+  .sabbathPage {
+    background-attachment: scroll;
+  }
+  .sabbathNav {
+    padding: 10px 0;
+  }
+  .navContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+  .navDivider {
+    display: none;
+  }
+  .navItem {
+    font-size: 0.8rem;
+    padding: 7px 10px;
+  }
+  .concertHero {
+    padding-top: 80px;
+  }
+  .heroContent {
+    padding: 0 20px;
+  }
+  .concertTitle {
+    font-size: 4.5rem;
+    letter-spacing: 4px;
+    line-height: 1;
+  }
+  .concertTitle span {
+    font-size: 2.2rem;
+    letter-spacing: 10px;
+  }
+  .concertSubtitle {
+    font-size: 0.85rem;
+    letter-spacing: 5px;
+    margin-top: 18px;
+  }
+  .particles {
+    display: none;
+  }
+  .footerContent {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .concertTitle {
+    font-size: 3.2rem;
+    letter-spacing: 3px;
+  }
+  .concertTitle span {
+    font-size: 1.6rem;
+    letter-spacing: 6px;
+  }
+  .concertSubtitle {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+  }
+  .navItem {
+    font-size: 0.7rem;
+    padding: 6px 8px;
+  }
+}
+ 
+@media (max-width: 360px) {
+  .concertTitle {
+    font-size: 2.6rem;
+  }
+  .navItem {
+    font-size: 0.62rem;
+  }
 }

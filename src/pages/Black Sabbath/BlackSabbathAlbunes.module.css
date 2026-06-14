@@ -293,66 +293,132 @@
 
 /* ================= RESPONSIVE DESIGN ================= */
 
-/* Tablets (pantallas menores a 992px) */
+
+@media (max-width: 1200px) {
+  .tombStone3d {
+    width: 240px;
+    height: 360px;
+    margin-left: -120px;
+    margin-top: -180px;
+  }
+  .carousel3d {
+    transform: scale(0.88);
+  }
+}
+ 
 @media (max-width: 992px) {
-    .carousel3d {
-        width: 600px;
-        transform: scale(0.8);
-    }
-    
-    .tombStone3d {
-        width: 220px;
-        height: 330px;
-        margin-left: -110px;
-        margin-top: -165px;
-    }
+  .rockTitle {
+    font-size: 5.5rem;
+  }
+  .tombStone3d {
+    width: 200px;
+    height: 300px;
+    margin-left: -100px;
+    margin-top: -150px;
+  }
+  .carousel3d {
+    transform: scale(0.75);
+  }
 }
-
-/* Móviles (pantallas menores a 600px) */
-@media (max-width: 600px) {
-    .rockHeader { padding-top: 90px; }
-    .rockTitle { font-size: 3rem; letter-spacing: 2px; }
-    .rockSubtitle { font-size: 1.2rem; }
-
-    /* Ajuste crítico para el carrusel */
-    .stage { height: 400px; }
-    
-    .carousel3d {
-        width: 150px;
-        transform: scale(0.6); /* Reducimos escala para que quepa en la pantalla */
-    }
-
-    .tombStone3d {
-        width: 180px;
-        height: 270px;
-        margin-left: -90px;
-        margin-top: -135px;
-    }
-
-    /* Ajuste de botones y modal */
-    .videoLaunchBtn { 
-        padding: 10px 20px; 
-        font-size: 0.85rem;
-        text-align: center;
-    }
-
-    .modalVideo {
-        height: 250px; /* Video más compacto en móvil */
-    }
-
-    .closeBtn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-        top: 10px;
-        right: 10px;
-    }
-}
-
-/* Mejora general de scroll para dispositivos táctiles */
+ 
 @media (max-width: 768px) {
-    .sabbathPage { background-attachment: scroll; }
-    
-    /* En móviles, ocultamos las partículas para evitar lag en el carrusel */
-    .particles { display: none; }
+  .sabbathPage {
+    background-attachment: scroll;
+  }
+  .sabbathNav {
+    padding: 10px 0;
+  }
+  .navContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+  .navDivider {
+    display: none;
+  }
+  .navItem {
+    font-size: 0.8rem;
+    padding: 7px 10px;
+  }
+  .rockHeader {
+    padding-top: 85px;
+  }
+  .rockTitle {
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+  }
+  .guitarRiff {
+    width: 200px;
+    height: 4px;
+  }
+  .rockSubtitle {
+    font-size: 1.3rem;
+  }
+  .stage {
+    height: 420px;
+    perspective: none;
+  }
+  .carousel3d {
+    transform: scale(0.65);
+  }
+  .tombStone3d {
+    width: 220px;
+    height: 330px;
+    margin-left: -110px;
+    margin-top: -165px;
+  }
+  .particles {
+    display: none;
+  }
+  .videoLaunchBtn {
+    padding: 12px 22px;
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  .modalVideo {
+    height: 260px;
+  }
+  .closeBtn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+    top: 12px;
+    right: 12px;
+  }
+  .videoBox h2 {
+    font-size: 1.4rem;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .rockTitle {
+    font-size: 2.6rem;
+  }
+  .stage {
+    height: 360px;
+  }
+  .carousel3d {
+    transform: scale(0.52);
+  }
+  .videoLaunchBtn {
+    padding: 10px 16px;
+    font-size: 0.76rem;
+  }
+  .modalVideo {
+    height: 200px;
+  }
+  .navItem {
+    font-size: 0.7rem;
+    padding: 6px 8px;
+  }
+}
+ 
+@media (max-width: 360px) {
+  .rockTitle {
+    font-size: 2rem;
+  }
+  .carousel3d {
+    transform: scale(0.44);
+  }
 }

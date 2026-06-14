@@ -259,14 +259,127 @@
 /* ================================= */
 /* RESPONSIVE */
 /* ================================= */
-@media(max-width: 1200px) {
-    .posterSection { grid-template-columns: 1fr; max-width: 700px; }
-    .posterCard { height: 550px; }
-}
 
-@media(max-width: 768px) {
-    .logo { font-size: 4rem; }
-    .logoSub { font-size: 1.5rem; }
-    .quoteText { font-size: 3rem; }
-    .posterCard { height: 450px; }
+@media (max-width: 1024px) {
+  .posterSection {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 90%;
+  }
+  .posterCard {
+    height: 520px;
+  }
+  .logo {
+    font-size: 6.5rem;
+  }
+  .logoSub {
+    font-size: 2.2rem;
+  }
+}
+ 
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 12px;
+    gap: 0;
+  }
+  .navItem {
+    font-size: 0.78rem;
+    padding: 8px 10px;
+  }
+  .navDivider {
+    font-size: 0.7rem;
+  }
+  .logoContainer {
+    padding-top: 100px;
+    margin-bottom: 40px;
+  }
+  .logo {
+    font-size: 4.5rem;
+    letter-spacing: 4px;
+  }
+  .logoSub {
+    font-size: 1.6rem;
+    letter-spacing: 8px;
+  }
+  .posterSection {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    gap: 20px;
+  }
+  .posterCard {
+    height: 480px;
+  }
+  .posterOverlay {
+    transform: translateY(0);
+    background: linear-gradient(transparent 30%, rgba(0,0,0,0.95));
+  }
+  .posterOverlay h3 {
+    font-size: 1.4rem;
+  }
+  .posterOverlay p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .quoteText {
+    font-size: 2.8rem;
+    letter-spacing: 5px;
+  }
+  .infoSection {
+    padding: 28px 20px;
+    margin: 20px 15px;
+    border-radius: 16px;
+  }
+  .infoText {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  .officialLink {
+    margin: 50px 0;
+    padding: 0 20px;
+  }
+  .ampButton {
+    padding: 15px 30px;
+    font-size: 0.9rem;
+    border-radius: 40px;
+  }
+  .bat1, .bat2, .bat3,
+  .cross1, .cross2 {
+    display: none;
+  }
+  .footerContent {
+    padding: 20px;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .logo {
+    font-size: 3.2rem;
+    letter-spacing: 3px;
+  }
+  .logoSub {
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+  }
+  .navItem {
+    font-size: 0.7rem;
+    padding: 6px 8px;
+  }
+  .posterCard {
+    height: 400px;
+  }
+  .quoteText {
+    font-size: 2rem;
+  }
+}
+ 
+@media (max-width: 360px) {
+  .logo {
+    font-size: 2.4rem;
+  }
+  .navItem {
+    font-size: 0.62rem;
+    padding: 5px 6px;
+  }
 }

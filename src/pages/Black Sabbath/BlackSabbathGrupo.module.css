@@ -215,47 +215,100 @@
    DISEÑO RESPONSIVO AVANZADO
    ========================================================================== */
 
-/* Tablets y pantallas medianas */
-@media (max-width: 992px) {
-    .logo { font-size: 4.5rem; letter-spacing: 6px; }
-    .content { padding: 15px; }
-    .membersGrid { gap: 20px; }
-}
 
-/* Teléfonos y pantallas pequeñas */
+   @media (max-width: 992px) {
+  .logo {
+    font-size: 4rem;
+    letter-spacing: 6px;
+  }
+  .membersGrid {
+    gap: 20px;
+  }
+}
+ 
 @media (max-width: 768px) {
-    .sabbathPage { padding-top: 100px; }
-    
-    /* Ajuste de navegación para no desbordar */
-    .navItem { font-size: 0.9rem; padding: 8px 5px; }
-    .navDivider { display: none; } /* Ocultamos divisores en móvil para ganar espacio */
-    .navContainer { gap: 5px; }
-
-    /* Logo más compacto */
-    .logo { font-size: 3rem; letter-spacing: 4px; line-height: 1.2; }
-    .tagline { font-size: 0.9rem; letter-spacing: 2px; padding: 0 10px; }
-
-    /* Secciones */
-    .rockSection { margin-bottom: 40px; }
-    .titleMain { font-size: 1.4rem; }
-    
-    /* Cards más pequeñas en móvil */
-    .memberCard { padding: 12px; }
-    .imgWrapper { height: 220px; }
-    
-    /* Efectos de luz: Ocultar o reducir para evitar estorbo visual */
-    .spotlight { display: none; } 
-    .particles { display: none; }
+  .sabbathPage {
+    background-attachment: scroll;
+    padding-top: 100px;
+  }
+  .sabbathNav {
+    padding: 10px 0;
+  }
+  .navContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+  .navDivider {
+    display: none;
+  }
+  .navItem {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+  .logo {
+    font-size: 2.8rem;
+    letter-spacing: 4px;
+    line-height: 1.2;
+  }
+  .tagline {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    padding: 0 15px;
+  }
+  .rockSection {
+    margin-bottom: 45px;
+  }
+  .titleMain {
+    font-size: 1.3rem;
+  }
+  .titleOutline {
+    font-size: 0.9rem;
+    letter-spacing: 5px;
+  }
+  .membersGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .memberCard {
+    padding: 14px;
+  }
+  .imgWrapper {
+    height: 200px;
+  }
+  .memberName {
+    font-size: 1.1rem;
+  }
+  .memberRole {
+    font-size: 0.88rem;
+  }
+  .spotlight {
+    display: none;
+  }
+  .particles {
+    display: none;
+  }
+  .footerContent {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
 }
-
-/* Ajustes para móviles muy estrechos (iPhone SE, etc.) */
-@media (max-width: 380px) {
-    .logo { font-size: 2.2rem; }
-    .footerContent { font-size: 0.8rem; }
-}
-
-/* Mejora para dispositivos táctiles */
-@media (hover: none) {
-    .memberCard:hover { transform: none; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7); }
-    .memberCard:hover .memberImg { transform: none; }
+ 
+@media (max-width: 480px) {
+  .logo {
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+  }
+  .membersGrid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .imgWrapper {
+    height: 240px;
+  }
+  .navItem {
+    font-size: 0.7rem;
+  }
 }

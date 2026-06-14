@@ -150,52 +150,109 @@ p { margin: 5px 0; font-size: 1rem; color: #555; font-style: italic; }
 /* ================================= */
 /* RESPONSIVE */
 /* ================================= */
-@media (max-width: 900px) {
-    /* 1. Resetear el contenedor del libro */
-    .book {
-        width: 90% !important;
-        height: auto !important;
-        flex-direction: column !important;
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        overflow: visible !important;
-    }
 
-    /* 2. ELIMINAR LA LÍNEA CENTRAL QUE ESTÁ ROMPIENDO TODO */
-    .bookBindingCenter {
-        display: none !important;
-    }
 
-    /* 3. Ajustar el wrapper */
-    .bookWrapper {
-        flex-direction: column;
-        height: auto;
-        padding-top: 120px;
-        gap: 10px;
-    }
-
-    /* 4. Estilizar las páginas como tarjetas individuales */
-    .pageLeft, .pageRight {
-        width: 100% !important;
-        background: rgba(0, 0, 0, 0.7);
-        border: 1px solid #4a2c2a;
-        margin-bottom: 10px;
-        padding: 15px !important;
-        border-radius: 12px;
-        color: white !important; /* Texto blanco sobre fondo oscuro */
-    }
-
-    /* 5. Asegurar que las imágenes no se deformen */
-    .pageLeft img, .pageRight img {
-        width: 100px !important;
-        height: 100px !important;
-        margin-bottom: 10px;
-    }
-
-    /* 6. Ajuste de botones (moverlos arriba o abajo si estorban) */
-    .navBtn {
-        padding: 10px 15px;
-        font-size: 1rem;
-    }
+@media (max-width: 1024px) {
+  .book {
+    width: 700px;
+    height: 440px;
+  }
+  .pageLeft img,
+  .pageRight img {
+    width: 170px;
+    height: 170px;
+  }
+}
+ 
+@media (max-width: 768px) {
+  .page {
+    background-attachment: scroll;
+  }
+  .navContainer {
+    padding: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .navItem {
+    font-size: 0.78rem;
+    padding: 8px 10px;
+  }
+  .bookWrapper {
+    flex-direction: column;
+    height: auto;
+    padding-top: 110px;
+    padding-bottom: 50px;
+    gap: 14px;
+    align-items: center;
+  }
+  .book {
+    width: 92%;
+    max-width: 420px;
+    height: auto;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+    gap: 12px;
+  }
+  .bookBindingCenter {
+    display: none;
+  }
+  .pageLeft,
+  .pageRight {
+    flex: none;
+    width: 100%;
+    padding: 22px 20px;
+    background: rgba(0,0,0,0.75);
+    border: 1px solid #5a3532;
+    border-radius: 14px;
+    color: white !important;
+  }
+  .pageLeft img,
+  .pageRight img {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 12px;
+  }
+  h3 {
+    color: #f5d5a0 !important;
+    font-size: 1.2rem;
+  }
+  p {
+    color: #ccc !important;
+  }
+  .years {
+    color: #cd7f32 !important;
+  }
+  .navBtn {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bookWrapper .navBtn:first-child {
+    order: 1;
+  }
+  .book {
+    order: 2;
+  }
+  .bookWrapper .navBtn:last-child {
+    order: 3;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .pageLeft img,
+  .pageRight img {
+    width: 100px;
+    height: 100px;
+  }
+  h3 {
+    font-size: 1rem !important;
+  }
 }

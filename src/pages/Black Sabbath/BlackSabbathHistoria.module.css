@@ -260,68 +260,96 @@
    OPTIMIZACIÓN RESPONSIVA (Sustituir el media query anterior)
    ========================================================================== */
 
-@media (max-width: 1150px) {
-    .mandalaWrapper { 
-        padding-top: 130px; 
-        min-height: auto;
-    }
 
-    /* Convertimos el contenedor en un flujo normal */
-    .mandalaContainer { 
-        width: 100%; 
-        height: auto; 
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
-        gap: 30px; 
-        position: relative;
-    }
-
-    /* El núcleo central se queda arriba como icono */
-    .coreHub { 
-        position: relative; 
-        width: 200px; 
-        height: 200px; 
-        margin: 20px 0;
-    }
-
-    /* Las tarjetas pasan a ser bloques normales de texto */
-    .rockSection { 
-        position: relative; 
-        width: 90%; 
-        max-width: 600px; 
-        top: auto; 
-        left: auto; 
-        right: auto; 
-        bottom: auto;
-    }
-
-    /* Ocultamos elementos puramente decorativos del mandala en móvil */
-    .connectorRing, 
-    .rockSection::before,
-    .titleOutline { 
-        display: none !important; 
-    }
+   @media (max-width: 1150px) {
+  .mandalaWrapper {
+    padding-top: 120px;
+    min-height: auto;
+  }
+  .mandalaContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+  .coreHub {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 10px 0;
+  }
+  .rockSection {
+    position: relative;
+    width: 90%;
+    max-width: 580px;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+  }
+  .connectorRing,
+  .rockSection::before,
+  .titleOutline {
+    display: none !important;
+  }
 }
-
-@media (max-width: 600px) {
-    .sabbathPage { padding-top: 80px; }
-    
-    .navItem { 
-        font-size: 0.8rem; 
-        padding: 5px; 
-    }
-    
-    .titleMain { font-size: 1.2rem; }
-    
-    .rockSection { 
-        width: 95%; 
-        padding: 20px; 
-    }
-
-    .footerContent { 
-        flex-direction: column; 
-        gap: 15px; 
-        text-align: center; 
-    }
+ 
+@media (max-width: 768px) {
+  .sabbathNav {
+    padding: 10px 0;
+  }
+  .navContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+  .navDivider {
+    display: none;
+  }
+  .navItem {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+  .mandalaWrapper {
+    padding-top: 105px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 60px;
+  }
+  .rockSection {
+    width: 96%;
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+  .titleMain {
+    font-size: 1.3rem;
+  }
+  .year {
+    font-size: 0.78rem;
+    padding: 3px 8px;
+  }
+  .rockText {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+  .footerContent {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .coreHub {
+    width: 140px;
+    height: 140px;
+  }
+  .titleMain {
+    font-size: 1.1rem;
+  }
+  .navItem {
+    font-size: 0.7rem;
+  }
 }

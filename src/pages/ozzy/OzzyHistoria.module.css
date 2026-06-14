@@ -163,8 +163,64 @@
 /* ================================= */
 /* RESPONSIVE */
 /* ================================= */
+
+@media (max-width: 1024px) {
+  .sceneTitle {
+    font-size: 2.4rem;
+    padding: 0 30px;
+  }
+  .sceneText {
+    padding: 0 30px;
+  }
+}
+ 
 @media (max-width: 768px) {
-    .sceneTitle { font-size: 2rem; padding: 0 20px; }
-    .sceneText { padding: 0 20px; }
-    .navbar { flex-wrap: wrap; }
+  .navbar {
+    padding: 12px 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+  .navLink {
+    font-size: 0.78rem;
+    padding: 8px 10px;
+  }
+  .separator {
+    font-size: 0.7rem;
+  }
+  .sceneTitle {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    padding: 0 20px;
+    margin-top: 15px;
+  }
+  .sceneNumber {
+    font-size: 0.78rem;
+    letter-spacing: 4px;
+    margin-top: 80px;
+  }
+  .sceneText {
+    padding: 0 20px;
+    margin-top: 12px;
+  }
+  .sceneText p {
+    font-size: 0.88rem;
+    margin: 5px 0;
+    line-height: 1.6;
+  }
+  .newsFlash {
+    font-size: 0.65rem;
+    max-width: 180px;
+    padding: 8px 10px;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .navLink {
+    font-size: 0.7rem;
+    padding: 6px 8px;
+  }
+  .sceneTitle {
+    font-size: 1.3rem;
+  }
 }

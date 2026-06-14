@@ -216,36 +216,92 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 1024px) {
-    .rockLayoutGrid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .rockSideColumn {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .rockCenterColumn {
-        position: relative;
-        top: 0;
-        order: -1;
-    }
-    .rockTitle {
-        font-size: 4rem;
-    }
-}
 
+@media (max-width: 1200px) {
+  .rockLayoutGrid {
+    grid-template-columns: 220px 1fr 220px;
+    gap: 15px;
+  }
+  .rockStarCard {
+    width: 180px;
+    height: 180px;
+  }
+}
+ 
+@media (max-width: 900px) {
+  .rockContainer {
+    background-attachment: scroll;
+  }
+  .rockTitle {
+    font-size: 4.5rem;
+    letter-spacing: 6px;
+  }
+  .rockLayoutGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .rockCenterColumn {
+    position: relative;
+    top: 0;
+    order: -1;
+  }
+  .rockSideColumn {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .rockStarCard {
+    width: 160px;
+    height: 160px;
+  }
+}
+ 
+@media (max-width: 768px) {
+  .rockNav {
+    padding: 14px 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .rockNavItem {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    padding: 0 8px;
+  }
+  .rockHeader {
+    margin-top: 90px;
+    margin-bottom: 25px;
+  }
+  .rockTitle {
+    font-size: 3.2rem;
+    letter-spacing: 4px;
+  }
+  .guitarRiff {
+    width: 180px;
+  }
+  .rockSubtitle {
+    font-size: 1.4rem;
+  }
+  .rockStarCard {
+    width: 140px;
+    height: 140px;
+  }
+}
+ 
 @media (max-width: 480px) {
-    .rockNavItem {
-        font-size: 0.75rem;
-        letter-spacing: 1px;
-    }
-    .rockTitle {
-        font-size: 2.5rem;
-    }
-    .rockStarCard {
-        width: 160px;
-        height: 160px;
-    }
+  .rockTitle {
+    font-size: 2.4rem;
+  }
+  .rockNavItem {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    padding: 0 6px;
+  }
+  .rockStarCard {
+    width: 120px;
+    height: 120px;
+  }
+  .rockContent {
+    padding: 15px;
+  }
 }

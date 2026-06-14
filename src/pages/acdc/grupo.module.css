@@ -181,50 +181,83 @@
 
 /* ================= RESPONSIVE DESIGN ================= */
 
-/* Tablets y pantallas medianas (hasta 992px) */
-@media (max-width: 992px) {
-    .modalContent {
-        width: 90%;
-        gap: 15px;
-    }
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .poster {
+    width: 100%;
+    height: 320px;
+  }
 }
-
-/* Móviles (pantallas menores a 600px) */
-@media (max-width: 600px) {
-    .nav { gap: 10px; font-size: 0.7rem; padding: 10px; }
-    
-    .header h1 { font-size: 1.5rem; }
-
-    .grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
-    }
-
-    .poster {
-        width: 100%; /* Ajuste al contenedor */
-        height: 250px;
-    }
-
-    /* Ajuste del Modal para móviles */
-    .modalContent {
-        flex-direction: column; /* Apila imagen y texto */
-        width: 95%;
-        height: auto;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-
-    .modalContent img {
-        width: 100%;
-        height: 250px;
-    }
-
-    .modalContent div {
-        padding: 15px;
-    }
-}
-
-/* Mejora general de rendimiento en móviles */
+ 
 @media (max-width: 768px) {
-    .page { background-attachment: scroll; }
+  .page {
+    background-attachment: scroll;
+  }
+  .nav {
+    gap: 6px;
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .link {
+    font-size: 0.72rem;
+  }
+  .header {
+    margin-top: 85px;
+    padding: 15px;
+  }
+  .header h1 {
+    font-size: 1.3rem;
+  }
+  .section {
+    margin: 40px auto;
+    padding: 0 15px;
+  }
+  .sectionTitle {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .poster {
+    height: 260px;
+  }
+  .overlay h3 {
+    font-size: 0.95rem;
+  }
+  .overlay p,
+  .overlay span {
+    font-size: 0.78rem;
+  }
+  .modalContent {
+    flex-direction: column;
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .modalContent img {
+    width: 100%;
+    height: 220px;
+  }
+  .modalContent div {
+    padding: 15px;
+  }
+  .footer {
+    font-size: 0.7rem;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  .poster {
+    height: 300px;
+  }
 }

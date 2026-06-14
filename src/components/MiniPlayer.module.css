@@ -88,3 +88,221 @@
 .playBtn:active {
   transform: translateY(0) scale(0.98);
 }
+
+/* ============================================================
+   HOME & MINIPLAYER — RESPONSIVE COMPLETO
+   ============================================================ */
+
+/* ─── Home.module.css ─── */
+@media (max-width: 1200px) {
+  .heroContent h1 {
+    font-size: 5.5rem;
+  }
+  .cardSection {
+    gap: 12px;
+  }
+  .card {
+    width: 140px;
+    height: 168px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    padding: 20px 30px;
+    height: auto;
+    min-height: 100vh;
+    gap: 30px;
+    text-align: center;
+    align-items: center;
+  }
+  .heroOverlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.88), rgba(0,0,0,0.6));
+  }
+  .heroContent {
+    max-width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .heroContent h1 {
+    font-size: 4.5rem;
+    line-height: 1.05;
+  }
+  .subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+  }
+  .heroContent p {
+    max-width: 460px;
+    font-size: 0.95rem;
+  }
+  .player {
+    max-width: 240px;
+  }
+  .cardSection {
+    justify-self: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding-bottom: 50px;
+  }
+  .card {
+    width: 148px;
+    height: 175px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 20px;
+    gap: 24px;
+  }
+  .heroContent h1 {
+    font-size: 3.5rem;
+  }
+  .heroContent p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .subtitle {
+    font-size: 0.78rem;
+    letter-spacing: 3px;
+  }
+  .player {
+    margin-top: 18px;
+  }
+  .controls button {
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+  .nowPlaying {
+    font-size: 0.7rem;
+  }
+  .cardSection {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding-bottom: 40px;
+    max-width: 340px;
+  }
+  .card {
+    width: 100%;
+    height: 160px;
+  }
+  .card__img {
+    height: 115px;
+  }
+  .card__footer {
+    font-size: 0.6rem;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent {
+    margin-top: 40px;
+  }
+  .heroContent h1 {
+    font-size: 2.6rem;
+    line-height: 1;
+  }
+  .heroContent p {
+    font-size: 0.82rem;
+  }
+  .cardSection {
+    max-width: 300px;
+    gap: 10px;
+  }
+  .card {
+    height: 145px;
+  }
+  .card__img {
+    height: 100px;
+  }
+  .card__footer {
+    font-size: 0.56rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .heroContent h1 {
+    font-size: 2.1rem;
+  }
+  .cardSection {
+    max-width: 260px;
+    gap: 8px;
+  }
+  .card {
+    height: 130px;
+  }
+}
+
+/* ─── MiniPlayer.module.css ─── */
+@media (max-width: 768px) {
+  .player {
+    bottom: 14px;
+    left: 12px;
+    padding: 8px 14px;
+    gap: 10px;
+    max-width: calc(100vw - 24px);
+    border-radius: 40px;
+  }
+  .trackTitle {
+    font-size: 0.72rem;
+    max-width: 130px;
+  }
+  .controls {
+    gap: 8px;
+  }
+  .sideBtn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.88rem;
+  }
+  .playBtn {
+    width: 37px;
+    height: 37px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .player {
+    bottom: 10px;
+    left: 10px;
+    padding: 7px 12px;
+    gap: 8px;
+    max-width: calc(100vw - 20px);
+  }
+  .trackTitle {
+    font-size: 0.66rem;
+    max-width: 100px;
+  }
+  .sideBtn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.82rem;
+  }
+  .playBtn {
+    width: 33px;
+    height: 33px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .trackTitle {
+    max-width: 80px;
+    font-size: 0.62rem;
+  }
+  .sideBtn {
+    width: 26px;
+    height: 26px;
+  }
+  .playBtn {
+    width: 30px;
+    height: 30px;
+  }
+}

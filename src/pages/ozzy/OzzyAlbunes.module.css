@@ -225,52 +225,99 @@
 /* ================================= */
 /* RESPONSIVE */
 /* ================================= */
-@media(max-width: 768px) {
-    /* 1. Ajustes de cabecera */
-    .rockHeader { padding-top: 80px; }
-    .rockTitle { font-size: 3rem !important; letter-spacing: 2px; }
-    .logoSub { font-size: 1.2rem; letter-spacing: 3px; }
 
-    /* 2. Video más pequeño y sin margen excesivo */
-    .rockVideoContainer {
-        width: 90% !important;
-        margin: 40px auto !important;
-        padding-bottom: 56.25%; /* Relación 16:9 estándar para móvil */
-    }
-
-    /* 3. La cueva ahora es una lista simple */
-    .batCave { 
-        height: auto !important; 
-        display: flex !important; 
-        flex-direction: column !important; 
-        align-items: center !important; 
-        margin-top: 20px !important; 
-        position: relative !important; /* Cambiado de static a relative */
-        padding: 0 20px 50px;
-    }
-
-    /* 4. Los álbumes ahora son tarjetas rectangulares normales */
-    .batAlbumContainer { 
-        position: relative !important; 
-        width: 100% !important; 
-        max-width: 400px;
-        margin-bottom: 15px !important; 
-        transform: none !important; 
-        animation: none !important; 
-        left: 0 !important;
-        top: 0 !important;
-    }
-
-    /* 5. Quitamos la máscara de murciélago para que la imagen se vea bien */
-    .batShape {
-        -webkit-mask-image: none !important;
-        mask-image: none !important;
-        padding-bottom: 30% !important; /* Menos altura para que no ocupen toda la pantalla */
-        border-radius: 10px;
-    }
-
-    .cross1, .cross2 { display: none; }
-    
-    /* 6. Ajuste de texto dentro de las tarjetas */
-    .mainTitle { font-size: 1.4rem !important; }
+@media (max-width: 1024px) {
+  .rockTitle {
+    font-size: 6rem;
+  }
+  .logoSub {
+    font-size: 1.8rem;
+    letter-spacing: 6px;
+  }
+  .rockVideoContainer {
+    width: 80%;
+    padding-bottom: 45%;
+  }
+  .batCave {
+    height: 650px;
+    margin-top: -450px;
+  }
+}
+ 
+@media (max-width: 768px) {
+  .rockNavContainer {
+    padding: 12px;
+    gap: 0;
+  }
+  .rockNavItem {
+    font-size: 0.78rem;
+    padding: 8px 10px;
+  }
+  .rockHeader {
+    padding-top: 90px;
+  }
+  .rockTitle {
+    font-size: 3.5rem;
+    letter-spacing: 4px;
+  }
+  .logoSub {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+  }
+  .rockVideoContainer {
+    width: 92%;
+    padding-bottom: 52%;
+    margin: 30px auto 0;
+    border-radius: 14px;
+  }
+  .batCave {
+    position: relative !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+    padding: 15px !important;
+    margin-top: 25px !important;
+  }
+  .batAlbumContainer {
+    position: relative !important;
+    width: 100% !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    animation: none !important;
+    margin: 0 !important;
+  }
+  .batShape {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    padding-bottom: 60% !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,0,0,0.3) !important;
+    box-shadow: 0 0 20px rgba(255,0,0,0.15) !important;
+  }
+  .mainTitle {
+    font-size: 1.15rem;
+  }
+  .subChapters {
+    font-size: 0.78rem;
+  }
+  .cross1, .cross2 {
+    display: none;
+  }
+}
+ 
+@media (max-width: 480px) {
+  .batCave {
+    grid-template-columns: 1fr !important;
+    max-width: 320px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .batShape {
+    padding-bottom: 55% !important;
+  }
+  .rockTitle {
+    font-size: 2.6rem;
+  }
 }
