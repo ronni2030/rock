@@ -43,7 +43,7 @@
     border-bottom: 1px solid #111;
 }
 
-/* MENÚ DE NAVEGACIÓN FIJO (Centrado con logo a la derecha, colores exactos cian) */
+/* HEADER Y MENÚ (Sincronizado con el diseño original) */
 .header {
     position: fixed;
     width: 100%;
@@ -56,65 +56,57 @@
     background: linear-gradient(to right, #020611, #08111f, #020611);
     padding: 15px 0;
     border-bottom: 3px solid #00ffff;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
 }
 
-.navContainer { 
-    max-width: 1300px;
+.navContainer {
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-}
-
-/* El navSpacer equilibra los extremos para garantizar un centrado perfecto de los links */
-.navSpacer {
-    width: 240px;
-    display: block;
+    display: flex;
+    justify-content: center; /* Centrado como en el original */
+    align-items: center;
+    gap: 30px;
 }
 
 .navLinks {
     display: flex;
     align-items: center;
-    gap: 5px;
-    justify-content: center;
+    gap: 10px;
 }
 
 .navItem {
     color: #cfd8dc;
     text-decoration: none;
-    font-size: 1.05rem;
-    padding: 10px 12px; 
+    font-size: 1.1rem;
+    padding: 10px 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
     font-weight: 700;
 }
 
-.navItem:hover { 
-    color: #00ffff; 
-    text-shadow: 0 0 10px #00ffff; 
+.navItem:hover, .maidenActive {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
 }
 
-.maidenActive { 
-    color: #00ffff; 
-    text-shadow: 0 0 15px #00ffff;
-    border-bottom: 2px solid #00ffff;
-}
-
+/* El navLogo ahora recupera el estilo del primer código */
 .navLogo {
     font-family: 'Permanent Marker', cursive;
     color: #e51313;
     font-size: 1.8rem;
     text-transform: uppercase;
     line-height: 1;
-    text-shadow: 2px 2px 0px #000, -1px -1px 0px #fff;
+    padding-left: 10px;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #fff;
     letter-spacing: -1px;
     white-space: nowrap;
-    width: 240px;
-    text-align: right;
 }
+
+/* Eliminamos el navSpacer si queremos replicar exactamente el layout centrado del primero */
+.navSpacer { display: none; }
+
 
 /* SECCIÓN DEL TÍTULO DE LA PÁGINA */
 .logoContainer {
@@ -371,17 +363,66 @@
     transform: scale(1.3);
 }
 
-/* RESPONSIVE DESIGN */
+/* ==========================================================================
+   OPTIMIZACIÓN RESPONSIVA PARA IRON MAIDEN GRUPO
+   ========================================================================== */
+
+/* Ajustes para tabletas grandes y pantallas menores a 1100px */
 @media (max-width: 1100px) {
-    .membersGrid { grid-template-columns: repeat(2, 1fr); }
-    .navSpacer { display: none; }
-    .navContainer { flex-direction: column; gap: 10px; padding: 10px; }
-    .navLogo { text-align: center; width: auto; }
+    .membersGrid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
 }
 
+/* Ajustes para móviles (768px hacia abajo) */
 @media (max-width: 768px) {
-    .membersGrid { grid-template-columns: 1fr; }
-    .navLinks { flex-wrap: wrap; justify-content: center; }
-    .footerContent { flex-direction: column; gap: 15px; text-align: center; }
-    .logo { font-size: 2.8rem; }
+    .maidenPage { padding-top: 150px; } /* Más espacio para el nav en columna */
+    
+    /* Centrar logo y tagline */
+    .logo { font-size: 2.5rem; }
+    .tagline { font-size: 1rem; letter-spacing: 2px; }
+
+    /* Layout en una sola columna para tarjetas */
+    .membersGrid { 
+        grid-template-columns: 1fr; 
+        padding: 0 10px;
+    }
+    
+    .memberCard { 
+        max-width: 350px; 
+        margin: 0 auto; 
+        width: 100%;
+    }
+
+    /* Lista de miembros anteriores */
+    .pastMembersList { padding: 10px 15px; }
+    .pastMemberItem { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 5px; 
+        padding: 12px 0;
+    }
+    .pastMemberRole { font-size: 0.8rem; }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .navLogo { font-size: 1.2rem; }
+    .titleOutline { font-size: 2.2rem; }
+    .titleMain { font-size: 1.2rem; }
+}
+
+/* Mejora para dispositivos táctiles (evita comportamientos de hover persistentes) */
+@media (hover: none) {
+    .memberCard:hover {
+        transform: none;
+        border-color: #233554;
+        box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+    }
+    .memberCard:hover .memberName { color: #ffffff; }
+    .memberCard:hover .roleBadge { 
+        background: rgba(0, 0, 0, 0.3); 
+        border-color: rgba(255, 204, 0, 0.2); 
+    }
 }

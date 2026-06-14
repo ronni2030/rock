@@ -212,19 +212,50 @@
 .icon:hover { transform: scale(1.35); }
 
 /* ==========================================================================
-   DISEÑO RESPONSIVO
+   DISEÑO RESPONSIVO AVANZADO
    ========================================================================== */
-@media (max-width: 768px) {
-    .logo { font-size: 4.2rem; }
-    .tagline { font-size: 1rem; letter-spacing: 3px; }
-    .titleMain { font-size: 1.6rem; }
-    .titleOutline { font-size: 0.95rem; }
-    .spotlight { width: 260px; }
+
+/* Tablets y pantallas medianas */
+@media (max-width: 992px) {
+    .logo { font-size: 4.5rem; letter-spacing: 6px; }
+    .content { padding: 15px; }
+    .membersGrid { gap: 20px; }
 }
 
-@media (max-width: 480px) {
-    .logo { font-size: 2.8rem; }
-    .navItem { font-size: .85rem; padding: 6px; }
-    .membersGrid { grid-template-columns: 1fr; }
-    .footerContent { flex-direction: column; gap: 15px; text-align: center; }
+/* Teléfonos y pantallas pequeñas */
+@media (max-width: 768px) {
+    .sabbathPage { padding-top: 100px; }
+    
+    /* Ajuste de navegación para no desbordar */
+    .navItem { font-size: 0.9rem; padding: 8px 5px; }
+    .navDivider { display: none; } /* Ocultamos divisores en móvil para ganar espacio */
+    .navContainer { gap: 5px; }
+
+    /* Logo más compacto */
+    .logo { font-size: 3rem; letter-spacing: 4px; line-height: 1.2; }
+    .tagline { font-size: 0.9rem; letter-spacing: 2px; padding: 0 10px; }
+
+    /* Secciones */
+    .rockSection { margin-bottom: 40px; }
+    .titleMain { font-size: 1.4rem; }
+    
+    /* Cards más pequeñas en móvil */
+    .memberCard { padding: 12px; }
+    .imgWrapper { height: 220px; }
+    
+    /* Efectos de luz: Ocultar o reducir para evitar estorbo visual */
+    .spotlight { display: none; } 
+    .particles { display: none; }
+}
+
+/* Ajustes para móviles muy estrechos (iPhone SE, etc.) */
+@media (max-width: 380px) {
+    .logo { font-size: 2.2rem; }
+    .footerContent { font-size: 0.8rem; }
+}
+
+/* Mejora para dispositivos táctiles */
+@media (hover: none) {
+    .memberCard:hover { transform: none; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7); }
+    .memberCard:hover .memberImg { transform: none; }
 }

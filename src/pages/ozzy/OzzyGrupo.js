@@ -35,13 +35,19 @@ const OzzyGrupo = () => {
     return (
         <div className={styles.page}>
             {/* NAVBAR */}
-            <nav className={styles.nav}>
-                <div className={styles.navContainer}>
-                    <Link to="/" className={styles.navItem}>INICIO</Link>
-                    <span className={styles.navDivider}>|</span>
-                    <Link to="/ozzy/grupo" className={styles.active}>GRUPO</Link>
-                </div>
-            </nav>
+            <nav className={styles.nav}> {/* Se mantiene 'nav' para tu CSS o puedes cambiar a 'rockNav' */}
+    <div className={styles.navContainer}> {/* Ajustado a 'navContainer' para coincidir con tu CSS */}
+        <Link to="/" className={styles.navItem}>INICIO</Link>
+        <span className={styles.navDivider}>|</span>
+        <Link to="/ozzy" className={styles.navItem}>OZZY</Link>
+        <span className={styles.navDivider}>|</span>
+        <Link to="/ozzy/historia" className={styles.navItem}>HISTORIA</Link>
+        <span className={styles.navDivider}>|</span>
+        <Link to="/ozzy/albunes" className={styles.navItem}>ÁLBUMES</Link>
+        <span className={styles.navDivider}>|</span>
+        <Link to="/ozzy/grupo" className={`${styles.navItem} ${styles.active}`}>GRUPO</Link>
+    </div>
+</nav>
 
             {/* LIBRO DE MIEMBROS */}
             <div className={styles.bookWrapper}>

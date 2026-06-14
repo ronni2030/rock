@@ -15,11 +15,12 @@
     position: relative;
 }
 
-/* NAVBAR */
+/* ============================
+   NAVBAR (Reset para coincidir exactamente con el original)
+============================ */
 .kissNav {
     position: sticky;
     top: 0;
-    width: 100%;
     z-index: 100;
     backdrop-filter: blur(12px);
     background: rgba(0, 0, 0, 0.55);
@@ -32,17 +33,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 0;
     padding: 20px;
 }
 
 .navItem {
+    /* Forzamos la fuente del sistema estándar para eliminar la apariencia de Arial Black */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #ddd;
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 700; /* Grosor exacto del original */
     letter-spacing: 3px;
+    padding: 0 12px;
     transition: 0.3s;
+    /* Eliminamos posibles bordes o sombras extras */
+    text-shadow: none;
+    -webkit-text-stroke: 0; 
 }
 
 .navItem:hover {
@@ -50,9 +57,10 @@
     text-shadow: 0 0 10px white;
 }
 
-.kissActive {
+/* Estado Activo */
+.navItem.active, .kissActive {
     color: white;
-    text-shadow: 0 0 12px crimson;
+    text-shadow: 0 0 10px crimson, 0 0 20px crimson;
 }
 
 /* CONTENIDO */

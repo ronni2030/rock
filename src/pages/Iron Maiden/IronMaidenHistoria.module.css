@@ -41,7 +41,7 @@
     border-bottom: 1px solid #111;
 }
 
-/* MENÚ DE NAVEGACIÓN FIJO */
+/* HEADER Y MENÚ (Sincronizado con el diseño original) */
 .header {
     position: fixed;
     width: 100%;
@@ -54,57 +54,60 @@
     background: linear-gradient(to right, #020611, #08111f, #020611);
     padding: 15px 0;
     border-bottom: 3px solid #00ffff;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
 }
 
 .navContainer {
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centrado absoluto */
     align-items: center;
-    gap: 35px;
+    gap: 30px;
 }
 
 .navLinks {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .navItem {
     color: #cfd8dc;
     text-decoration: none;
-    font-size: 1.05rem;
-    padding: 10px 12px;
+    font-size: 1.1rem;
+    padding: 10px 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
     font-weight: 700;
 }
 
-.navItem:hover {
+.navItem:hover, .maidenActive {
     color: #00ffff;
     text-shadow: 0 0 10px #00ffff;
 }
 
-.maidenActive {
-    color: #00ffff;
-    text-shadow: 0 0 15px #00ffff;
-    border-bottom: 2px solid #00ffff;
-}
-
+/* Logo alineado con el resto del sitio */
 .navLogo {
     font-family: 'Permanent Marker', cursive;
     color: #e51313;
     font-size: 1.8rem;
     text-transform: uppercase;
     line-height: 1;
-    padding-left: 15px;
-    text-shadow: 2px 2px 0px #000, -1px -1px 0px #fff;
+    padding-left: 10px;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #fff;
     letter-spacing: -1px;
     white-space: nowrap;
+}
+
+/* RESPONSIVE AJUSTADO */
+@media (max-width: 900px) {
+    .navContainer { flex-direction: column; padding: 10px; gap: 10px; }
+    .navLinks { justify-content: center; flex-wrap: wrap; }
+    .navItem { font-size: 1rem; padding: 5px 10px; }
+    .navLogo { padding-left: 0; font-size: 1.6rem; }
 }
 
 /* SECCIÓN DEL TÍTULO DE LA PÁGINA */

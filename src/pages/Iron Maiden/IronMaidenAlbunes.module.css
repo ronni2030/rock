@@ -31,8 +31,13 @@
     z-index: 0;
 }
 
-/* HEADER Y NAV */
-.header { position: fixed; width: 100%; top: 0; z-index: 1000; }
+/* HEADER Y MENÚ (Sincronizado con el diseño original) */
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
 
 .maidenNav {
     background: linear-gradient(to right, #020611, #08111f, #020611);
@@ -51,7 +56,11 @@
     gap: 30px;
 }
 
-.navLinks { display: flex; align-items: center; gap: 10px; }
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 .navItem {
     color: #cfd8dc;
@@ -74,11 +83,13 @@
     color: #e51313;
     font-size: 1.8rem;
     text-transform: uppercase;
+    line-height: 1; /* Asegura el alineado vertical */
     padding-left: 10px;
     text-shadow: 2px 2px 0 #000, -1px -1px 0 #fff;
     letter-spacing: -1px;
     white-space: nowrap;
 }
+
 
 /* CONTENIDO PRINCIPAL Y GALERÍA */
 .mainContent { position: relative; z-index: 1; }
@@ -170,25 +181,61 @@
 ::-webkit-scrollbar-track { background: #020611; }
 ::-webkit-scrollbar-thumb { background: #00ffff; border-radius: 10px; }
 
-/* RESPONSIVE */
+/* ==========================================================================
+   RESPONSIVE DESIGN AVANZADO PARA ÁLBUMES
+   ========================================================================== */
+
+/* Tabletas (Pantallas medianas) */
 @media (max-width: 1024px) {
-    .galleryWrapper { grid-template-columns: repeat(3, 1fr); }
-    .centerVideo { grid-column: 1 / 4; grid-row: auto; min-height: 350px; }
+    .galleryWrapper { 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px;
+        padding: 30px;
+    }
+    .centerVideo { 
+        grid-column: 1 / 4; 
+        grid-row: auto; 
+        min-height: 400px; 
+    }
 }
 
+/* Pantallas pequeñas (Móviles) */
 @media (max-width: 768px) {
-    .navContainer { flex-direction: column; gap: 12px; padding: 10px; }
-    .navLinks { justify-content: center; flex-wrap: wrap; }
-    .navItem { font-size: 1rem; padding: 6px 10px; }
-    .navLogo { padding-left: 0; font-size: 1.6rem; }
-    .galleryWrapper { grid-template-columns: repeat(2, 1fr); padding: 20px; }
-    .centerVideo { grid-column: 1 / 3; min-height: 260px; }
-    .vinylWrapper { width: 140px; height: 140px; }
+    .maidenPage { padding-top: 130px; } /* Ajuste por el header más alto en móvil */
+    
+    .navContainer { flex-direction: column; gap: 8px; }
+    
+    .galleryWrapper { 
+        grid-template-columns: repeat(2, 1fr); 
+        padding: 15px; 
+        gap: 15px;
+    }
+    
+    .centerVideo { 
+        grid-column: 1 / 3; 
+        min-height: 250px; 
+        margin-bottom: 20px;
+    }
+    
+    .vinylWrapper { width: 140px; height: 140px; justify-self: center; }
     .vinylDisc { width: 130px; height: 130px; }
+    
+    /* RESET DE POSICIONAMIENTO MANUAL PARA MÓVIL */
+    .vinylWrapper:nth-child(n) { 
+        grid-column: auto; 
+        grid-row: auto; 
+    }
 }
 
+/* Teléfonos muy pequeños */
 @media (max-width: 480px) {
     .galleryWrapper { grid-template-columns: 1fr; }
-    .centerVideo { grid-column: 1; min-height: 220px; }
-    .vinylWrapper { margin: auto; }
+    .centerVideo { grid-column: 1; }
+    .vinylWrapper { width: 160px; height: 160px; }
+}
+
+/* Mejora de usabilidad táctil */
+@media (hover: none) {
+    .vinylWrapper:hover { transform: none; }
+    .vinylWrapper:hover .vinylDisc { right: -25px; }
 }

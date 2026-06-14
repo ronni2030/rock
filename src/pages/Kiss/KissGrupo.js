@@ -35,14 +35,29 @@ const KissGrupo = () => {
     return (
         <div className={styles.kissPage} style={{ '--bg-image': `url(${portada})` }}>
             <nav className={styles.kissNav}>
-                <div className={styles.navContainer}>
-                    <Link to="/" className={styles.navItem}>INICIO</Link>
-                    <Link to="/kiss" className={styles.navItem}>KISS</Link>
-                    <Link to="/kiss/historia" className={`${styles.navItem} ${styles.active}`}>HISTORIA</Link>
-                    <Link to="/kiss/albunes" className={styles.navItem}>ÁLBUMES</Link>
-                    <Link to="/kiss/grupo" className={styles.navItem}>GRUPO</Link>
-                </div>
-            </nav>
+    <div className={styles.navContainer}>
+        <Link to="/" className={styles.navItem}>INICIO</Link>
+
+        <Link to="/kiss" className={styles.navItem}>
+            KISS
+        </Link>
+
+        <Link to="/kiss/historia" className={styles.navItem}>
+            HISTORIA
+        </Link>
+
+        <Link to="/kiss/albunes" className={styles.navItem}>
+            ÁLBUMES
+        </Link>
+
+        <Link
+            to="/kiss/grupo"
+            className={`${styles.navItem} ${styles.kissActive}`}
+        >
+            GRUPO
+        </Link>
+    </div>
+</nav>
 
             <header className={styles.hero}>
                 <h1>GRUPO</h1>

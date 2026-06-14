@@ -47,7 +47,7 @@
 }
 
 /* ========================= */
-/* NAVBAR */
+/* NAVBAR (Sincronizado) */
 /* ========================= */
 .kissNav {
     position: sticky;
@@ -64,7 +64,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 0;           /* Eliminamos el gap para usar padding individual */
     padding: 20px;
     flex-wrap: wrap;
 }
@@ -75,6 +75,7 @@
     font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: 3px;
+    padding: 0 12px;  /* Espaciado lateral exacto del original */
     transition: 0.3s;
 }
 
@@ -83,7 +84,8 @@
     text-shadow: 0 0 10px white;
 }
 
-.active {
+/* Estado activo para consistencia total */
+.active, .navItem.active, .kissActive {
     color: white;
     text-shadow: 0 0 10px crimson, 0 0 20px crimson;
 }

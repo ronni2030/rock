@@ -291,11 +291,68 @@
 .footer { padding: 25px; border-top: 2px solid #7b2cbf; text-align: center; background: #000; margin-top: 50px; position: relative; z-index: 4; }
 .copyright { color: #aaa; font-size: 1rem; }
 
-/* RESPONSIVE */
-@media(max-width: 900px) {
-    .stage { height: 550px; }
-    .carousel3d { width: 200px; height: 300px; }
-    .tombStone3d { width: 200px; height: 300px; }
-    .modalVideo { height: 350px; }
-    .rockTitle { font-size: 4rem; }
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* Tablets (pantallas menores a 992px) */
+@media (max-width: 992px) {
+    .carousel3d {
+        width: 600px;
+        transform: scale(0.8);
+    }
+    
+    .tombStone3d {
+        width: 220px;
+        height: 330px;
+        margin-left: -110px;
+        margin-top: -165px;
+    }
+}
+
+/* Móviles (pantallas menores a 600px) */
+@media (max-width: 600px) {
+    .rockHeader { padding-top: 90px; }
+    .rockTitle { font-size: 3rem; letter-spacing: 2px; }
+    .rockSubtitle { font-size: 1.2rem; }
+
+    /* Ajuste crítico para el carrusel */
+    .stage { height: 400px; }
+    
+    .carousel3d {
+        width: 150px;
+        transform: scale(0.6); /* Reducimos escala para que quepa en la pantalla */
+    }
+
+    .tombStone3d {
+        width: 180px;
+        height: 270px;
+        margin-left: -90px;
+        margin-top: -135px;
+    }
+
+    /* Ajuste de botones y modal */
+    .videoLaunchBtn { 
+        padding: 10px 20px; 
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    .modalVideo {
+        height: 250px; /* Video más compacto en móvil */
+    }
+
+    .closeBtn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* Mejora general de scroll para dispositivos táctiles */
+@media (max-width: 768px) {
+    .sabbathPage { background-attachment: scroll; }
+    
+    /* En móviles, ocultamos las partículas para evitar lag en el carrusel */
+    .particles { display: none; }
 }

@@ -57,6 +57,9 @@
 
 .active {
     color: #ff0000;
+    text-decoration: none !important; /* Fuerza la eliminación de subrayado */
+    border-bottom: none !important;   /* Fuerza la eliminación de cualquier borde inferior */
+    outline: none;                    /* Elimina posibles resaltados de foco */
 }
 
 /* ================= HEADER ================= */
@@ -174,4 +177,53 @@
     }
 
     .node { left: 20px; }
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* Tablets (pantallas menores a 992px) */
+@media (max-width: 992px) {
+    .timeline { width: 90%; }
+    .content, .timelineImage { width: 45%; }
+}
+
+/* Móviles (pantallas menores a 600px) */
+@media (max-width: 600px) {
+    .nav { gap: 10px; font-size: 0.75rem; }
+    
+    /* La línea central se mueve a la izquierda */
+    .timeline::before { left: 20px; }
+    
+    .itemLeft,
+    .itemRight {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 30px; /* Espacio para que el nodo no choque con el texto */
+        margin: 40px 0;
+    }
+
+    .content, 
+    .timelineImage { 
+        width: 100%; 
+    }
+
+    .timelineImage { 
+        height: 200px; /* Reducimos altura en móvil para que no sea tan largo */
+        margin-top: 10px; 
+    }
+
+    .node { 
+        left: 20px; 
+        width: 14px; 
+        height: 14px; 
+    }
+}
+
+/* Ajuste general para evitar errores en móviles */
+@media (max-width: 768px) {
+    .page { background-attachment: scroll; }
+}
+@media (max-width: 600px) {
+    .content h3 { font-size: 1rem; }
+    .content p { font-size: 0.9rem; }
 }

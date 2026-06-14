@@ -217,15 +217,68 @@
 @keyframes lightTwo { from { transform: rotate(0deg); } to { transform: rotate(15deg); } }
 @keyframes lightThree { from { transform: rotate(25deg); } to { transform: rotate(8deg); } }
 
-/* ================= RESPONSIVE ================= */
-@media(max-width: 768px) {
-    .concertTitle { font-size: 5rem; }
-    .concertTitle span { font-size: 2.5rem; }
-    .concertSubtitle { font-size: 1rem; letter-spacing: 3px; }
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* Tablets y pantallas medianas (hasta 992px) */
+@media (max-width: 992px) {
+    .concertTitle { font-size: 7rem; }
+    .concertTitle span { font-size: 3.5rem; }
+    .spotlight { display: none; } /* Ocultamos focos pesados en tablet/móvil para mejorar rendimiento */
 }
 
-@media(max-width: 480px) {
-    .concertTitle { font-size: 3.5rem; }
-    .concertTitle span { font-size: 1.8rem; }
-    .navItem { font-size: .9rem; padding: 8px; }
+/* Móviles (pantallas menores a 600px) */
+@media (max-width: 600px) {
+    .sabbathNav { padding: 10px 0; }
+    
+    .navContainer {
+        gap: 5px;
+        flex-direction: column; /* Apila el menú en vertical si es necesario */
+    }
+
+    .navDivider { display: none; } /* Quitamos divisores en móvil para ganar espacio */
+
+    .navItem { 
+        font-size: 0.9rem; 
+        padding: 5px; 
+    }
+
+    .heroContent {
+        padding: 0 15px;
+        margin-top: 50px;
+    }
+
+    .concertTitle { 
+        font-size: 3.5rem; 
+        letter-spacing: 4px;
+        line-height: 1;
+    }
+
+    .concertTitle span { 
+        font-size: 1.8rem; 
+        letter-spacing: 6px; 
+    }
+
+    .concertSubtitle { 
+        font-size: 0.9rem; 
+        letter-spacing: 3px; 
+        margin-top: 15px;
+    }
+
+    /* Ajuste del Footer */
+    .footerContent {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* Ajustes de rendimiento para móviles */
+@media (max-width: 768px) {
+    .sabbathPage {
+        background-attachment: scroll; /* Vital para que no dé tirones en iOS/Android */
+    }
+    
+    .particles {
+        display: none; /* Opcional: Desactivar partículas en móvil mejora mucho la batería y fluidez */
+    }
 }

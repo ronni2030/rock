@@ -233,3 +233,44 @@
     border-top: 1px solid #222;
     color: #666;
 }
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* Tablets (pantallas menores a 992px) */
+@media (max-width: 992px) {
+    .logo { font-size: 4rem; }
+    .cardsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Móviles (pantallas menores a 600px) */
+@media (max-width: 600px) {
+    .nav { 
+        gap: 10px; 
+        font-size: 0.8rem;
+        padding: 10px 5px;
+    }
+
+    .hero { margin-top: 100px; }
+    .logo { font-size: 2.5rem; }
+    
+    .slider { width: 95%; }
+    
+    .cardsGrid { 
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        margin: 40px 20px;
+    }
+    
+    .hoverCard { height: 200px; }
+    
+    .officialButton {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajuste adicional: Evitar problemas en móviles con el fondo fijo */
+@media (max-width: 768px) {
+    .page {
+        background-attachment: scroll; /* Mejora el rendimiento en móviles */
+    }
+}

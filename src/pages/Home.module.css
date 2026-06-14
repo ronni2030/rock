@@ -172,3 +172,52 @@ body {
 .card:hover .card__img {
   transform: scale(1.1);
 }
+
+/* ================= RESPONSIVE ================= */
+
+/* Para pantallas medianas (Tablets) */
+@media (max-width: 1024px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    height: auto;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .heroContent {
+    max-width: 100%;
+    margin-top: 60px;
+  }
+
+  .heroContent h1 {
+    font-size: 4.5rem;
+  }
+
+  .player {
+    margin: 25px auto;
+  }
+
+  .cardSection {
+    justify-self: center;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablet */
+    padding-bottom: 40px;
+  }
+}
+
+/* Para pantallas pequeñas (Móviles / iPhone) */
+@media (max-width: 600px) {
+  .heroContent h1 {
+    font-size: 3rem;
+  }
+
+  .cardSection {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+    gap: 10px;
+  }
+
+  .card {
+    width: 130px; /* Un poco más pequeño para móviles */
+    height: 160px;
+  }
+}

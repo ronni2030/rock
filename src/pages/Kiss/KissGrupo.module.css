@@ -64,7 +64,7 @@
     text-shadow: 0 0 10px white;
 }
 
-.kissActive {
+.navItem.active, .kissActive {
     color: white;
     text-shadow: 0 0 10px crimson, 0 0 20px crimson;
 }
