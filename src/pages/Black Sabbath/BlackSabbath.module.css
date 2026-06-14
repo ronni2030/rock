@@ -1,459 +1,231 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.sabbathPage{
-    font-family:'Cinzel', serif;
-    min-height:100vh;
-    overflow:hidden;
-    position:relative;
-    color:white;
-
-    background-image:
-        linear-gradient(
-            rgba(0,0,0,.55),
-            rgba(0,0,0,.85)
-        ),
-        var(--bg-image);
-
+/* ================= PAGE LAYOUT ================= */
+.sabbathPage {
+    font-family: 'Cinzel', serif;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita scroll lateral por las partículas */
+    position: relative;
+    color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .85)), var(--bg-image);
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-/* ========================= */
-/* OVERLAY */
-/* ========================= */
-
-.backgroundOverlay{
-    position:fixed;
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(123,44,191,.18),
-            transparent 70%
-        );
-
-    z-index:0;
-    pointer-events:none;
+/* ================= OVERLAYS & AMBIENTE ================= */
+.backgroundOverlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(123, 44, 191, .18), transparent 70%);
+    z-index: 0;
+    pointer-events: none;
 }
 
-/* ========================= */
-/* MENU */
-/* ========================= */
-
-.sabbathNav{
-    background:linear-gradient(
-        to right,
-        #000,
-        #0a000f,
-        #000
-    );
-
-    padding:15px 0;
-
-    position:fixed;
-    top:0;
-    width:100%;
-
-    z-index:1000;
-
-    border-bottom:3px solid #7b2cbf;
-
-    box-shadow:
-        0 0 20px rgba(123,44,191,.7);
+.fog {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, .06), transparent 70%);
+    filter: blur(30px);
+    animation: fogMove 15s infinite alternate;
+    z-index: 4;
 }
 
-.navContainer{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
+/* ================= NAV ================= */
+.sabbathNav {
+    background: linear-gradient(to right, #000, #0a000f, #000);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 3px solid #7b2cbf;
+    box-shadow: 0 0 20px rgba(123, 44, 191, .7);
 }
 
-.navItem{
-    color:#cfcfcf;
-    text-decoration:none;
-
-    font-size:1.2rem;
-
-    padding:10px 15px;
-
-    font-weight:700;
-
-    transition:.3s;
+.navContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.navItem:hover{
-    color:white;
-    text-shadow:0 0 15px #7b2cbf;
+.navItem {
+    color: #cfcfcf;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    font-weight: 700;
+    transition: .3s;
 }
 
-.navDivider{
-    color:#7b2cbf;
+.navItem:hover {
+    color: white;
+    text-shadow: 0 0 15px #7b2cbf;
 }
 
-.sabbathActive{
-    color:#cfaeff;
-    text-shadow:0 0 15px #7b2cbf;
+.navDivider { color: #7b2cbf; }
+
+.sabbathActive {
+    color: #cfaeff;
+    text-shadow: 0 0 15px #7b2cbf;
 }
 
-/* ========================= */
-/* HERO */
-/* ========================= */
-
-.concertHero{
-    height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    position:relative;
-
-    overflow:hidden;
+/* ================= HERO & CONCERT ================= */
+.concertHero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.heroContent{
-    position:relative;
-    z-index:20;
-
-    text-align:center;
+.heroContent {
+    position: relative;
+    z-index: 20;
+    text-align: center;
 }
 
-.concertTitle{
-    font-size:10rem;
-
-    line-height:.85;
-
-    color:white;
-
-    letter-spacing:8px;
-
-    text-shadow:
-        0 0 20px #7b2cbf,
-        0 0 50px #7b2cbf,
-        0 0 120px #5a189a;
-
-    animation:titleGlow 4s infinite alternate;
+.concertTitle {
+    font-size: 10rem;
+    line-height: .85;
+    letter-spacing: 8px;
+    text-shadow: 0 0 20px #7b2cbf, 0 0 50px #7b2cbf, 0 0 120px #5a189a;
+    animation: titleGlow 4s infinite alternate;
 }
 
-.concertTitle span{
-    display:block;
-
-    font-size:5rem;
-
-    color:#d7b3ff;
-
-    letter-spacing:16px;
+.concertTitle span {
+    display: block;
+    font-size: 5rem;
+    color: #d7b3ff;
+    letter-spacing: 16px;
 }
 
-.concertSubtitle{
-    margin-top:25px;
-
-    font-size:1.3rem;
-
-    letter-spacing:8px;
-
-    color:#dcbcff;
-
-    text-shadow:
-        0 0 20px rgba(123,44,191,.8);
+.concertSubtitle {
+    margin-top: 25px;
+    font-size: 1.3rem;
+    letter-spacing: 8px;
+    color: #dcbcff;
+    text-shadow: 0 0 20px rgba(123, 44, 191, .8);
 }
 
-/* ========================= */
-/* LUCES */
-/* ========================= */
-
-.spotlight{
-    position:absolute;
-
-    top:-300px;
-
-    width:350px;
-    height:1400px;
-
-    filter:blur(40px);
-
-    opacity:.45;
-
-    z-index:5;
+.stage {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(to top, rgba(0, 0, 0, .98), transparent);
+    z-index: 8;
 }
 
-.spotlight1{
-    left:10%;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(123,44,191,.8),
-            transparent
-        );
-
-    animation:lightOne 8s infinite alternate;
+/* ================= LUCES (SPOTLIGHTS) ================= */
+.spotlight {
+    position: absolute;
+    top: -300px;
+    width: 350px;
+    height: 1400px;
+    filter: blur(40px);
+    opacity: .45;
+    z-index: 5;
 }
 
-.spotlight2{
-    left:40%;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(150,80,255,.8),
-            transparent
-        );
-
-    animation:lightTwo 10s infinite alternate;
+.spotlight1 {
+    left: 10%;
+    background: linear-gradient(to bottom, rgba(123, 44, 191, .8), transparent);
+    animation: lightOne 8s infinite alternate;
 }
 
-.spotlight3{
-    right:10%;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(123,44,191,.8),
-            transparent
-        );
-
-    animation:lightThree 9s infinite alternate;
+.spotlight2 {
+    left: 40%;
+    background: linear-gradient(to bottom, rgba(150, 80, 255, .8), transparent);
+    animation: lightTwo 10s infinite alternate;
 }
 
-@keyframes lightOne{
-    from{
-        transform:rotate(-25deg);
-    }
-    to{
-        transform:rotate(-8deg);
-    }
+.spotlight3 {
+    right: 10%;
+    background: linear-gradient(to bottom, rgba(123, 44, 191, .8), transparent);
+    animation: lightThree 9s infinite alternate;
 }
 
-@keyframes lightTwo{
-    from{
-        transform:rotate(0deg);
-    }
-    to{
-        transform:rotate(15deg);
-    }
+/* ================= PARTICULAS ================= */
+.particles {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
 }
 
-@keyframes lightThree{
-    from{
-        transform:rotate(25deg);
-    }
-    to{
-        transform:rotate(8deg);
-    }
+.particle {
+    position: absolute;
+    bottom: -20px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #dcbcff;
+    box-shadow: 0 0 10px #dcbcff;
+    animation: particleFloat linear infinite;
 }
 
-/* ========================= */
-/* NIEBLA */
-/* ========================= */
-
-.fog{
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.06),
-            transparent 70%
-        );
-
-    filter:blur(30px);
-
-    animation:fogMove 15s infinite alternate;
-
-    z-index:4;
+/* ================= FOOTER ================= */
+.footer {
+    position: relative;
+    z-index: 50;
+    background: rgba(0, 0, 0, .85);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid #7b2cbf;
+    padding: 25px 0;
 }
 
-@keyframes fogMove{
-    from{
-        transform:translateX(-50px);
-    }
-
-    to{
-        transform:translateX(50px);
-    }
+.footerContent {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
-/* ========================= */
-/* PARTICULAS */
-/* ========================= */
+.copyright { color: #aaa; }
+.socialIcons { display: flex; gap: 15px; }
+.icon { font-size: 1.5rem; transition: .3s; cursor: pointer; }
+.icon:hover { transform: scale(1.3); }
 
-.particles{
-    position:absolute;
-    inset:0;
-
-    z-index:6;
+/* ================= ANIMATIONS ================= */
+@keyframes titleGlow {
+    from { text-shadow: 0 0 20px #7b2cbf, 0 0 50px #7b2cbf, 0 0 120px #5a189a; }
+    to { text-shadow: 0 0 30px #cfaeff, 0 0 80px #7b2cbf, 0 0 180px #7b2cbf; }
 }
 
-.particle{
-    position:absolute;
-
-    bottom:-20px;
-
-    width:4px;
-    height:4px;
-
-    border-radius:50%;
-
-    background:#dcbcff;
-
-    box-shadow:
-        0 0 10px #dcbcff;
-
-    animation:particleFloat linear infinite;
+@keyframes fogMove {
+    from { transform: translateX(-50px); }
+    to { transform: translateX(50px); }
 }
 
-@keyframes particleFloat{
-
-    from{
-        transform:translateY(0);
-        opacity:0;
-    }
-
-    30%{
-        opacity:1;
-    }
-
-    to{
-        transform:translateY(-120vh);
-        opacity:0;
-    }
+@keyframes particleFloat {
+    from { transform: translateY(0); opacity: 0; }
+    30% { opacity: 1; }
+    to { transform: translateY(-120vh); opacity: 0; }
 }
 
-/* ========================= */
-/* ESCENARIO */
-/* ========================= */
+@keyframes lightOne { from { transform: rotate(-25deg); } to { transform: rotate(-8deg); } }
+@keyframes lightTwo { from { transform: rotate(0deg); } to { transform: rotate(15deg); } }
+@keyframes lightThree { from { transform: rotate(25deg); } to { transform: rotate(8deg); } }
 
-.stage{
-    position:absolute;
-
-    bottom:0;
-
-    width:100%;
-    height:220px;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.98),
-            transparent
-        );
-
-    z-index:8;
+/* ================= RESPONSIVE ================= */
+@media(max-width: 768px) {
+    .concertTitle { font-size: 5rem; }
+    .concertTitle span { font-size: 2.5rem; }
+    .concertSubtitle { font-size: 1rem; letter-spacing: 3px; }
 }
 
-/* ========================= */
-/* TITULO GLOW */
-/* ========================= */
-
-@keyframes titleGlow{
-
-    from{
-        text-shadow:
-            0 0 20px #7b2cbf,
-            0 0 50px #7b2cbf,
-            0 0 120px #5a189a;
-    }
-
-    to{
-        text-shadow:
-            0 0 30px #cfaeff,
-            0 0 80px #7b2cbf,
-            0 0 180px #7b2cbf;
-    }
-}
-
-/* ========================= */
-/* FOOTER */
-/* ========================= */
-
-.footer{
-    position:relative;
-
-    z-index:50;
-
-    background:
-        rgba(0,0,0,.85);
-
-    backdrop-filter:blur(10px);
-
-    border-top:2px solid #7b2cbf;
-
-    padding:25px 0;
-}
-
-.footerContent{
-    max-width:1200px;
-
-    margin:auto;
-
-    display:flex;
-
-    justify-content:space-between;
-    align-items:center;
-
-    padding:0 20px;
-}
-
-.copyright{
-    color:#aaa;
-}
-
-.socialIcons{
-    display:flex;
-    gap:15px;
-}
-
-.icon{
-    font-size:1.5rem;
-    transition:.3s;
-}
-
-.icon:hover{
-    transform:scale(1.3);
-}
-
-/* ========================= */
-/* RESPONSIVE */
-/* ========================= */
-
-@media(max-width:768px){
-
-    .concertTitle{
-        font-size:5rem;
-    }
-
-    .concertTitle span{
-        font-size:2.5rem;
-    }
-
-    .concertSubtitle{
-        font-size:1rem;
-        letter-spacing:3px;
-    }
-}
-
-@media(max-width:480px){
-
-    .concertTitle{
-        font-size:3.5rem;
-    }
-
-    .concertTitle span{
-        font-size:1.8rem;
-    }
-
-    .navItem{
-        font-size:.9rem;
-        padding:8px;
-    }
+@media(max-width: 480px) {
+    .concertTitle { font-size: 3.5rem; }
+    .concertTitle span { font-size: 1.8rem; }
+    .navItem { font-size: .9rem; padding: 8px; }
 }

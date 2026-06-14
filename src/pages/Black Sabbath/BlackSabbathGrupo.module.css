@@ -5,21 +5,16 @@
     font-family: 'Cinzel', serif;
     min-height: 100vh;
     color: white;
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.75),
-        rgba(0, 0, 0, 0.95)
-    ), var(--bg-local-portada);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.95)), var(--bg-local-portada);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    /* CAMBIADO: 'fixed' causaba el lag, 'scroll' es ultra ligero */
     background-attachment: scroll; 
     padding-top: 130px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    /* quitamos overflow-x para evitar conflictos de scroll */
 }
 
 /* ==========================================================================
@@ -28,11 +23,7 @@
 .backgroundOverlay {
     position: fixed;
     inset: 0;
-    background: radial-gradient(
-        circle at center,
-        rgba(123, 44, 191, .15),
-        transparent 70%
-    );
+    background: radial-gradient(circle at center, rgba(123, 44, 191, .15), transparent 70%);
     z-index: 1;
     pointer-events: none;
 }
@@ -55,7 +46,6 @@
     height: 1400px;
     filter: blur(50px);
     opacity: 0.3;
-    /* Aceleración de hardware */
     will-change: transform;
     transform: translate3d(0, 0, 0);
 }
@@ -78,20 +68,9 @@
     animation: lightThree 10s infinite alternate ease-in-out;
 }
 
-@keyframes lightOne {
-    from { transform: rotate(-22deg); }
-    to { transform: rotate(-6deg); }
-}
-
-@keyframes lightTwo {
-    from { transform: rotate(-8deg); }
-    to { transform: rotate(12deg); }
-}
-
-@keyframes lightThree {
-    from { transform: rotate(22deg); }
-    to { transform: rotate(6deg); }
-}
+@keyframes lightOne { from { transform: rotate(-22deg); } to { transform: rotate(-6deg); } }
+@keyframes lightTwo { from { transform: rotate(-8deg); } to { transform: rotate(12deg); } }
+@keyframes lightThree { from { transform: rotate(22deg); } to { transform: rotate(6deg); } }
 
 .fog {
     position: absolute;
@@ -101,7 +80,6 @@
     animation: fogMove 16s infinite alternate ease-in-out;
     z-index: 2;
     pointer-events: none;
-    /* Aceleración de hardware */
     will-change: transform;
     transform: translate3d(0, 0, 0);
 }
@@ -120,20 +98,8 @@
     background: #dcbcff;
     box-shadow: 0 0 10px #dcbcff;
     animation: particleFloat linear infinite;
-    /* Aceleración de hardware */
     will-change: transform;
     transform: translate3d(0, 0, 0);
-}
-
-.particle {
-    position: absolute;
-    bottom: -20px;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #dcbcff;
-    box-shadow: 0 0 10px #dcbcff;
-    animation: particleFloat linear infinite;
 }
 
 @keyframes particleFloat {
@@ -156,12 +122,7 @@
     box-shadow: 0 0 20px rgba(123, 44, 191, .7);
 }
 
-.navContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
+.navContainer { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
 
 .navItem {
     color: #cfcfcf;
@@ -172,39 +133,21 @@
     transition: .3s;
 }
 
-.navItem:hover {
-    color: white;
-    text-shadow: 0 0 15px #7b2cbf;
-}
-
-.navDivider {
-    color: #7b2cbf;
-}
-
-.sabbathActive {
-    color: #cfaeff;
-    text-shadow: 0 0 15px #7b2cbf;
-}
+.navItem:hover { color: white; text-shadow: 0 0 15px #7b2cbf; }
+.navDivider { color: #7b2cbf; }
+.sabbathActive { color: #cfaeff; text-shadow: 0 0 15px #7b2cbf; }
 
 /* ==========================================================================
    HEADER LOGO SECCIÓN
    ========================================================================== */
-.logoContainer {
-    text-align: center;
-    margin: 10px 0 30px;
-    position: relative;
-    z-index: 10;
-}
+.logoContainer { text-align: center; margin: 10px 0 30px; position: relative; z-index: 10; }
 
 .logo {
     font-size: 6rem;
     letter-spacing: 12px;
     line-height: 1;
     color: white;
-    text-shadow: 
-        0 0 20px #7b2cbf,
-        0 0 50px #7b2cbf,
-        0 0 120px #5a189a;
+    text-shadow: 0 0 20px #7b2cbf, 0 0 50px #7b2cbf, 0 0 120px #5a189a;
     text-transform: uppercase;
     animation: titleGlow 4s infinite alternate ease-in-out;
 }
@@ -214,66 +157,24 @@
     to { text-shadow: 0 0 30px #cfaeff, 0 0 80px #7b2cbf, 0 0 180px #7b2cbf; }
 }
 
-.tagline {
-    margin-top: 15px;
-    font-size: 1.1rem;
-    letter-spacing: 5px;
-    color: #dcbcff;
-    text-shadow: 0 0 10px rgba(123, 44, 191, .8);
-}
+.tagline { margin-top: 15px; font-size: 1.1rem; letter-spacing: 5px; color: #dcbcff; text-shadow: 0 0 10px rgba(123, 44, 191, .8); }
 
 /* ==========================================================================
    SECCIONES Y CONTENIDO
    ========================================================================== */
-.content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    width: 100%;
-    position: relative;
-    z-index: 10;
-}
-
-.rockSection {
-    margin-bottom: 70px;
-}
-
-.sectionTitle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 35px;
-    text-align: center;
-}
-
-.titleOutline {
-    font-size: 1.1rem;
-    letter-spacing: 8px;
-    color: rgba(207, 174, 255, 0.4);
-    text-transform: uppercase;
-    margin-bottom: 5px;
-}
-
-.titleMain {
-    font-size: 2rem;
-    color: white;
-    letter-spacing: 1px;
-    text-shadow: 0 0 15px rgba(123, 44, 191, 0.7);
-}
+.content { max-width: 1200px; margin: 0 auto; padding: 20px; width: 100%; position: relative; z-index: 10; }
+.rockSection { margin-bottom: 70px; }
+.sectionTitle { display: flex; flex-direction: column; align-items: center; margin-bottom: 35px; text-align: center; }
+.titleOutline { font-size: 1.1rem; letter-spacing: 8px; color: rgba(207, 174, 255, 0.4); text-transform: uppercase; margin-bottom: 5px; }
+.titleMain { font-size: 2rem; color: white; letter-spacing: 1px; text-shadow: 0 0 15px rgba(123, 44, 191, 0.7); }
 
 /* ==========================================================================
    GRID DE INTEGRANTES Y CARDS DINÁMICAS
    ========================================================================== */
-.membersGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 30px;
-    padding: 10px;
-}
+.membersGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; padding: 10px; }
 
 .memberCard {
-    /* Un fondo oscuro sólido pero elegante, sin 'backdrop-filter' */
-    background: rgba(12, 5, 18, 0.95); 
+    background: rgba(12, 5, 18, 0.95);
     border: 1px solid rgba(123, 44, 191, 0.25);
     border-radius: 8px;
     padding: 18px;
@@ -283,110 +184,32 @@
     position: relative;
 }
 
-.memberCard:hover {
-    transform: translateY(-10px);
-    border-color: #9650ff;
-    box-shadow: 0 0 30px rgba(123, 44, 191, 0.65);
-}
+.memberCard:hover { transform: translateY(-10px); border-color: #9650ff; box-shadow: 0 0 30px rgba(123, 44, 191, 0.65); }
 
-.imgWrapper {
-    width: 100%;
-    height: 290px;
-    overflow: hidden;
-    border-radius: 4px;
-    border-bottom: 3px solid #5a189a;
-    position: relative;
-    background: #000;
-}
+.imgWrapper { width: 100%; height: 290px; overflow: hidden; border-radius: 4px; border-bottom: 3px solid #5a189a; position: relative; background: #000; }
 
-.memberImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(70%) contrast(110%);
-    transition: filter 0.4s ease, transform 0.4s ease;
-}
-
-.memberCard:hover .memberImg {
-    filter: grayscale(0%) contrast(100%);
-    transform: scale(1.05);
-}
+.memberImg { width: 100%; height: 100%; object-fit: cover; filter: grayscale(70%) contrast(110%); transition: filter 0.4s ease, transform 0.4s ease; }
+.memberCard:hover .memberImg { filter: grayscale(0%) contrast(100%); transform: scale(1.05); }
 
 .cardNoteBadge {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 0.75rem;
-    color: #ff5555;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 3px 8px;
-    border-radius: 4px;
-    border: 1px solid rgba(255, 85, 85, 0.4);
-    font-family: sans-serif;
-    font-weight: bold;
+    position: absolute; bottom: 10px; right: 10px; font-size: 0.75rem; color: #ff5555;
+    background: rgba(0, 0, 0, 0.8); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255, 85, 85, 0.4);
+    font-family: sans-serif; font-weight: bold;
 }
 
-.memberName {
-    font-size: 1.5rem;
-    margin: 15px 0 5px;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(123, 44, 191, 0.4);
-}
-
-.memberRole {
-    font-size: 1rem;
-    color: #cfaeff;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
-}
-
-.memberYears {
-    font-size: 0.85rem;
-    color: #9a9a9a;
-}
+.memberName { font-size: 1.5rem; margin: 15px 0 5px; color: #fff; text-shadow: 0 0 10px rgba(123, 44, 191, 0.4); }
+.memberRole { font-size: 1rem; color: #cfaeff; font-weight: 600; letter-spacing: 1px; margin-bottom: 6px; }
+.memberYears { font-size: 0.85rem; color: #9a9a9a; }
 
 /* ==========================================================================
    FOOTER
    ========================================================================== */
-.footer {
-    position: relative;
-    z-index: 50;
-    background: rgba(0, 0, 0, 0.92);
-    backdrop-filter: blur(10px);
-    border-top: 2px solid #7b2cbf;
-    padding: 25px 0;
-    margin-top: 40px;
-}
-
-.footerContent {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.copyright {
-    color: #aaa;
-    letter-spacing: 1px;
-}
-
-.socialIcons {
-    display: flex;
-    gap: 15px;
-}
-
-.icon {
-    font-size: 1.5rem;
-    transition: transform .3s;
-    cursor: pointer;
-}
-
-.icon:hover {
-    transform: scale(1.35);
-}
+.footer { position: relative; z-index: 50; background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(10px); border-top: 2px solid #7b2cbf; padding: 25px 0; margin-top: 40px; }
+.footerContent { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+.copyright { color: #aaa; letter-spacing: 1px; }
+.socialIcons { display: flex; gap: 15px; }
+.icon { font-size: 1.5rem; transition: transform .3s; cursor: pointer; }
+.icon:hover { transform: scale(1.35); }
 
 /* ==========================================================================
    DISEÑO RESPONSIVO

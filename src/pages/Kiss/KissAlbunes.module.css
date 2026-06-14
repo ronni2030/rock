@@ -1,12 +1,10 @@
 .rockContainer {
     font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
-    
     /* ESTILOS PARA LA IMAGEN ESTATICA */
-    background-size: cover;          /* Cubre todo el espacio */
-    background-position: center;     /* Centrada */
-    background-repeat: no-repeat;    /* No se repite */
-    background-attachment: fixed;    /* ESTO HACE QUE SEA ESTATICA */
-    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: #fff;
     position: relative;
     display: flex;
@@ -14,84 +12,71 @@
     min-height: 100vh;
 }
 
-/* ========================= */
 /* NAVBAR */
-/* ========================= */
-.rockNav{
-    position:sticky;
-    top:0;
-    z-index:100;
-    backdrop-filter:blur(12px);
-    background:rgba(0,0,0,.55);
-    border-bottom:1px solid rgba(255,255,255,.15);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:0;
-    padding:20px;
+.rockNav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.55);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 20px;
 }
 
-.rockNavItem{
-    color:#ddd;
-    text-decoration:none;
-    font-size:.95rem;
-    font-weight:700;
-    letter-spacing:3px;
-    padding:0 12px;
-    transition:.3s;
+.rockNavItem {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 0 12px;
+    transition: 0.3s;
 }
 
-.rockNavItem:hover{
-    color:white;
+.rockNavItem:hover {
+    color: white;
     text-shadow: 0 0 10px white;
 }
 
-.rockActive{
-    color:white;
-    text-shadow:
-        0 0 10px crimson,
-        0 0 20px crimson;
+.rockActive {
+    color: white;
+    text-shadow: 0 0 10px crimson, 0 0 20px crimson;
 }
 
-/* ========================= */
 /* HEADER */
-/* ========================= */
-.rockHeader{
-    margin-top:120px;
-    margin-bottom:40px;
-    text-align:center;
-    background:none;
-    padding:0;
+.rockHeader {
+    margin-top: 120px;
+    margin-bottom: 40px;
+    text-align: center;
+    background: none;
+    padding: 0;
 }
 
-.rockTitle{
-    font-size:7rem;
-    font-weight:900;
-    letter-spacing:10px;
-    color:#fff;
-    text-shadow:
-        0 0 20px #ff4500,
-        0 0 40px #ff4500,
-        0 0 80px #ff4500;
+.rockTitle {
+    font-size: 7rem;
+    font-weight: 900;
+    letter-spacing: 10px;
+    color: #fff;
+    text-shadow: 0 0 20px #ff4500, 0 0 40px #ff4500, 0 0 80px #ff4500;
 }
 
-.guitarRiff{
-    width:250px;
-    height:3px;
-    margin:20px auto;
-    background:#ff4500;
-    box-shadow:
-        0 0 15px #ff4500,
-        0 0 30px #ff4500;
+.guitarRiff {
+    width: 250px;
+    height: 3px;
+    margin: 20px auto;
+    background: #ff4500;
+    box-shadow: 0 0 15px #ff4500, 0 0 30px #ff4500;
 }
 
-/* ========================= */
 /* CONTENIDO Y DISTRIBUCIÓN */
-/* ========================= */
 .rockContent {
     flex: 1;
     padding: 20px;
-    max-width: 1600px; /* Ampliado para dar espacio a los lados */
+    max-width: 1600px;
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
@@ -109,7 +94,6 @@
     display: inline-block;
 }
 
-/* Contenedor principal de 3 columnas */
 .rockLayoutGrid {
     display: grid;
     grid-template-columns: 280px 1fr 280px;
@@ -118,7 +102,6 @@
     margin-top: 20px;
 }
 
-/* Columnas laterales de Estrellas */
 .rockSideColumn {
     display: flex;
     flex-direction: column;
@@ -126,16 +109,13 @@
     align-items: center;
 }
 
-/* Columna Central del Video */
 .rockCenterColumn {
     position: sticky;
-    top: 100px; /* Se queda fijo al hacer scroll para que veas los videos */
+    top: 100px;
     width: 100%;
 }
 
-/* ========================= */
 /* CARDS EN FORMA DE ESTRELLA */
-/* ========================= */
 .rockStarCard {
     width: 220px;
     height: 220px;
@@ -149,18 +129,15 @@
     filter: drop-shadow(0px 0px 20px #ff4500);
 }
 
-/* El recorte de estrella con la imagen de fondo */
 .rockStarShape {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
-    /* Genera una estrella perfecta de 5 puntas */
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     position: relative;
 }
 
-/* Efecto hover sobre la estrella para ver los textos */
 .rockStarOverlay {
     position: absolute;
     inset: 0;
@@ -194,12 +171,10 @@
     font-weight: bold;
 }
 
-/* ========================= */
 /* VIDEO REPRODUCTOR */
-/* ========================= */
 .rockVideoContainer {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     border: 5px solid #222;
@@ -216,11 +191,9 @@
     height: 100%;
 }
 
-/* ========================= */
 /* FOOTER */
-/* ========================= */
 .rockFooter {
-    background: rgba(0,0,0,0.85);
+    background: rgba(0, 0, 0, 0.85);
     color: #fff;
     text-align: center;
     padding: 15px 15px 5px;
@@ -236,27 +209,22 @@
     letter-spacing: 1px;
 }
 
-/* ========================= */
-/* RESPONSIVE RESPONSIVO */
-/* ========================= */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
     .rockLayoutGrid {
-        grid-template-columns: 1fr; /* Pasa a una sola columna en pantallas medianas/chicas */
+        grid-template-columns: 1fr;
         gap: 40px;
     }
-
     .rockSideColumn {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
     }
-
     .rockCenterColumn {
         position: relative;
         top: 0;
-        order: -1; /* El video se queda arriba en móviles */
+        order: -1;
     }
-
     .rockTitle {
         font-size: 4rem;
     }
@@ -267,11 +235,9 @@
         font-size: 0.75rem;
         letter-spacing: 1px;
     }
-
     .rockTitle {
         font-size: 2.5rem;
     }
-
     .rockStarCard {
         width: 160px;
         height: 160px;

@@ -2,10 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './BlackSabbathAlbunes.module.css';
 
-// Importación de la portada principal (Fondo de la página)
 import portada from '../../images/blacksabbath/portada.png';
-
-// Importación de las portadas locales de las cards
 import imgBlackSabbath from '../../images/blacksabbath/blacksabbath.jpg';
 import imgParanoid from '../../images/blacksabbath/paranoid.jpg';
 import imgMasterOfReality from '../../images/blacksabbath/masterofreality.jpg';
@@ -24,11 +21,9 @@ import imgTyr from '../../images/blacksabbath/tyr.jpg';
 import imgCrossPurposes from '../../images/blacksabbath/crosspurposes.jpg';
 import imgForbidden from '../../images/blacksabbath/forbidden.jpg';
 import img13 from '../../images/blacksabbath/13.jpg';
-
-// NUEVA IMPORTACIÓN: Imagen exclusiva para la tarjeta de presentación
 import imgEligeTuAlbum from '../../images/blacksabbath/eligetualbum.jpg';
 
-const imgDehumanizer = portada; 
+const imgDehumanizer = portada;
 
 const BlackSabbathAlbunes = () => {
     const [showModal, setShowModal] = useState(false);
@@ -82,7 +77,6 @@ const BlackSabbathAlbunes = () => {
         { name: "13", year: "2013", label: "Universal", cover: img13 },
     ];
 
-    // Ahora usa la nueva variable 'imgEligeTuAlbum' en vez de heredar 'portada'
     const introTomb = {
         name: "ELIGE TU ÁLBUM",
         year: "CLICK",
@@ -182,10 +176,7 @@ const BlackSabbathAlbunes = () => {
                             return (
                                 <div
                                     key={album.name}
-                                    className={`
-                                        ${styles.tombStone3d}
-                                        ${isActive ? styles.activeTomb : ''}
-                                    `}
+                                    className={`${styles.tombStone3d} ${isActive ? styles.activeTomb : ''}`}
                                     style={{
                                         transform: `
                                             rotateY(${(index / allAlbums.length) * 360}deg)
@@ -196,9 +187,7 @@ const BlackSabbathAlbunes = () => {
                                 >
                                     <div
                                         className={styles.tombImage}
-                                        style={{
-                                            backgroundImage: `url(${album.cover})`
-                                        }}
+                                        style={{ backgroundImage: `url(${album.cover})` }}
                                     />
                                     <div className={styles.tombShade}></div>
                                     <div className={styles.tombText}>

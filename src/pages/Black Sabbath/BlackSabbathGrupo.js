@@ -5,26 +5,22 @@ import styles from './BlackSabbathGrupo.module.css';
 // 1. IMPORTACIÓN DEL FONDO
 import portada2 from '../../images/blacksabbath/portada2.jpg';
 
-// 2. IMPORTACIONES DE LOS INTEGRANTES DESDE TU ÁRBOL DE DIRECTORIOS
+// 2. IMPORTACIONES DE INTEGRANTES
 import tonyiommi from '../../images/blacksabbath/tonyiommi.jpg';
 import ozzyosbourne from '../../images/blacksabbath/ozzyosbourne.jpg';
-import geezerbutler from '../../images/blacksabbath/geezergutler.jpg'; // Corregido con 'g'
+import geezerbutler from '../../images/blacksabbath/geezergutler.jpg';
 import billward from '../../images/blacksabbath/billward.jpg';
-
 import ronniejamesdio from '../../images/blacksabbath/ronniejamesdio.jpg';
 import vinnyappice from '../../images/blacksabbath/vinnyappice.jpg';
-
-import iangillan from '../../images/blacksabbath/iangillan.jpeg'; // Extensión .jpeg
+import iangillan from '../../images/blacksabbath/iangillan.jpeg';
 import glennhughes from '../../images/blacksabbath/glennhughes.jpg';
-import raygillen from '../../images/blacksabbath/raygillen.png'; // Extensión .png
+import raygillen from '../../images/blacksabbath/raygillen.png';
 import ericsinger from '../../images/blacksabbath/ericsinger.jpg';
-
 import tonymartin from '../../images/blacksabbath/tonymartin.jpg';
 import cozypowell from '../../images/blacksabbath/cozypowell.jpg';
 import tommyclufetos from '../../images/blacksabbath/tommyclufetos.jpg';
 
 const BlackSabbathGrupo = () => {
-    // Estructura de Eras vinculando las imágenes locales ya importadas
     const erasBS = [
         {
             id: "classic",
@@ -70,9 +66,7 @@ const BlackSabbathGrupo = () => {
     ];
 
     return (
-        /* Le inyectamos la portada2 importada directamente a la propiedad personalizada CSS */
         <div className={styles.sabbathPage} style={{ '--bg-local-portada': `url(${portada2})` }}>
-            {/* EFECTOS AMBIENTALES DE CONCIERTO */}
             <div className={styles.backgroundOverlay}></div>
             <div className={styles.fog}></div>
             
@@ -82,16 +76,12 @@ const BlackSabbathGrupo = () => {
                 <div className={`${styles.spotlight} ${styles.spotlight3}`}></div>
             </div>
 
-            {/* PARTÍCULAS SUTILES FLOATING */}
             <div className={styles.particles}>
-                <div className={styles.particle} style={{ left: '8%', animationDelay: '0s', animationDuration: '6s' }}></div>
-                <div className={styles.particle} style={{ left: '28%', animationDelay: '1.2s', animationDuration: '8.5s' }}></div>
-                <div className={styles.particle} style={{ left: '50%', animationDelay: '0.3s', animationDuration: '7s' }}></div>
-                <div className={styles.particle} style={{ left: '72%', animationDelay: '2.5s', animationDuration: '9.5s' }}></div>
-                <div className={styles.particle} style={{ left: '90%', animationDelay: '0.8s', animationDuration: '5.5s' }}></div>
+                {[...Array(5)].map((_, i) => (
+                    <div key={i} className={styles.particle} style={{ left: `${8 + i * 20}%`, animationDelay: `${i * 0.5}s` }}></div>
+                ))}
             </div>
 
-            {/* BARRA DE NAVEGACIÓN */}
             <nav className={styles.sabbathNav}>
                 <div className={styles.navContainer}>
                     <Link to="/" className={styles.navItem}>INICIO</Link>
@@ -106,13 +96,11 @@ const BlackSabbathGrupo = () => {
                 </div>
             </nav>
 
-            {/* TÍTULO PRINCIPAL */}
             <div className={styles.logoContainer}>
                 <h1 className={styles.logo}>LINE-UP</h1>
                 <p className={styles.tagline}>CRONOLOGÍA DE LOS DIOSES DEL METAL</p>
             </div>
 
-            {/* SECCIONES MAPEADAS POR ERA */}
             <div className={styles.content}>
                 {erasBS.map((era) => (
                     <section key={era.id} className={styles.rockSection}>
@@ -138,14 +126,11 @@ const BlackSabbathGrupo = () => {
                 ))}
             </div>
 
-            {/* FOOTER */}
             <footer className={styles.footer}>
                 <div className={styles.footerContent}>
                     <p className={styles.copyright}>© {new Date().getFullYear()} R.A.V.V 🦇 BLACK SABBATH 🦇</p>
                     <div className={styles.socialIcons}>
-                        <span className={styles.icon}>🎸</span>
-                        <span className={styles.icon}>🦇</span>
-                        <span className={styles.icon}>🤘</span>
+                        <span>🎸</span><span>🦇</span><span>🤘</span>
                     </div>
                 </div>
             </footer>

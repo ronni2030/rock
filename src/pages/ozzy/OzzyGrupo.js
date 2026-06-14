@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './OzzyGrupo.module.css';
 
+/* IMPORTACIÓN DE IMÁGENES */
 import img9 from '../../images/ozzy/jakeelee.jpg';
 import img10 from '../../images/ozzy/bobdaisley.jpg';
 import img11 from '../../images/ozzy/leekerslake.jpg';
@@ -33,6 +34,7 @@ const OzzyGrupo = () => {
 
     return (
         <div className={styles.page}>
+            {/* NAVBAR */}
             <nav className={styles.nav}>
                 <div className={styles.navContainer}>
                     <Link to="/" className={styles.navItem}>INICIO</Link>
@@ -41,34 +43,53 @@ const OzzyGrupo = () => {
                 </div>
             </nav>
 
+            {/* LIBRO DE MIEMBROS */}
             <div className={styles.bookWrapper}>
-                <button className={styles.navBtn} onClick={() => setPage(p => Math.max(0, p - 2))} disabled={page === 0}>❮</button>
+                <button 
+                    className={styles.navBtn} 
+                    onClick={() => setPage(p => Math.max(0, p - 2))} 
+                    disabled={page === 0}
+                >
+                    ❮
+                </button>
                 
                 <div className={styles.book}>
                     <div className={styles.bookBindingCenter}></div>
                     
+                    {/* PÁGINA IZQUIERDA */}
                     <div className={styles.pageLeft}>
                         {allMembers[page] && (
                             <>
                                 <img src={allMembers[page].img} alt={allMembers[page].name} />
                                 <h3>{allMembers[page].name}</h3>
                                 <p>{allMembers[page].role}</p>
+                                <span className={styles.years}>{allMembers[page].years}</span>
                             </>
                         )}
                     </div>
                     
+                    {/* PÁGINA DERECHA */}
                     <div className={styles.pageRight}>
-                        {allMembers[page + 1] && (
+                        {allMembers[page + 1] ? (
                             <>
                                 <img src={allMembers[page + 1].img} alt={allMembers[page + 1].name} />
                                 <h3>{allMembers[page + 1].name}</h3>
                                 <p>{allMembers[page + 1].role}</p>
+                                <span className={styles.years}>{allMembers[page + 1].years}</span>
                             </>
+                        ) : (
+                            <div className={styles.emptyPage}></div>
                         )}
                     </div>
                 </div>
 
-                <button className={styles.navBtn} onClick={() => setPage(p => Math.min(allMembers.length - 2, p + 2))} disabled={page >= allMembers.length - 2}>❯</button>
+                <button 
+                    className={styles.navBtn} 
+                    onClick={() => setPage(p => Math.min(allMembers.length - 2, p + 2))} 
+                    disabled={page >= allMembers.length - 2}
+                >
+                    ❯
+                </button>
             </div>
         </div>
     );

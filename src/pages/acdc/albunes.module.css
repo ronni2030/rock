@@ -1,22 +1,27 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= PAGE ================= */
 .container {
     min-height: 100vh;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    
-    /* MODIFICA ESTA PARTE AQUÍ */
     background: 
-        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), /* Filtro oscuro para que se lea el texto */
-        url('../../images/acdc/portada2.jpg'); /* RUTA DE TU IMAGEN */
-    
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+        url('../../images/acdc/portada2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* ESTO ES LO QUE LO HACE ESTÁTICO */
-    
-    /* Asegúrate de borrar la otra propiedad background que tenías antes */
+    background-attachment: fixed;
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* NAV */
+/* ================= NAV ================= */
 .nav {
     position: fixed;
     top: 0;
@@ -25,10 +30,8 @@
     justify-content: center;
     gap: 20px;
     padding: 15px;
-
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
-
     border-bottom: 2px solid #ff0000;
     z-index: 1000;
 }
@@ -47,7 +50,7 @@
     color: #ff0000;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 .header {
     margin-top: 120px;
     text-align: center;
@@ -60,24 +63,21 @@
     color: #ff0000;
 }
 
-/* GRID */
+/* ================= GRID STAGE ================= */
 .stage {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(5, 180px);
     gap: 25px;
-
     max-width: 1400px;
     margin: 60px auto;
     padding: 20px;
-
     justify-items: center;
     align-items: center;
-
     position: relative;
 }
 
-/* VINILO */
+/* ================= VINILO ================= */
 .vinyl {
     width: 130px;
     text-align: center;
@@ -89,19 +89,16 @@
     transform: translateY(-8px) scale(1.05);
 }
 
-/* DISCO */
 .vinylDisc {
     width: 130px;
     height: 130px;
     border-radius: 50%;
     overflow: hidden;
-
     background: radial-gradient(circle, #111 25%, #000 70%);
-    border: 2px solid rgba(255,0,0,0.4);
-
-    box-shadow: 0 0 20px rgba(255,0,0,0.3);
-
+    border: 2px solid rgba(255, 0, 0, 0.4);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
     animation: spin 14s linear infinite;
+    position: relative;
 }
 
 .vinyl:hover .vinylDisc {
@@ -112,11 +109,6 @@
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
-}
-
-/* HOLE FIX */
-.vinylDisc {
-    position: relative;
 }
 
 .vinylDisc::after {
@@ -131,14 +123,12 @@
     transform: translate(-50%, -50%);
 }
 
-/* IMG */
 .vinylDisc img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* NAME */
 .albumName {
     margin-top: 8px;
     font-size: 0.72rem;
@@ -149,16 +139,14 @@
     color: #ffcc00;
 }
 
-/* VIDEO CENTRO */
+/* ================= VIDEO CENTRO ================= */
 .videoBox {
     grid-column: 2 / 6;
     grid-row: 2 / 5;
-
     width: 100%;
     height: 100%;
-
     border: 2px solid #ff0000;
-    box-shadow: 0 0 70px rgba(255,0,0,0.9);
+    box-shadow: 0 0 70px rgba(255, 0, 0, 0.9);
 }
 
 .videoBox iframe {
@@ -166,7 +154,7 @@
     height: 100%;
 }
 
-/* INFO PANEL */
+/* ================= INFO PANEL ================= */
 .infoPanel {
     max-width: 1100px;
     margin: 40px auto 80px auto;
@@ -175,7 +163,7 @@
 
 .infoBox {
     display: flex;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     border: 1px solid #ff0000;
 }
 
@@ -193,7 +181,7 @@
     color: #ffcc00;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 .footer {
     text-align: center;
     padding: 30px;

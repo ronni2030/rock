@@ -1,23 +1,30 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= PAGE LAYOUT ================= */
 .page {
     min-height: 100vh;
     color: white;
     font-family: Arial, sans-serif;
-
     background-image: url("../../images/acdc/portada.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-
     position: relative;
+    padding-bottom: 60px; /* Espacio para que el footer no tape contenido */
 }
 
-/* overlay claro */
 .page::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.25);
+    background: rgba(0, 0, 0, 0.25);
     pointer-events: none;
+    z-index: 0;
 }
 
 .page > * {
@@ -25,7 +32,7 @@
     z-index: 1;
 }
 
-/* NAV */
+/* ================= NAV ================= */
 .nav {
     position: fixed;
     top: 0;
@@ -34,10 +41,8 @@
     justify-content: center;
     gap: 20px;
     padding: 15px;
-
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
-
     border-bottom: 2px solid #ff0000;
     z-index: 1000;
 }
@@ -57,16 +62,15 @@
     color: #ff0000;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 .header {
     margin-top: 100px;
     text-align: center;
     padding: 20px;
-
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
 }
 
-/* SECCIONES */
+/* ================= SECCIONES ================= */
 .section {
     margin: 70px auto;
     max-width: 1400px;
@@ -80,7 +84,7 @@
     margin-bottom: 30px;
 }
 
-/* GRID */
+/* ================= GRID & POSTERS ================= */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -88,17 +92,14 @@
     justify-items: center;
 }
 
-/* POSTERS */
 .poster {
     width: 260px;
     height: 380px;
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-
-    border: 2px solid rgba(255,0,0,0.4);
-    box-shadow: 0 0 20px rgba(255,0,0,0.3);
-
+    border: 2px solid rgba(255, 0, 0, 0.4);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
     cursor: pointer;
     transition: 0.3s;
 }
@@ -107,6 +108,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s;
 }
 
 .poster:hover {
@@ -119,69 +121,60 @@
     bottom: 0;
     width: 100%;
     padding: 15px;
-
-    background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
     text-align: center;
 }
 
-.overlay h3 {
-    color: #ffcc00;
-}
+.overlay h3 { color: #ffcc00; }
+.overlay p { color: white; }
+.overlay span { color: #aaa; font-size: 12px; }
 
-.overlay p {
-    color: white;
-}
-
-.overlay span {
-    color: #aaa;
-    font-size: 12px;
-}
-
-/* MODAL */
+/* ================= MODAL ================= */
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.85);
-
+    background: rgba(0, 0, 0, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2000;
 }
 
 .modalContent {
     width: 80%;
     max-width: 900px;
-
     display: flex;
     gap: 20px;
-
     background: #111;
     border: 2px solid red;
     box-shadow: 0 0 40px red;
+    overflow: hidden;
 }
 
 .modalContent img {
     width: 40%;
+    object-fit: cover;
 }
 
 .modalContent div {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 .footer {
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
     height: 40px;
-
     background: black;
     border-top: 2px solid red;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-size: 12px;
+    z-index: 1000;
 }

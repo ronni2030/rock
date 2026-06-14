@@ -1,43 +1,127 @@
-.page { min-height: 100vh; color: white; background: url('../../images/ozzy/portada1.png') center/cover fixed; position: relative; }
-.page::before { content: ""; position: fixed; inset: 0; background: rgba(0,0,0,.7); }
+/* ================================= */
+/* ESTRUCTURA BASE Y NAVBAR */
+/* ================================= */
+.page {
+    min-height: 100vh;
+    color: white;
+    background: url('../../images/ozzy/portada1.png') center/cover fixed;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
 
-.nav { position: fixed; top: 0; width: 100%; display: flex; justify-content: center; padding: 15px; background: rgba(0,0,0,.9); z-index: 10; }
-.navItem { color: #aaa; text-decoration: none; margin: 0 10px; }
+.page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10;
+}
+
+.navContainer { display: flex; align-items: center; }
+.navItem { color: #aaa; text-decoration: none; margin: 0 10px; transition: 0.3s; }
+.navItem:hover { color: white; }
+.navDivider { color: #555; }
 .active { color: #fff; font-weight: bold; border-bottom: 2px solid #8B4513; }
 
-.bookWrapper { display: flex; justify-content: center; align-items: center; gap: 30px; height: 100vh; }
-
-.book { 
-    width: 850px; height: 500px; position: relative; 
-    display: flex; background: #e8e3d0; 
-    border: 15px solid #4a2c2a; 
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    border-radius: 4px; overflow: hidden;
-    z-index: 1; /* El libro está por debajo de los botones */
+/* ================================= */
+/* CONTENEDOR DEL LIBRO */
+/* ================================= */
+.bookWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
 }
 
-.bookBindingCenter { 
-    position: absolute; left: 50%; transform: translateX(-50%);
-    width: 12px; height: 100%; background: #4a2c2a; 
-    z-index: 2; /* Encima del papel pero... */
-    pointer-events: none; /* 🔥 ESTO ES LO QUE HACE QUE NO BLOQUEE EL CLIC */
+.book {
+    width: 850px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    background: #e8e3d0;
+    border: 15px solid #4a2c2a;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-.pageLeft, .pageRight { 
-    flex: 1; padding: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: #333; text-align: center;
+.bookBindingCenter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 100%;
+    background: #4a2c2a;
+    z-index: 2;
+    pointer-events: none;
 }
 
-.pageLeft img, .pageRight img { 
-    width: 220px; height: 220px; object-fit: cover; 
-    border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+/* ================================= */
+/* PÁGINAS */
+/* ================================= */
+.pageLeft, .pageRight {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    text-align: center;
+}
+
+.pageLeft img, .pageRight img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 h3 { font-size: 1.6rem; margin: 20px 0 0; color: #222; font-family: 'Georgia', serif; }
-p { margin: 10px 0; font-size: 1rem; color: #555; }
+p { margin: 5px 0; font-size: 1rem; color: #555; font-style: italic; }
+.years { font-size: 0.85rem; color: #8B4513; font-weight: bold; margin-top: 5px; }
 
-.navBtn { 
-    background: #4a2c2a; color: white; border: none; padding: 15px 25px; 
-    cursor: pointer; font-size: 1.5rem; border-radius: 5px; z-index: 3; 
+.emptyPage { width: 100%; height: 100%; }
+
+/* ================================= */
+/* BOTONES DE NAVEGACIÓN */
+/* ================================= */
+.navBtn {
+    background: #4a2c2a;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    transition: 0.3s;
+    z-index: 3;
 }
+
+.navBtn:hover:not(:disabled) { background: #6a3e3c; }
 .navBtn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* ================================= */
+/* RESPONSIVE */
+/* ================================= */
+@media (max-width: 900px) {
+    .book { width: 90%; height: auto; flex-direction: column; }
+    .bookBindingCenter { display: none; }
+    .bookWrapper { flex-direction: column; height: auto; padding-top: 100px; }
+}

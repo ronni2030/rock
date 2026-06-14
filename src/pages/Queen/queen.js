@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styles from './queen.module.css';
 import { Link } from 'react-router-dom';
+import styles from './queen.module.css';
 
-// Importación de tus imágenes locales desde la carpeta images/queen
+/* IMPORTACIÓN DE IMÁGENES */
 import portada1 from '../../images/queen/portada.jpg';
 import portada2 from '../../images/queen/portada2.jpg';
 import portada3 from '../../images/queen/portada3.jpg';
@@ -12,15 +12,15 @@ const Queen = () => {
     const images = [portada1, portada2, portada3];
 
     useEffect(() => {
-        // Transición automática cada 5 segundos (sincronizada con el CSS)
         const timer = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+            setCurrentIndex((prev) => (prev + 1) % images.length);
         }, 5000);
         return () => clearInterval(timer);
     }, [images.length]);
 
     return (
         <div className={styles.queenPage}>
+            {/* NAV */}
             <nav className={styles.queenNav}>
                 <div className={styles.navContainer}>
                     <Link to="/" className={styles.navItem}>INICIO</Link>
@@ -35,38 +35,40 @@ const Queen = () => {
                 </div>
             </nav>
 
+            {/* LOGOTIPO Y CABECERA */}
             <div className={styles.logoContainer}>
-                {/* Corona de CSS Puro Integrada */}
                 <div className={styles.crownWrapper}>
                     <div className={styles.crown}></div>
                 </div>
-
                 <h1 className={styles.logo}>QUEEN</h1>
                 <span className={styles.logoSub}>WE ARE THE CHAMPIONS</span>
                 <p className={styles.tagline}>THE GREATEST ROCK BAND OF ALL TIME</p>
             </div>
 
-            {/* PANTALLA TIPO ESCENARIO (Slideshow Automatizado con Zoom y Desvanecimiento) */}
+            {/* CARRUSEL DE IMÁGENES (STAGE DISPLAY) */}
             <div className={styles.stageDisplayContainer}>
                 <div className={styles.stageDisplay}>
                     {images.map((image, index) => (
                         <div
                             key={index}
-                            className={`${styles.stageSlide} ${
-                                index === currentIndex ? styles.stageActive : ''
-                            }`}
+                            className={`${styles.stageSlide} ${index === currentIndex ? styles.stageActive : ''}`}
                             style={{ backgroundImage: `url(${image})` }}
                         />
                     ))}
-                    {/* Capa de atmósfera para simular iluminación de concierto */}
                     <div className={styles.stageOverlay}></div>
                 </div>
             </div>
 
+            {/* CONTENIDO PRINCIPAL */}
             <div className={styles.content}>
                 <div className={styles.officialLink}>
                     <p className={styles.linkText}>VISITA SU PÁGINA OFICIAL</p>
-                    <a href="https://www.queenonline.com/es" target="_blank" rel="noreferrer" className={styles.ampButton}>
+                    <a 
+                        href="https://www.queenonline.com/es" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className={styles.ampButton}
+                    >
                         👑 ENTRA AL REINO DE QUEEN 👑
                     </a>
                 </div>
@@ -85,6 +87,7 @@ const Queen = () => {
                 </section>
             </div>
 
+            {/* FOOTER */}
             <footer className={styles.footer}>
                 <div className={styles.footerContent}>
                     <p className={styles.copyright}>© {new Date().getFullYear()} R.A.V.V 👑 QUEEN 👑</p>

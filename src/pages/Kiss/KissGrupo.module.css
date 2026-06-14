@@ -1,7 +1,6 @@
 /* ============================
-   PAGINA
+   PAGINA Y FONDO
 ============================ */
-
 .kissPage {
     position: relative;
     min-height: 100vh;
@@ -9,158 +8,97 @@
     overflow-x: hidden;
 }
 
-/* Fondo fijo */
-
 .kissPage::before {
     content: '';
     position: fixed;
     inset: 0;
-
     background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     z-index: -3;
 }
-
-/* Oscurecer */
 
 .kissPage::after {
     content: '';
     position: fixed;
     inset: 0;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,.75),
-            rgba(0,0,0,.90)
-        );
-
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.90));
     z-index: -2;
 }
 
 /* ============================
    NAVBAR
 ============================ */
-
-/* ==========================
-   NAVBAR
-========================== */
-
 .kissNav {
     position: sticky;
     top: 0;
-
     z-index: 100;
-
     backdrop-filter: blur(12px);
-
-    background: rgba(0,0,0,.55);
-
-    border-bottom:
-        1px solid rgba(255,255,255,.15);
+    background: rgba(0, 0, 0, 0.55);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .navContainer {
     max-width: 1400px;
-
     margin: auto;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     gap: 0;
-
     padding: 20px;
 }
 
 .navItem {
     color: #ddd;
-
     text-decoration: none;
-
-    font-size: .95rem;
-
+    font-size: 0.95rem;
     font-weight: 700;
-
     letter-spacing: 3px;
-
     padding: 0 12px;
-
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .navItem:hover {
     color: white;
-
-    text-shadow:
-        0 0 10px white;
-}
-
-.navDivider {
-    color: crimson;
-
-    font-size: 1rem;
-
-    margin: 0 5px;
-
-    opacity: .7;
+    text-shadow: 0 0 10px white;
 }
 
 .kissActive {
     color: white;
-
-    text-shadow:
-        0 0 10px crimson,
-        0 0 20px crimson;
+    text-shadow: 0 0 10px crimson, 0 0 20px crimson;
 }
 
 /* ============================
    HERO
 ============================ */
-
 .hero {
     min-height: 75vh;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
 }
 
 .hero h1 {
     font-size: clamp(5rem, 12vw, 10rem);
-
     font-weight: 900;
-
     letter-spacing: 12px;
-
     text-transform: uppercase;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 30px crimson,
-        0 0 60px crimson;
+    text-shadow: 0 0 10px white, 0 0 30px crimson, 0 0 60px crimson;
 }
 
 .hero p {
     margin-top: 20px;
-
     font-size: clamp(1rem, 3vw, 2rem);
-
     letter-spacing: 8px;
-
     color: #bdbdbd;
 }
 
 /* ============================
    SECCIONES
 ============================ */
-
 .section {
     width: 100%;
     padding: 100px 0;
@@ -168,90 +106,60 @@
 
 .bigTitle {
     text-align: center;
-
     font-size: clamp(2rem, 5vw, 4rem);
-
     letter-spacing: 6px;
-
     margin-bottom: 25px;
-
-    text-shadow:
-        0 0 15px crimson;
+    text-shadow: 0 0 15px crimson;
 }
 
 .sectionSubtitle {
     text-align: center;
-
     font-size: 1.2rem;
-
     color: #c8c8c8;
-
     line-height: 1.8;
-
     letter-spacing: 3px;
-
     margin-bottom: 70px;
 }
 
 /* ============================
-   ORIGINALES
+   GRID ORIGINALES
 ============================ */
-
 .originalGrid {
     width: 95%;
     max-width: 1800px;
-
     margin: auto;
-
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-
     gap: 30px;
 }
 
 .originalCard {
     position: relative;
-
     height: 720px;
-
     border-radius: 25px;
-
     overflow: hidden;
-
     background-size: cover;
     background-position: center;
-
     cursor: pointer;
-
-    transition: .6s ease;
-
-    border: 2px solid rgba(255,255,255,.08);
+    transition: 0.6s ease;
+    border: 2px solid rgba(255, 255, 255, 0.08);
 }
 
 .originalCard:hover {
-    transform:
-        translateY(-15px)
-        scale(1.02);
+    transform: translateY(-15px) scale(1.02);
 }
 
 .overlay {
     position: absolute;
     inset: 0;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(0,0,0,.97)
-        );
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.97));
 }
 
 .cardContent {
     position: absolute;
-
     left: 25px;
     right: 25px;
     bottom: 30px;
-
     z-index: 5;
 }
 
@@ -262,29 +170,21 @@
 
 .cardContent h3 {
     font-size: 2.5rem;
-
     letter-spacing: 4px;
-
     margin-bottom: 10px;
 }
 
 .cardContent h4 {
     font-size: 1.2rem;
-
     color: #cfcfcf;
-
     margin-bottom: 15px;
 }
 
 .cardContent p {
     opacity: 0;
-
     transform: translateY(20px);
-
-    transition: .5s;
-
+    transition: 0.5s;
     color: #e4e4e4;
-
     line-height: 1.7;
 }
 
@@ -293,254 +193,97 @@
     transform: translateY(0);
 }
 
-/* ============================
-   STARCHILD
-============================ */
+/* Hover estados originales */
+.starchild:hover { box-shadow: 0 0 60px white; }
 
-.starchild:hover {
-    box-shadow:
-        0 0 60px white;
-}
-
-/* ============================
-   DEMON
-============================ */
-
-.demon::before {
+.demon::before, .spaceman::before, .catman::before {
     content: '';
-
     position: absolute;
     inset: 0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(255,0,0,.8),
-            transparent
-        );
-
     opacity: 0;
-
-    transition: .5s;
+    transition: 0.5s;
 }
 
-.demon:hover::before {
-    opacity: 1;
-}
+.demon::before { background: linear-gradient(to top, rgba(255, 0, 0, 0.8), transparent); }
+.demon:hover::before { opacity: 1; }
+.demon:hover { box-shadow: 0 0 60px crimson; }
 
-.demon:hover {
-    box-shadow:
-        0 0 60px crimson;
-}
+.spaceman::before { background: radial-gradient(circle, rgba(0, 180, 255, 0.35), transparent 70%); }
+.spaceman:hover::before { opacity: 1; }
+.spaceman:hover { box-shadow: 0 0 60px #00d9ff; }
 
-/* ============================
-   SPACEMAN
-============================ */
-
-.spaceman::before {
-    content: '';
-
-    position: absolute;
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(0,180,255,.35),
-            transparent 70%
-        );
-
-    opacity: 0;
-
-    transition: .5s;
-}
-
-.spaceman:hover::before {
-    opacity: 1;
-}
-
-.spaceman:hover {
-    box-shadow:
-        0 0 60px #00d9ff;
-}
-
-/* ============================
-   CATMAN
-============================ */
-
-.catman::before {
-    content: '';
-
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(50,205,50,.6),
-            transparent
-        );
-
-    opacity: 0;
-
-    transition: .5s;
-}
-
-.catman:hover::before {
-    opacity: 1;
-}
-
-.catman:hover {
-    box-shadow:
-        0 0 60px lime;
-}
+.catman::before { background: linear-gradient(to top, rgba(50, 205, 50, 0.6), transparent); }
+.catman:hover::before { opacity: 1; }
+.catman:hover { box-shadow: 0 0 60px lime; }
 
 /* ============================
    GUERREROS
 ============================ */
-
 .warriorsGrid {
     width: 95%;
     max-width: 1500px;
-
     margin: auto;
-
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 35px;
 }
 
 .warriorCard {
     overflow: hidden;
-
     border-radius: 20px;
-
-    background:
-        rgba(20,20,20,.95);
-
+    background: rgba(20, 20, 20, 0.95);
     backdrop-filter: blur(12px);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-
-    transition: .4s;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: 0.4s;
 }
 
 .warriorCard:hover {
-    transform:
-        translateY(-12px);
-
-    box-shadow:
-        0 0 35px crimson;
+    transform: translateY(-12px);
+    box-shadow: 0 0 35px crimson;
 }
 
 .warriorImage {
     width: 100%;
     height: 340px;
-
     object-fit: cover;
-
-    transition: .6s;
+    transition: 0.6s;
 }
 
 .warriorCard:hover .warriorImage {
     transform: scale(1.08);
 }
 
-.warriorInfo {
-    padding: 25px;
-}
-
-.warriorIcon {
-    font-size: 2rem;
-
-    margin-bottom: 10px;
-}
-
-.warriorInfo h3 {
-    font-size: 1.7rem;
-
-    margin-bottom: 10px;
-}
-
-.warriorInfo span {
-    color: crimson;
-
-    font-weight: bold;
-
-    display: block;
-
-    margin-bottom: 15px;
-}
-
-.warriorInfo p {
-    color: #d7d7d7;
-
-    line-height: 1.8;
-}
+.warriorInfo { padding: 25px; }
+.warriorIcon { font-size: 2rem; margin-bottom: 10px; }
+.warriorInfo h3 { font-size: 1.7rem; margin-bottom: 10px; }
+.warriorInfo span { color: crimson; font-weight: bold; display: block; margin-bottom: 15px; }
+.warriorInfo p { color: #d7d7d7; line-height: 1.8; }
 
 /* ============================
    FOOTER
 ============================ */
-
 .footer {
     text-align: center;
-
     padding: 80px 20px;
-
     color: #999;
-
     letter-spacing: 3px;
 }
 
 /* ============================
    RESPONSIVE
 ============================ */
-
 @media (max-width: 1400px) {
-
-    .originalGrid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
+    .originalGrid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 1000px) {
-
-    .warriorsGrid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
+    .warriorsGrid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-
-    .navContainer {
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .originalGrid {
-        grid-template-columns: 1fr;
-    }
-
-    .warriorsGrid {
-        grid-template-columns: 1fr;
-    }
-
-    .originalCard {
-        height: 600px;
-    }
-
-    .hero {
-        min-height: 60vh;
-    }
-
-    .cardContent h3 {
-        font-size: 2rem;
-    }
+    .navContainer { gap: 15px; flex-wrap: wrap; }
+    .originalGrid, .warriorsGrid { grid-template-columns: 1fr; }
+    .originalCard { height: 600px; }
+    .hero { min-height: 60vh; }
+    .cardContent h3 { font-size: 2rem; }
 }

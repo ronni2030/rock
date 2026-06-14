@@ -1,23 +1,36 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= PAGE ================= */
 .page {
     min-height: 100vh;
+    color: white;
+    font-family: Arial, sans-serif;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    color: white;
-    font-family: Arial, sans-serif;
     position: relative;
 }
 
-/* 🔥 overlay para que la portada se vea clara */
 .page::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.55);
+    background: rgba(0, 0, 0, 0.55);
     pointer-events: none;
+    z-index: 0;
 }
 
-/* NAV */
+.page > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ================= NAV ================= */
 .nav {
     position: fixed;
     top: 0;
@@ -26,10 +39,8 @@
     justify-content: center;
     gap: 20px;
     padding: 15px;
-
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
-
     border-bottom: 2px solid #ff0000;
     z-index: 1000;
 }
@@ -48,22 +59,21 @@
     color: #ff0000;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 .header {
     margin-top: 100px;
     text-align: center;
     padding: 20px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
 }
 
-/* TIMELINE */
+/* ================= TIMELINE ================= */
 .timeline {
     position: relative;
     max-width: 1000px;
     margin: 60px auto;
 }
 
-/* LÍNEA CENTRAL */
 .timeline::before {
     content: "";
     position: absolute;
@@ -75,7 +85,6 @@
     box-shadow: 0 0 20px red;
 }
 
-/* ITEM */
 .itemLeft,
 .itemRight {
     display: flex;
@@ -85,25 +94,22 @@
     position: relative;
 }
 
-/* CONTENIDO */
 .content {
     width: 40%;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0, 0, 0, 0.75);
     padding: 20px;
     border-radius: 10px;
     border: 1px solid red;
-    position: relative;
     z-index: 2;
 }
 
-/* IMAGEN */
 .timelineImage {
     width: 40%;
     height: 260px;
     overflow: hidden;
     border-radius: 12px;
-    border: 2px solid rgba(255,0,0,0.6);
-    box-shadow: 0 0 25px rgba(255,0,0,0.3);
+    border: 2px solid rgba(255, 0, 0, 0.6);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
 }
 
 .timelineImage img {
@@ -114,12 +120,10 @@
     transition: transform 0.5s ease;
 }
 
-/* PARALLAX / ZOOM AL PASAR */
 .timelineImage:hover img {
     transform: scale(1.15);
 }
 
-/* NODO */
 .node {
     width: 18px;
     height: 18px;
@@ -133,7 +137,7 @@
     z-index: 3;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 .footer {
     text-align: center;
     padding: 20px;
@@ -141,7 +145,7 @@
     color: white;
 }
 
-/* ANIMACIONES */
+/* ================= ANIMATIONS ================= */
 @keyframes zoomCine {
     from { transform: scale(1); }
     to { transform: scale(1.12); }
@@ -153,12 +157,9 @@
     100% { box-shadow: 0 0 10px red; }
 }
 
-/* RESPONSIVE */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-
-    .timeline::before {
-        left: 20px;
-    }
+    .timeline::before { left: 20px; }
 
     .itemLeft,
     .itemRight {
@@ -172,7 +173,5 @@
         width: 100%;
     }
 
-    .node {
-        left: 20px;
-    }
+    .node { left: 20px; }
 }

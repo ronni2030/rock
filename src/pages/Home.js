@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';           // 👈 Importante
+import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 import { useMusic } from '../context/MusicContext';
 
-// 📸 imágenes locales (sin cambios)
+// 📸 Imágenes locales
 import acdc from "../images/Home/acdc.jpg";
 import ozzy from "../images/Home/ozzy.jpeg";
 import kiss from "../images/Home/kiss.jpg";
@@ -11,7 +11,16 @@ import ironmaiden from "../images/Home/ironmaiden.jpg";
 import blacksabbath from "../images/Home/blacksabbath.jpg";
 import queen from "../images/Home/queen.jpg";
 
-// ⚡ CORREGIDO: usa Link en lugar de <a> para evitar recargar la página
+// Constante definida fuera para no recrearse en cada renderizado
+const BANDS = [
+    { id: 'acdc', title: "⚡AC/DC⚡", image: acdc, link: "/acdc" },
+    { id: 'ozzy', title: "🦇Ozzy🦇", image: ozzy, link: "/ozzy" },
+    { id: 'kiss', title: "👅Kiss👅", image: kiss, link: "/kiss" },
+    { id: 'iron', title: "🔥Iron Maiden🔥", image: ironmaiden, link: "/ironmaiden" },
+    { id: 'sabbath', title: "🦇Black Sabbath🦇", image: blacksabbath, link: "/blacksabbath" },
+    { id: 'queen', title: "👑Queen👑", image: queen, link: "/queen" }
+];
+
 const Card = ({ title, image, link }) => (
     <Link to={link} className={styles.card}>
         <img src={image} alt={title} className={styles.card__img} />
@@ -20,7 +29,6 @@ const Card = ({ title, image, link }) => (
 );
 
 const Home = () => {
-    // 🔥 Obtenemos el control global del reproductor
     const {
         currentTrack,
         isPlaying,
@@ -31,72 +39,54 @@ const Home = () => {
         allTracks,
     } = useMusic();
 
-    // 🎸 cards de bandas (sin cambios)
-    const bands = [
-        { title: "⚡AC/DC⚡", image: acdc, link: "/acdc" },
-        { title: "🦇Ozzy🦇", image: ozzy, link: "/ozzy" },
-        { title: "👅Kiss👅", image: kiss, link: "/kiss" },
-        { title: "🔥Iron Maiden🔥", image: ironmaiden, link: "/ironmaiden" },
-        { title: "🦇Black Sabbath🦇", image: blacksabbath, link: "/blacksabbath" },
-        { title: "👑Queen👑", image: queen, link: "/queen" }
-    ];
+    const handlePlayPause = () => {
+        if (isPlaying) {
+            togglePlay();
+        } else if (currentTrack) {
+            togglePlay();
+        } else if (allTracks?.length > 0) {
+            play(allTracks[0]);
+        }
+    };
 
     return (
         <div className={styles.page}>
-
             <section className={styles.heroSection}>
-                <div className={styles.heroOverlay}></div>
+                <div className={styles.heroOverlay} />
 
                 <div className={styles.heroContent}>
                     <h1>ROCK<br />LEGENDS</h1>
+                    <span className={styles.subtitle}>LEYENDAS DEL ROCK</span>
+                    <p>Explora las bandas más legendarias del rock y el metal en una sola experiencia.</p>
 
-                    <span className={styles.subtitle}>
-                        LEYENDAS DEL ROCK
-                    </span>
-
-                    <p>
-                        Explora las bandas más legendarias del rock y el metal en una sola experiencia.
-                    </p>
-
-                    {/* 🎧 REPRODUCTOR (conectado al contexto global) */}
                     <div className={styles.player}>
-                        {/* Ya NO hay <audio> aquí, lo maneja MusicContext */}
-
                         <div className={styles.controls}>
-                            <button onClick={prev}>⏮</button>
+                            <button onClick={prev} aria-label="Canción anterior">⏮</button>
+                            
+                            <button onClick={handlePlayPause} aria-label={isPlaying ? "Pausar" : "Reproducir"}>
+                                {isPlaying ? '⏸' : '▶'}
+                            </button>
 
-                            {isPlaying ? (
-                                <button onClick={togglePlay}>⏸</button>
-                            ) : (
-                                <button onClick={() => {
-                                    if (currentTrack) {
-                                        // Reanudar si hay una canción pausada
-                                        togglePlay();
-                                    } else {
-                                        // Primera reproducción: empezar con la primera canción
-                                        play(allTracks[0]);
-                                    }
-                                }}>▶</button>
-                            )}
-
-                            <button onClick={next}>⏭</button>
+                            <button onClick={next} aria-label="Canción siguiente">⏭</button>
                         </div>
 
                         <p className={styles.nowPlaying}>
-                            🎧 {currentTrack ? currentTrack.title : 'Sin reproducción'}
+                            🎧 {currentTrack?.title || 'Sin reproducción'}
                         </p>
                     </div>
                 </div>
 
-                {/* 🎸 CARDS */}
                 <div className={styles.cardSection}>
-                    {bands.map((b, i) => (
-                        <Card key={i} title={b.title} image={b.image} link={b.link} />
+                    {BANDS.map((band) => (
+                        <Card 
+                            key={band.id} 
+                            title={band.title} 
+                            image={band.image} 
+                            link={band.link} 
+                        />
                     ))}
                 </div>
-
             </section>
-
         </div>
     );
 };

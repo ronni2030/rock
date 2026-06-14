@@ -1,31 +1,26 @@
-import React from 'react';
-import styles from './BlackSabbath.module.css';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-
+import styles from './BlackSabbath.module.css';
 import portada from '../../images/blacksabbath/portada.png';
 
 const BlackSabbath = () => {
+    // Generamos las partículas una sola vez para mejorar el rendimiento
+    const particles = useMemo(() => [...Array(40)], []);
+
     return (
         <div
             className={styles.sabbathPage}
-            style={{
-                '--bg-image': `url(${portada})`
-            }}
+            style={{ '--bg-image': `url(${portada})` }}
         >
-            {/* Overlay Oscuro */}
+            {/* EFECTOS AMBIENTALES */}
             <div className={styles.backgroundOverlay}></div>
-
-            {/* Niebla */}
             <div className={styles.fog}></div>
-
-            {/* Luces */}
             <div className={`${styles.spotlight} ${styles.spotlight1}`}></div>
             <div className={`${styles.spotlight} ${styles.spotlight2}`}></div>
             <div className={`${styles.spotlight} ${styles.spotlight3}`}></div>
 
-            {/* Partículas */}
             <div className={styles.particles}>
-                {[...Array(40)].map((_, i) => (
+                {particles.map((_, i) => (
                     <span
                         key={i}
                         className={styles.particle}
@@ -41,66 +36,27 @@ const BlackSabbath = () => {
             {/* MENU */}
             <nav className={styles.sabbathNav}>
                 <div className={styles.navContainer}>
-                    <Link to="/" className={styles.navItem}>
-                        INICIO
-                    </Link>
-
+                    <Link to="/" className={styles.navItem}>INICIO</Link>
                     <span className={styles.navDivider}>|</span>
-
-                    <Link
-                        to="/blacksabbath"
-                        className={`${styles.navItem} ${styles.sabbathActive}`}
-                    >
-                        BLACK SABBATH
-                    </Link>
-
+                    <Link to="/blacksabbath" className={`${styles.navItem} ${styles.sabbathActive}`}>BLACK SABBATH</Link>
                     <span className={styles.navDivider}>|</span>
-
-                    <Link
-                        to="/blacksabbath/historia"
-                        className={styles.navItem}
-                    >
-                        HISTORIA
-                    </Link>
-
+                    <Link to="/blacksabbath/historia" className={styles.navItem}>HISTORIA</Link>
                     <span className={styles.navDivider}>|</span>
-
-                    <Link
-                        to="/blacksabbath/albunes"
-                        className={styles.navItem}
-                    >
-                        ÁLBUMES
-                    </Link>
-
+                    <Link to="/blacksabbath/albunes" className={styles.navItem}>ÁLBUMES</Link>
                     <span className={styles.navDivider}>|</span>
-
-                    <Link
-                        to="/blacksabbath/grupo"
-                        className={styles.navItem}
-                    >
-                        GRUPO
-                    </Link>
+                    <Link to="/blacksabbath/grupo" className={styles.navItem}>GRUPO</Link>
                 </div>
             </nav>
 
             {/* HERO */}
             <section className={styles.concertHero}>
-
                 <div className={styles.heroContent}>
-
                     <h1 className={styles.concertTitle}>
-                        BLACK
-                        <span>SABBATH</span>
+                        BLACK <span>SABBATH</span>
                     </h1>
-
-                    <p className={styles.concertSubtitle}>
-                        THE GODFATHERS OF HEAVY METAL
-                    </p>
-
+                    <p className={styles.concertSubtitle}>THE GODFATHERS OF HEAVY METAL</p>
                 </div>
-
                 <div className={styles.stage}></div>
-
             </section>
 
             {/* FOOTER */}
@@ -109,7 +65,6 @@ const BlackSabbath = () => {
                     <p className={styles.copyright}>
                         © {new Date().getFullYear()} R.A.V.V 🦇 BLACK SABBATH 🦇
                     </p>
-
                     <div className={styles.socialIcons}>
                         <span className={styles.icon}>🎸</span>
                         <span className={styles.icon}>🦇</span>

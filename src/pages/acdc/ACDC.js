@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styles from './ACDC.module.css';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './ACDC.module.css';
 
 import img1 from "../../images/acdc/1.jpg";
 import img2 from "../../images/acdc/2.jpg";
@@ -9,23 +9,22 @@ import img4 from "../../images/acdc/4.jpg";
 import img5 from "../../images/acdc/5.jpg";
 import img6 from "../../images/acdc/6.jpg";
 
+const SLIDER_IMAGES = [img1, img2, img3];
+
 const ACDC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [progress, setProgress] = useState(0);
-
-    const images = [img1, img2, img3];
-    const totalSlides = images.length;
     const intervalRef = useRef(null);
 
-    const nextSlide = () => {
-        setCurrentIndex((prev) => (prev + 1) % totalSlides);
+    const nextSlide = useCallback(() => {
+        setCurrentIndex((prev) => (prev + 1) % SLIDER_IMAGES.length);
         setProgress(0);
-    };
+    }, []);
 
-    const prevSlide = () => {
-        setCurrentIndex((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
+    const prevSlide = useCallback(() => {
+        setCurrentIndex((prev) => (prev === 0 ? SLIDER_IMAGES.length - 1 : prev - 1));
         setProgress(0);
-    };
+    }, []);
 
     useEffect(() => {
         intervalRef.current = setInterval(() => {
@@ -37,8 +36,9 @@ const ACDC = () => {
                 return old + 2;
             });
         }, 80);
+
         return () => clearInterval(intervalRef.current);
-    }, []);
+    }, [nextSlide]);
 
     return (
         <div className={styles.page}>
@@ -61,10 +61,10 @@ const ACDC = () => {
 
             <section className={styles.sliderSection}>
                 <div className={styles.slider}>
-                    <img src={images[currentIndex]} className={styles.image} alt="acdc" />
+                    <img src={SLIDER_IMAGES[currentIndex]} className={styles.image} alt="AC/DC Gallery" />
                     <div className={styles.controls}>
-                        <button onClick={prevSlide}>❮</button>
-                        <button onClick={nextSlide}>❯</button>
+                        <button onClick={prevSlide} aria-label="Anterior">❮</button>
+                        <button onClick={nextSlide} aria-label="Siguiente">❯</button>
                     </div>
                     <div className={styles.progressBar}>
                         <div style={{ width: `${progress}%` }} />
@@ -80,21 +80,21 @@ const ACDC = () => {
 
             <section className={styles.cardsGrid}>
                 <div className={styles.hoverCard}>
-                    <img src={img4} alt="album" />
+                    <img src={img4} alt="Back in Black" />
                     <div className={styles.hoverInfo}>
                         <h3>Back in Black</h3>
                         <p>1980 - Álbum legendario del rock</p>
                     </div>
                 </div>
                 <div className={styles.hoverCard}>
-                    <img src={img5} alt="member" />
+                    <img src={img5} alt="Angus Young" />
                     <div className={styles.hoverInfo}>
                         <h3>Angus Young</h3>
                         <p>Guitarra</p>
                     </div>
                 </div>
                 <div className={styles.hoverCard}>
-                    <img src={img6} alt="member" />
+                    <img src={img6} alt="Brian Johnson" />
                     <div className={styles.hoverInfo}>
                         <h3>Brian Johnson</h3>
                         <p>Entró en 1980 tras Bon Scott</p>
@@ -102,21 +102,17 @@ const ACDC = () => {
                 </div>
             </section>
 
-            {/* OFFICIAL BUTTON */}
-<div className={styles.officialSection}>
-    <p className={styles.officialText}>
-        VISITA LA PÁGINA OFICIAL DE LA BANDA
-    </p>
-
-    <a
-        href="https://www.acdc.com"
-        target="_blank"
-        rel="noreferrer"
-        className={styles.officialButton}
-    >
-        ⚡ ENTRAR A AC/DC ⚡
-    </a>
-</div>
+            <div className={styles.officialSection}>
+                <p className={styles.officialText}>VISITA LA PÁGINA OFICIAL DE LA BANDA</p>
+                <a
+                    href="https://www.acdc.com"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className={styles.officialButton}
+                >
+                    ⚡ ENTRAR A AC/DC ⚡
+                </a>
+            </div>
 
             <footer className={styles.footer}>
                 © {new Date().getFullYear()} AC/DC EXPERIENCE

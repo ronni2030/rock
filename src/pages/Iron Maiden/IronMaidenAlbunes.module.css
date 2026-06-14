@@ -1,435 +1,194 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.maidenPage{
-    min-height:100vh;
-    overflow-x:hidden;
-    color:white;
-    font-family:'Orbitron',sans-serif;
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.65)
-    ),
-    url('../../images/ironmaiden/portada.png');
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-
-    padding-top:95px;
-    position:relative;
+.maidenPage {
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)),
+                url('../../images/ironmaiden/portada.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 95px;
+    position: relative;
 }
 
-/* GRID FUTURISTA ORIGINAL */
-
-.maidenPage::before{
-    content:"";
-    position:fixed;
-    inset:0;
-
-    background-image:
-    linear-gradient(rgba(0,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,255,.03) 1px, transparent 1px);
-
-    background-size:50px 50px;
-
-    pointer-events:none;
-    z-index:0;
+/* Efecto Grid de fondo */
+.maidenPage::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* HEADER */
+/* HEADER Y NAV */
+.header { position: fixed; width: 100%; top: 0; z-index: 1000; }
 
-.header{
-    position:fixed;
-    width:100%;
-    top:0;
-    z-index:1000;
+.maidenNav {
+    background: linear-gradient(to right, #020611, #08111f, #020611);
+    padding: 15px 0;
+    border-bottom: 3px solid #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
 }
 
-.maidenNav{
-    background:linear-gradient(
-        to right,
-        #020611,
-        #08111f,
-        #020611
-    );
-
-    padding:15px 0;
-
-    border-bottom:3px solid #00ffff;
-
-    box-shadow:
-    0 0 20px rgba(0,255,255,.7);
+.navContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
 
-/* MENU CENTRADO */
+.navLinks { display: flex; align-items: center; gap: 10px; }
 
-.navContainer{
-    max-width:1200px;
-
-    margin:0 auto;
-
-    padding:0 40px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:30px;
+.navItem {
+    color: #cfd8dc;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-weight: 700;
 }
 
-.navLinks{
-    display:flex;
-    align-items:center;
-    gap:10px;
+.navItem:hover, .maidenActive {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
 }
 
-/* LINKS */
-
-.navItem{
-    color:#cfd8dc;
-
-    text-decoration:none;
-
-    font-size:1.1rem;
-
-    padding:10px 15px;
-
-    text-transform:uppercase;
-
-    letter-spacing:1px;
-
-    transition:all .3s ease;
-
-    font-weight:700;
+.navLogo {
+    font-family: 'Permanent Marker', cursive;
+    color: #e51313;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    padding-left: 10px;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #fff;
+    letter-spacing: -1px;
+    white-space: nowrap;
 }
 
-.navItem:hover{
-    color:#00ffff;
+/* CONTENIDO PRINCIPAL Y GALERÍA */
+.mainContent { position: relative; z-index: 1; }
 
-    text-shadow:
-    0 0 10px #00ffff;
+.galleryWrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 220px);
+    grid-auto-rows: 220px;
+    justify-content: center;
+    gap: 25px;
+    padding: 50px;
 }
 
-.maidenActive{
-    color:#00ffff;
-
-    text-shadow:
-    0 0 10px #00ffff;
+.centerVideo {
+    grid-column: 2 / 5;
+    grid-row: 2 / 4;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.35);
+    overflow: hidden;
 }
 
-/* LOGO */
+.centerVideo iframe { width: 100%; height: 100%; border: none; }
 
-.navLogo{
-    font-family:'Permanent Marker',cursive;
-
-    color:#e51313;
-
-    font-size:1.8rem;
-
-    text-transform:uppercase;
-
-    line-height:1;
-
-    padding-left:10px;
-
-    text-shadow:
-    2px 2px 0px #000,
-    -1px -1px 0px #fff;
-
-    letter-spacing:-1px;
-
-    white-space:nowrap;
+/* COMPONENTE VINILO */
+.vinylWrapper {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    cursor: pointer;
+    transition: 0.4s ease;
 }
 
-/* CONTENIDO */
+.vinylWrapper:hover { transform: scale(1.08); z-index: 20; }
+.vinylWrapper:active { transform: scale(0.95); }
 
-.mainContent{
-    position:relative;
-    z-index:1;
+.vinylCover {
+    width: 100%;
+    height: 100%;
+    background: #111;
+    padding: 6px;
+    border: 1px solid #444;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
 }
 
-/* GALERIA */
+.vinylCover img { width: 100%; height: 100%; object-fit: cover; }
 
-.galleryWrapper{
-    display:grid;
-
-    grid-template-columns:
-        repeat(5, 220px);
-
-    grid-auto-rows:220px;
-
-    justify-content:center;
-
-    gap:25px;
-
-    padding:50px;
+.vinylDisc {
+    position: absolute;
+    top: 5px;
+    right: -25px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #444 0%, #222 10%, #111 25%, #000 100%);
+    z-index: -1;
+    transition: 0.5s ease;
 }
 
-/* VIDEO CENTRAL */
+.vinylWrapper:hover .vinylDisc { right: -60px; }
 
-.centerVideo{
-    grid-column:2 / 5;
-    grid-row:2 / 4;
+.albumTitle { margin-top: 12px; text-align: center; font-size: 0.9rem; font-weight: 700; color: #fff; }
+.albumYear { display: block; text-align: center; margin-top: 4px; color: #00ffff; font-size: 0.8rem; }
 
-    z-index:10;
-
-    width:100%;
-    height:100%;
-
-    overflow:hidden;
-
-    background:#000;
-
-    border:2px solid #00ffff;
-
-    box-shadow:
-    0 0 30px rgba(0,255,255,.35);
-}
-
-.centerVideo iframe{
-    width:100%;
-    height:100%;
-    border:none;
-}
-
-/* VINILOS */
-
-.vinylWrapper{
-    position:relative;
-
-    width:170px;
-    height:170px;
-
-    cursor:pointer;
-
-    transition:.4s ease;
-}
-
-.vinylWrapper:hover{
-    transform:scale(1.08);
-
-    z-index:20;
-}
-
-.vinylCover{
-    width:100%;
-    height:100%;
-
-    background:#111;
-
-    padding:6px;
-
-    border:1px solid #444;
-
-    box-shadow:
-    0 0 15px rgba(0,255,255,.15);
-}
-
-.vinylCover img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-}
-
-.vinylDisc{
-    position:absolute;
-
-    top:5px;
-    right:-25px;
-
-    width:160px;
-    height:160px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-        circle,
-        #444 0%,
-        #222 10%,
-        #111 25%,
-        #000 100%
-    );
-
-    z-index:-1;
-
-    transition:.5s ease;
-}
-
-.vinylWrapper:hover .vinylDisc{
-    right:-60px;
-}
+/* DISTRIBUCIÓN DE ÁLBUMES */
+.vinylWrapper:nth-child(1) { grid-column: 1; grid-row: 1; }
+.vinylWrapper:nth-child(2) { grid-column: 2; grid-row: 1; }
+.vinylWrapper:nth-child(3) { grid-column: 3; grid-row: 1; }
+.vinylWrapper:nth-child(4) { grid-column: 4; grid-row: 1; }
+.vinylWrapper:nth-child(5) { grid-column: 5; grid-row: 1; }
+.vinylWrapper:nth-child(6) { grid-column: 1; grid-row: 2; }
+.vinylWrapper:nth-child(7) { grid-column: 5; grid-row: 2; }
+.vinylWrapper:nth-child(8) { grid-column: 1; grid-row: 3; }
+.vinylWrapper:nth-child(9) { grid-column: 5; grid-row: 3; }
+.vinylWrapper:nth-child(10) { grid-column: 1; grid-row: 4; }
+.vinylWrapper:nth-child(11) { grid-column: 2; grid-row: 4; }
+.vinylWrapper:nth-child(12) { grid-column: 3; grid-row: 4; }
+.vinylWrapper:nth-child(13) { grid-column: 4; grid-row: 4; }
+.vinylWrapper:nth-child(14) { grid-column: 5; grid-row: 4; }
+.vinylWrapper:nth-child(15) { grid-column: 1; grid-row: 5; }
+.vinylWrapper:nth-child(16) { grid-column: 3; grid-row: 5; }
+.vinylWrapper:nth-child(17) { grid-column: 5; grid-row: 5; }
 
 /* SCROLLBAR */
-
-::-webkit-scrollbar{
-    width:10px;
-}
-
-::-webkit-scrollbar-track{
-    background:#020611;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#00ffff;
-    border-radius:10px;
-}
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #020611; }
+::-webkit-scrollbar-thumb { background: #00ffff; border-radius: 10px; }
 
 /* RESPONSIVE */
-
-@media (max-width:1024px){
-
-    .galleryWrapper{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .centerVideo{
-        grid-column:1 / 4;
-        grid-row:auto;
-
-        min-height:350px;
-    }
+@media (max-width: 1024px) {
+    .galleryWrapper { grid-template-columns: repeat(3, 1fr); }
+    .centerVideo { grid-column: 1 / 4; grid-row: auto; min-height: 350px; }
 }
 
-@media (max-width:768px){
-
-    .navContainer{
-        flex-direction:column;
-
-        gap:12px;
-
-        padding:10px;
-    }
-
-    .navLinks{
-        justify-content:center;
-
-        flex-wrap:wrap;
-    }
-
-    .navItem{
-        font-size:1rem;
-
-        padding:6px 10px;
-    }
-
-    .navLogo{
-        font-size:1.6rem;
-
-        padding-left:0;
-    }
-
-    .galleryWrapper{
-        grid-template-columns:repeat(2,1fr);
-
-        padding:20px;
-    }
-
-    .centerVideo{
-        grid-column:1 / 3;
-
-        min-height:260px;
-    }
-
-    .vinylWrapper{
-        width:140px;
-        height:140px;
-    }
-
-    .vinylDisc{
-        width:130px;
-        height:130px;
-    }
+@media (max-width: 768px) {
+    .navContainer { flex-direction: column; gap: 12px; padding: 10px; }
+    .navLinks { justify-content: center; flex-wrap: wrap; }
+    .navItem { font-size: 1rem; padding: 6px 10px; }
+    .navLogo { padding-left: 0; font-size: 1.6rem; }
+    .galleryWrapper { grid-template-columns: repeat(2, 1fr); padding: 20px; }
+    .centerVideo { grid-column: 1 / 3; min-height: 260px; }
+    .vinylWrapper { width: 140px; height: 140px; }
+    .vinylDisc { width: 130px; height: 130px; }
 }
 
-@media (max-width:480px){
-
-    .galleryWrapper{
-        grid-template-columns:1fr;
-    }
-
-    .centerVideo{
-        grid-column:1;
-
-        min-height:220px;
-    }
-
-    .vinylWrapper{
-        margin:auto;
-    }
-}
-
-/* ==========================
-   DISTRIBUCIÓN DE 17 ÁLBUMES
-========================== */
-
-/* FILA SUPERIOR */
-.vinylWrapper:nth-child(1){ grid-column:1; grid-row:1; }
-.vinylWrapper:nth-child(2){ grid-column:2; grid-row:1; }
-.vinylWrapper:nth-child(3){ grid-column:3; grid-row:1; }
-.vinylWrapper:nth-child(4){ grid-column:4; grid-row:1; }
-.vinylWrapper:nth-child(5){ grid-column:5; grid-row:1; }
-
-/* LATERALES DEL VIDEO */
-.vinylWrapper:nth-child(6){ grid-column:1; grid-row:2; }
-.vinylWrapper:nth-child(7){ grid-column:5; grid-row:2; }
-
-.vinylWrapper:nth-child(8){ grid-column:1; grid-row:3; }
-.vinylWrapper:nth-child(9){ grid-column:5; grid-row:3; }
-
-/* FILA DEBAJO DEL VIDEO */
-.vinylWrapper:nth-child(10){ grid-column:1; grid-row:4; }
-.vinylWrapper:nth-child(11){ grid-column:2; grid-row:4; }
-.vinylWrapper:nth-child(12){ grid-column:3; grid-row:4; }
-.vinylWrapper:nth-child(13){ grid-column:4; grid-row:4; }
-.vinylWrapper:nth-child(14){ grid-column:5; grid-row:4; }
-
-/* ÚLTIMA FILA */
-.vinylWrapper:nth-child(15){
-    grid-column:1;
-    grid-row:5;
-}
-
-.vinylWrapper:nth-child(16){
-    grid-column:3;
-    grid-row:5;
-}
-
-.vinylWrapper:nth-child(17){
-    grid-column:5;
-    grid-row:5;
-}
-
-.albumTitle{
-    margin-top:12px;
-    text-align:center;
-    font-size:.9rem;
-    font-weight:700;
-    color:#fff;
-}
-
-.albumYear{
-    display:block;
-    text-align:center;
-    margin-top:4px;
-    color:#00ffff;
-    font-size:.8rem;
-}
-
-.vinylWrapper{
-    cursor:pointer;
-}
-
-.vinylWrapper:active{
-    transform:scale(.95);
+@media (max-width: 480px) {
+    .galleryWrapper { grid-template-columns: 1fr; }
+    .centerVideo { grid-column: 1; min-height: 220px; }
+    .vinylWrapper { margin: auto; }
 }

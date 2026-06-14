@@ -5,9 +5,8 @@
 }
 
 /* ================================= */
-/* PAGINA BASE */
+/* PÁGINA BASE */
 /* ================================= */
-
 .sabbathPage {
     min-height: 100vh;
     font-family: 'Cinzel', serif;
@@ -25,7 +24,6 @@
 /* ================================= */
 /* NAVBAR */
 /* ================================= */
-
 .sabbathNav {
     position: fixed;
     top: 0;
@@ -46,12 +44,12 @@
 }
 
 .navItem {
-    color:#cfcfcf;
+    color: #cfcfcf;
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 700;
     padding: 10px 15px;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .navItem:hover {
@@ -59,41 +57,33 @@
     text-shadow: 0 0 15px #7b2cbf;
 }
 
-.navDivider {
-    color: #7b2cbf;
-}
-
-.sabbathActive {
-    color: #d7b3ff;
-    text-shadow: 0 0 15px #7b2cbf;
-}
+.navDivider { color: #7b2cbf; }
+.sabbathActive { color: #d7b3ff; text-shadow: 0 0 15px #7b2cbf; }
 
 /* ================================= */
-/* CONTENEDOR ENVOLVENTE DEL MANDALA */
+/* CONTENEDOR ENVOLVENTE (MANDALA) */
 /* ================================= */
-
 .mandalaWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    padding: 140px 20px 100px 20px;
+    padding: 140px 20px 100px;
 }
 
 .mandalaContainer {
     position: relative;
     width: 1200px;
-    height: 1350px; /* Incrementado para dar más aire vertical a las tarjetas */
+    height: 1350px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 /* ================================= */
-/* NÚCLEO CENTRAL CON IMAGEN PORTADA3 */
+/* NÚCLEO CENTRAL */
 /* ================================= */
-
 .coreHub {
     position: relative;
     width: 280px;
@@ -103,10 +93,7 @@
     background-repeat: no-repeat;
     border: 6px double #7b2cbf;
     border-radius: 50%;
-    box-shadow: 
-        0 0 0 6px #000,
-        0 0 40px rgba(123, 44, 191, 0.6),
-        inset 0 0 30px rgba(0,0,0,0.9);
+    box-shadow: 0 0 0 6px #000, 0 0 40px rgba(123, 44, 191, 0.6), inset 0 0 30px rgba(0,0,0,0.9);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,11 +115,9 @@
     transform: scale(1.04) rotate(-1deg);
 }
 
-.coreHub:hover .coreOverlay {
-    background: rgba(0, 0, 0, 0);
-}
+.coreHub:hover .coreOverlay { background: rgba(0, 0, 0, 0); }
 
-/* Anillos decorativos de órbita */
+/* Anillos de órbita */
 .connectorRing {
     position: absolute;
     border: 2px dashed rgba(123, 44, 191, 0.25);
@@ -144,13 +129,12 @@
 .ringOuter { width: 920px; height: 920px; border-style: solid; border-color: rgba(123, 44, 191, 0.08); }
 
 /* ================================= */
-/* TARJETAS DE HISTORIA (SECTIONS) */
+/* TARJETAS DE HISTORIA */
 /* ================================= */
-
 .rockSection {
     position: absolute;
     width: 440px;
-    background: rgba(8, 4, 15, 0.82); /* Ligeramente más opaco para asegurar lectura */
+    background: rgba(8, 4, 15, 0.82);
     backdrop-filter: blur(14px);
     border: 1px solid rgba(123, 44, 191, 0.4);
     border-radius: 20px;
@@ -159,10 +143,9 @@
     z-index: 5;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     cursor: default;
-    overflow: hidden; /* Necesario para que el fondo semitransparente no se salga */
+    overflow: hidden;
 }
 
-/* Pseudo-elemento para controlar la imagen de fondo semi-transparente */
 .rockSection::after {
     content: '';
     position: absolute;
@@ -171,12 +154,11 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.18; /* Nivel perfecto de transparencia para no arruinar la lectura */
+    opacity: 0.18;
     z-index: -1;
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Cables visuales */
 .rockSection::before {
     content: '';
     position: absolute;
@@ -187,47 +169,26 @@
     opacity: 0.4;
 }
 
-/* Efectos Hover de las tarjetas */
 .rockSection:hover {
     transform: translateY(-5px);
     border-color: #d7b3ff;
     box-shadow: 0 20px 45px rgba(123, 44, 191, 0.4);
 }
 
-.rockSection:hover::after {
-    opacity: 0.32; /* El fondo se ilumina un poco más al hacer hover */
-    transform: scale(1.03);
-}
+.rockSection:hover::after { opacity: 0.32; transform: scale(1.03); }
+.rockSection:hover::before { background: #d7b3ff; box-shadow: 0 0 12px #7b2cbf; opacity: 1; }
 
-.rockSection:hover::before {
-    background: #d7b3ff;
-    box-shadow: 0 0 12px #7b2cbf;
-    opacity: 1;
-}
-
-/* POSICIONAMIENTO GEOMÉTRICO EXCLUSIVO */
-
-/* Card 1: Superior Izquierda */
+/* Posicionamiento */
 .card1 { top: 20px; left: 20px; }
 .card1::before { width: 220px; transform: rotate(44deg); top: 100%; left: 70%; }
-
-/* Card 2: Superior Derecha */
 .card2 { top: 20px; right: 20px; }
 .card2::before { width: 220px; transform: rotate(-44deg); top: 100%; right: 70%; }
-
-/* Card 3: Inferior Izquierda */
 .card3 { bottom: 20px; left: 20px; }
 .card3::before { width: 220px; transform: rotate(-44deg); bottom: 100%; left: 70%; }
-
-/* Card 4: Inferior Derecha */
 .card4 { bottom: 20px; right: 20px; }
 .card4::before { width: 220px; transform: rotate(44deg); bottom: 100%; right: 70%; }
 
-
-/* ================================= */
-/* ELEMENTOS INTERNOS DE TARJETAS */
-/* ================================= */
-
+/* Elementos internos */
 .year {
     position: relative;
     z-index: 2;
@@ -241,12 +202,7 @@
     box-shadow: 0 0 10px rgba(123, 44, 191, 0.5);
 }
 
-.sectionTitle {
-    position: relative;
-    z-index: 2;
-    margin-bottom: 20px;
-    margin-top: 5px;
-}
+.sectionTitle { position: relative; z-index: 2; margin-bottom: 20px; margin-top: 5px; }
 
 .titleOutline {
     position: absolute;
@@ -256,48 +212,31 @@
     font-weight: 900;
     color: transparent;
     -webkit-text-stroke: 1px rgba(123, 44, 191, 0.15);
-    opacity: .6;
+    opacity: 0.6;
     pointer-events: none;
 }
 
-.titleMain {
-    position: relative;
-    font-size: 1.6rem;
-    font-weight: 900;
-    color: white;
-    text-shadow: 0 0 15px #7b2cbf;
-}
+.titleMain { position: relative; font-size: 1.6rem; font-weight: 900; color: white; text-shadow: 0 0 15px #7b2cbf; }
 
 .rockText {
     position: relative;
     z-index: 2;
     font-size: 1rem;
     line-height: 1.7;
-    color: #e2e2e6; /* Un punto más claro para contraste óptimo sobre las imágenes */
+    color: #e2e2e6;
     text-align: justify;
     margin-bottom: 15px;
 }
 
-.rockText:last-child {
-    margin-bottom: 0;
-}
-
-.rockText strong {
-    color: white;
-    text-shadow: 0 0 10px #7b2cbf;
-}
-
-.rockText em {
-    color: #dcbcff;
-}
+.rockText strong { color: white; text-shadow: 0 0 10px #7b2cbf; }
+.rockText em { color: #dcbcff; }
 
 /* ================================= */
 /* FOOTER */
 /* ================================= */
-
 .footer {
     position: relative;
-    background: rgba(0, 0, 0, .88);
+    background: rgba(0, 0, 0, 0.88);
     backdrop-filter: blur(10px);
     border-top: 2px solid #7b2cbf;
     padding: 25px 0;
@@ -305,97 +244,29 @@
     width: 100%;
 }
 
-.footerContent {
-    width: min(1200px, 90%);
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.copyright {
-    color: #aaa;
-}
-
-.socialIcons {
-    display: flex;
-    gap: 15px;
-}
-
-.icon {
-    font-size: 1.6rem;
-    transition: .3s;
-    cursor: pointer;
-}
-
-.icon:hover {
-    transform: scale(1.3);
-}
+.footerContent { width: min(1200px, 90%); margin: auto; display: flex; justify-content: space-between; align-items: center; }
+.copyright { color: #aaa; }
+.socialIcons { display: flex; gap: 15px; }
+.icon { font-size: 1.6rem; transition: 0.3s; cursor: pointer; }
+.icon:hover { transform: scale(1.3); }
 
 /* ================================= */
 /* RESPONSIVE DESIGN */
 /* ================================= */
-
 @media (max-width: 1150px) {
-    .mandalaWrapper {
-        padding-top: 130px;
-    }
-
-    .mandalaContainer {
-        height: auto;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        padding: 0 10px;
-    }
-
-    .coreHub {
-        width: 220px;
-        height: 220px;
-        margin-bottom: 10px;
-        position: static;
-    }
-
-    .rockSection {
-        position: static;
-        width: 100%;
-        max-width: 750px;
-    }
-
-    .connectorRing, .rockSection::before {
-        display: none !important;
-    }
+    .mandalaWrapper { padding-top: 130px; }
+    .mandalaContainer { height: auto; width: 100%; display: flex; flex-direction: column; gap: 40px; padding: 0 10px; }
+    .coreHub { width: 220px; height: 220px; margin-bottom: 10px; position: static; }
+    .rockSection { position: static; width: 100%; max-width: 750px; }
+    .connectorRing, .rockSection::before { display: none !important; }
 }
 
 @media (max-width: 600px) {
-    .mandalaWrapper {
-        padding-top: 110px;
-    }
-
-    .titleOutline {
-        display: none;
-    }
-
-    .titleMain {
-        font-size: 1.3rem;
-    }
-
-    .rockSection {
-        padding: 20px;
-    }
-
-    .rockText {
-        font-size: 0.95rem;
-    }
-
-    .navItem {
-        font-size: .9rem;
-        padding: 8px;
-    }
-
-    .footerContent {
-        flex-direction: column;
-        gap: 15px;
-    }
+    .mandalaWrapper { padding-top: 110px; }
+    .titleOutline { display: none; }
+    .titleMain { font-size: 1.3rem; }
+    .rockSection { padding: 20px; }
+    .rockText { font-size: 0.95rem; }
+    .navItem { font-size: 0.9rem; padding: 8px; }
+    .footerContent { flex-direction: column; gap: 15px; }
 }

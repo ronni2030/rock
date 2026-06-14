@@ -37,7 +37,6 @@ const KissHistoria = () => {
 
     return (
         <div className={styles.kissPage}>
-
             {/* PROGRESS BAR */}
             <div
                 className={styles.progressBar}
@@ -63,7 +62,6 @@ const KissHistoria = () => {
 
             {/* CONTENT */}
             <div className={styles.content}>
-
                 <section className={styles.rockSection}>
                     <h2 className={styles.sectionTitle}>
                         <span className={styles.titleOutline}>KISS</span>
@@ -104,7 +102,6 @@ const KissHistoria = () => {
                         Su gira final terminó en 2023 en Nueva York tras más de 50 años de historia.
                     </p>
                 </section>
-
             </div>
 
             {/* FOOTER */}

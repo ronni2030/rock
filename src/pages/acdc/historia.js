@@ -3,21 +3,16 @@ import { Link } from 'react-router-dom';
 import styles from './historia.module.css';
 
 import portada from "../../images/acdc/portada.jpg";
-
 import img1 from "../../images/acdc/7.jpg";
 import img2 from "../../images/acdc/8.jpg";
 import img3 from "../../images/acdc/9.jpg";
 import img4 from "../../images/acdc/10.jpg";
 import img5 from "../../images/acdc/11.jpg";
 
-const historia = () => {
+const Historia = () => {
     return (
-        <div
-            className={styles.page}
-            style={{ backgroundImage: `url(${portada})` }}
-        >
+        <div className={styles.page} style={{ backgroundImage: `url(${portada})` }}>
 
-            {/* NAV */}
             <nav className={styles.nav}>
                 <Link to="/" className={styles.link}>INICIO</Link>
                 <Link to="/acdc" className={styles.link}>ACDC</Link>
@@ -26,22 +21,18 @@ const historia = () => {
                 <Link to="/acdc/grupo" className={styles.link}>GRUPO</Link>
             </nav>
 
-            {/* HEADER */}
             <header className={styles.header}>
                 <h1>⚡ HISTORIA AC/DC ⚡</h1>
                 <p>El viaje del rock más poderoso del mundo</p>
             </header>
 
-            {/* TIMELINE */}
             <section className={styles.timeline}>
-
+                
                 <div className={styles.itemLeft}>
                     <div className={styles.timelineImage}>
                         <img src={img1} alt="1973 AC/DC" />
                     </div>
-
                     <div className={styles.node}></div>
-
                     <div className={styles.content}>
                         <h3>⚡ INICIO (1973)</h3>
                         <p>Malcolm y Angus Young forman AC/DC en Australia. Nace la energía cruda del rock.</p>
@@ -53,9 +44,7 @@ const historia = () => {
                         <h3>🔥 ASCENSO (1976–1978)</h3>
                         <p>Giras internacionales y discos como High Voltage. El mundo empieza a escuchar el rugido.</p>
                     </div>
-
                     <div className={styles.node}></div>
-
                     <div className={styles.timelineImage}>
                         <img src={img2} alt="Ascenso AC/DC" />
                     </div>
@@ -65,9 +54,7 @@ const historia = () => {
                     <div className={styles.timelineImage}>
                         <img src={img3} alt="Bon Scott era" />
                     </div>
-
                     <div className={styles.node}></div>
-
                     <div className={styles.content}>
                         <h3>👑 TRAGEDIA Y RENACIMIENTO (1980)</h3>
                         <p>Muere Bon Scott. Entra Brian Johnson. Nace Back in Black.</p>
@@ -79,9 +66,7 @@ const historia = () => {
                         <h3>⚡ GLORIA TOTAL</h3>
                         <p>Back in Black se convierte en leyenda. AC/DC domina estadios del mundo.</p>
                     </div>
-
                     <div className={styles.node}></div>
-
                     <div className={styles.timelineImage}>
                         <img src={img4} alt="Gloria AC/DC" />
                     </div>
@@ -91,9 +76,7 @@ const historia = () => {
                     <div className={styles.timelineImage}>
                         <img src={img5} alt="Actualidad AC/DC" />
                     </div>
-
                     <div className={styles.node}></div>
-
                     <div className={styles.content}>
                         <h3>🎸 LEYENDA VIVA</h3>
                         <p>Power Up y legado eterno del rock. AC/DC nunca muere.</p>
@@ -102,7 +85,6 @@ const historia = () => {
 
             </section>
 
-            {/* FOOTER */}
             <footer className={styles.footer}>
                 © {new Date().getFullYear()} AC/DC ⚡ ROCK LEGEND
             </footer>
@@ -111,4 +93,4 @@ const historia = () => {
     );
 };
 
-export default historia;
+export default Historia;

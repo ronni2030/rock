@@ -1,32 +1,27 @@
-/* RESET */
+/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* PAGE */
-/* PAGE */
+/* ================= PAGE ================= */
 .page {
     min-height: 100vh;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    
-    /* MODIFICA ESTA PARTE */
     background: 
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), /* Capa oscura para que el texto se lea bien */
-        url('../../images/acdc/portada2.jpg'); /* RUTA DE TU IMAGEN */
-    
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+        url('../../images/acdc/portada2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* ESTO MANTIENE EL FONDO ESTÁTICO */
-    
+    background-attachment: fixed;
     overflow-x: hidden;
     position: relative;
 }
 
-/* RAYOS */
+/* ================= RAYOS ================= */
 .lightning,
 .lightning2 {
     position: fixed;
@@ -56,7 +51,7 @@
     94% { opacity: 0; }
 }
 
-/* NAV */
+/* ================= NAV ================= */
 .nav {
     position: fixed;
     top: 0;
@@ -65,10 +60,8 @@
     justify-content: center;
     gap: 20px;
     padding: 15px;
-
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
-
     border-bottom: 2px solid #ff0000;
     z-index: 1000;
 }
@@ -87,7 +80,7 @@
     color: #ff0000;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero {
     text-align: center;
     margin-top: 120px;
@@ -99,9 +92,10 @@
     color: transparent;
     background: linear-gradient(90deg, #fff, #ff0000, #ffcc00);
     -webkit-background-clip: text;
+    background-clip: text;
 }
 
-/* SLIDER */
+/* ================= SLIDER ================= */
 .sliderSection {
     display: flex;
     justify-content: center;
@@ -128,15 +122,18 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding: 0 10px;
 }
 
 .controls button {
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     border: 1px solid red;
     color: white;
+    cursor: pointer;
+    padding: 5px 10px;
 }
 
-/* PROGRESS */
+/* ================= PROGRESS BAR ================= */
 .progressBar {
     height: 4px;
     background: #222;
@@ -147,14 +144,14 @@
     background: red;
 }
 
-/* INFO */
+/* ================= INFO ================= */
 .info {
     max-width: 800px;
     margin: 60px auto;
     text-align: center;
 }
 
-/* ⚡ CARDS GRID */
+/* ================= CARDS GRID ================= */
 .cardsGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -163,7 +160,6 @@
     margin: 80px auto;
 }
 
-/* CARD */
 .hoverCard {
     position: relative;
     overflow: hidden;
@@ -177,14 +173,13 @@
     object-fit: cover;
 }
 
-/* INFO SLIDE LEFT */
 .hoverInfo {
     position: absolute;
     top: 0;
     right: -100%;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.88);
+    background: rgba(0, 0, 0, 0.88);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -198,43 +193,43 @@
     right: 0;
 }
 
-/* FOOTER */
+/* ================= OFFICIAL SITE BUTTON ================= */
+.officialSection {
+    text-align: center;
+    margin: 80px auto 40px;
+}
+
+.officialText {
+    color: #aaa;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.officialButton {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 2px solid red;
+    color: white;
+    text-decoration: none;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: rgba(0, 0, 0, 0.6);
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+.officialButton:hover {
+    transform: scale(1.08);
+    background: red;
+    color: black;
+    box-shadow: 0 0 25px red;
+}
+
+/* ================= FOOTER ================= */
 .footer {
     text-align: center;
     padding: 20px;
     border-top: 1px solid #222;
     color: #666;
-}
-
-/* OFFICIAL SITE BUTTON */
-.officialSection{
-    text-align:center;
-    margin:80px auto 40px;
-}
-
-.officialText{
-    color:#aaa;
-    font-weight:700;
-    margin-bottom:15px;
-    letter-spacing:2px;
-}
-
-.officialButton{
-    display:inline-block;
-    padding:14px 28px;
-    border:2px solid red;
-    color:white;
-    text-decoration:none;
-    font-weight:900;
-    letter-spacing:2px;
-    background:rgba(0,0,0,0.6);
-    transition:0.3s;
-    box-shadow:0 0 15px rgba(255,0,0,0.2);
-}
-
-.officialButton:hover{
-    transform:scale(1.08);
-    background:red;
-    color:black;
-    box-shadow:0 0 25px red;
 }

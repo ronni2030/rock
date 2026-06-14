@@ -1,3 +1,6 @@
+/* ==========================================================================
+   CONFIGURACIÓN BASE
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -29,15 +32,16 @@
     height: 200px;
     border-radius: 50%;
     background: radial-gradient(circle, #ffd700, #b8860b);
-    opacity: .15;
+    opacity: 0.15;
     box-shadow: 0 0 80px rgba(212, 175, 55, 0.6);
     pointer-events: none;
     z-index: 0;
 }
 
-/* MENÚ ORIGINAL */
+/* ==========================================================================
+   NAVEGACIÓN
+   ========================================================================== */
 .queenNav {
-    font-family: 'Georgia', serif;
     background: linear-gradient(to right, #000, #0d0900, #000);
     padding: 15px 0;
     position: fixed;
@@ -83,10 +87,11 @@
     text-shadow: 0 0 10px #d4af37;
 }
 
-/* --- CONTENEDORES DEL MOSAICO --- */
-
+/* ==========================================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================================== */
 .mainContentContainer {
-    margin-top: 75px; 
+    margin-top: 75px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -95,7 +100,7 @@
 
 .mainLogoContainer {
     text-align: center;
-    padding: 40px 20px 10px 20px;
+    padding: 40px 20px 10px;
     position: relative;
     z-index: 1;
 }
@@ -120,25 +125,25 @@
     text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
 }
 
-/* Forzar que la sección use el 100% de la pantalla de lado a lado */
 .cardsMosaicSection {
     width: 100%;
-    max-width: 1400px; /* Más ancho para aprovechar los laterales */
-    padding: 40px 40px;
+    max-width: 1400px;
+    padding: 40px;
     display: flex;
     justify-content: center;
     position: relative;
     z-index: 1;
 }
 
-/* Lienzo expansivo */
 .cardsContainer {
     width: 100%;
     position: relative;
-    height: 1100px; /* Reducido y ajustado para que no sobre espacio abajo */
+    height: 1100px;
 }
 
-/* --- ESTILOS COMPARTIDOS DE LAS CARDS --- */
+/* ==========================================================================
+   TARJETAS (ESTILOS COMPARTIDOS)
+   ========================================================================== */
 .card {
     position: absolute;
     border-radius: 16px;
@@ -155,7 +160,6 @@
 .cardGlass {
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     color: #fff;
     padding: 22px;
@@ -182,242 +186,57 @@
     padding: 22px;
 }
 
-.cardIcon {
-    background: none;
-    box-shadow: none;
-    border: none;
-}
+.cardIcon { background: none; box-shadow: none; border: none; }
 
-/* --- COORDENADAS REDISTRIBUIDAS DE EXTREMO A EXTREMO --- */
+/* ==========================================================================
+   POSICIONAMIENTO DE TARJETAS
+   ========================================================================== */
+.cardOrigenes { top: 20px; left: 2%; width: 28%; z-index: 5; }
+.cardRayoTop { top: 40px; left: 33%; width: 6%; text-align: center; }
+.cardFormoGlass { top: 10px; left: 42%; width: 26%; z-index: 10; }
+.cardTridentSmall { top: 30px; left: 71%; width: 13%; text-align: center; }
+.cardBandaPhoto { top: 10px; right: 1%; width: 13%; text-align: center; border: 3px solid #1a1a1a; }
 
-/* Fila 1 (Superior) */
-.cardOrigenes {
-    top: 20px;
-    left: 2%;
-    width: 28%;
-    z-index: 5;
-}
+.cardSmilie { top: 290px; left: 4%; width: 16%; text-align: center; z-index: 6; }
+.cardTridentLarge { top: 260px; left: 23%; width: 25%; text-align: center; z-index: 7; }
+.cardLiveAid { top: 270px; left: 51%; width: 26%; z-index: 8; }
+.cardWembleyPhoto { top: 250px; right: 2%; width: 18%; text-align: center; border: 3px solid #111; }
 
-.cardRayoTop {
-    top: 40px;
-    left: 33%;
-    width: 6%;
-    text-align: center;
-}
+.cardCrownIcon { top: 540px; left: 5%; width: 6%; }
+.cardEraDorada { top: 510px; left: 15%; width: 30%; z-index: 6; }
+.cardFormoDark { top: 530px; left: 48%; width: 28%; z-index: 5; }
+.cardFreddieLegacy { top: 520px; right: 2%; width: 20%; z-index: 10; }
 
-.cardFormoGlass {
-    top: 10px;
-    left: 42%;
-    width: 26%;
-    z-index: 10;
-}
+.cardRayoBottom { top: 810px; left: 33%; width: 6%; }
+.cardGuitarIcon { top: 790px; left: 42%; width: 6%; }
+.cardBohemian { top: 760px; right: 2%; width: 46%; border-bottom: 4px solid #b8860b; }
 
-.cardTridentSmall {
-    top: 30px;
-    left: 71%;
-    width: 13%;
-    text-align: center;
-}
+/* Renombrado de la segunda sección inferior para evitar colisión de clases */
+.cardHitosHistoricos { top: 770px; left: 2%; width: 28%; }
 
-.cardBandaPhoto {
-    top: 10px;
-    right: 1%;
-    width: 13%;
-    text-align: center;
-    border: 3px solid #1a1a1a;
-}
+/* ==========================================================================
+   TIPOGRAFÍA Y ELEMENTOS INTERNOS
+   ========================================================================== */
+.cardTitle { font-size: 1.35rem; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.cardTitleSmall { font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+.cardText { font-size: 0.9rem; line-height: 1.6; color: inherit; }
+.cardText strong { color: #ffd700; }
+.cardGold .cardText strong { color: #000; font-weight: 900; }
+.cardTextPhoto { font-size: 0.8rem; color: #aaa; margin-top: 5px; font-style: italic; }
+.cardIconLarge { font-size: 2.3rem; color: #ffd700; display: block; text-shadow: 0 0 15px #ffd700; }
 
-/* Fila 2 (Media-Superior) */
-.cardSmilie {
-    top: 290px;
-    left: 4%;
-    width: 16%;
-    text-align: center;
-    z-index: 6;
-}
+/* ==========================================================================
+   FOOTER Y RESPONSIVE
+   ========================================================================== */
+.footer { background: linear-gradient(to right, #000, #0d0900, #000); padding: 20px 0; border-top: 3px solid #d4af37; margin-top: 40px; position: relative; z-index: 1; width: 100%; }
+.footerContent { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 0 20px; }
+.copyright { font-size: 0.9rem; color: #aaa; }
+.socialIcons { display: flex; gap: 15px; }
+.icon { font-size: 1.5rem; transition: all 0.3s ease; }
+.icon:hover { transform: scale(1.3); }
 
-.cardTridentLarge {
-    top: 260px;
-    left: 23%;
-    width: 25%;
-    text-align: center;
-    z-index: 7;
-}
-
-.cardLiveAid {
-    top: 270px;
-    left: 51%;
-    width: 26%;
-    z-index: 8;
-}
-
-.cardWembleyPhoto {
-    top: 250px;
-    right: 2%;
-    width: 18%;
-    text-align: center;
-    border: 3px solid #111;
-}
-
-/* Fila 3 (Media-Inferior) */
-.cardCrownIcon {
-    top: 540px;
-    left: 5%;
-    width: 6%;
-}
-
-.cardEraDorada {
-    top: 510px;
-    left: 15%;
-    width: 30%;
-    z-index: 6;
-}
-
-.cardFormoDark {
-    top: 530px;
-    left: 48%;
-    width: 28%;
-    z-index: 5;
-}
-
-.cardFreddieLegacy {
-    top: 520px;
-    right: 2%;
-    width: 20%;
-    z-index: 10;
-}
-
-/* Fila 4 (Inferior) */
-.cardFormoDark {
-    top: 770px;
-    left: 2%;
-    width: 28%;
-}
-
-.cardRayoBottom {
-    top: 810px;
-    left: 33%;
-    width: 6%;
-}
-
-.cardGuitarIcon {
-    top: 790px;
-    left: 42%;
-    width: 6%;
-}
-
-.cardBohemian {
-    top: 760px;
-    right: 2%;
-    width: 46%;
-    border-bottom: 4px solid #b8860b;
-}
-
-/* --- TEXTOS --- */
-.cardTitle {
-    font-size: 1.35rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.cardTitleSmall {
-    font-size: 1.05rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.cardText {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: inherit;
-}
-
-.cardText strong {
-    color: #ffd700;
-}
-
-.cardGold .cardText strong {
-    color: #000;
-    font-weight: 900;
-}
-
-.cardTextPhoto {
-    font-size: 0.8rem;
-    color: #aaa;
-    margin-top: 5px;
-    font-style: italic;
-}
-
-.cardIconLarge {
-    font-size: 2.3rem;
-    color: #ffd700;
-    display: block;
-    text-shadow: 0 0 15px #ffd700;
-}
-
-/* --- FOOTER ORIGINAL --- */
-.footer {
-    background: linear-gradient(to right, #000, #0d0900, #000);
-    padding: 20px 0;
-    border-top: 3px solid #d4af37;
-    margin-top: 40px;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-}
-
-.footerContent {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0 20px;
-}
-
-.copyright {
-    font-size: 0.9rem;
-    color: #aaa;
-}
-
-.socialIcons {
-    display: flex;
-    gap: 15px;
-}
-
-.icon {
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.icon:hover {
-    transform: scale(1.3);
-}
-
-/* RESPONSIVE AUTOMÁTICO */
 @media (max-width: 1100px) {
-    .cardsContainer {
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        width: 100% !important;
-        max-width: 550px;
-        margin-bottom: 25px;
-    }
-    
-    .mainTitle {
-        font-size: 3.5rem;
-    }
+    .cardsContainer { height: auto; display: flex; flex-direction: column; align-items: center; }
+    .card { position: relative !important; top: auto !important; left: auto !important; right: auto !important; width: 100% !important; max-width: 550px; margin-bottom: 25px; }
+    .mainTitle { font-size: 3.5rem; }
 }

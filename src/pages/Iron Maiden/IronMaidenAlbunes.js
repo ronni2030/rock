@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './IronMaidenAlbunes.module.css';
 
@@ -20,173 +20,48 @@ import thefinalfrontier from '../../images/ironmaiden/thefinalfrontier.jpg';
 import thebookofsouls from '../../images/ironmaiden/thebookofsouls.jpg';
 import senjutsu from '../../images/ironmaiden/senjutsu.jpg';
 
+const albums = [
+    { name: "Iron Maiden", year: "1980", cover: ironmaiden, video: "https://www.youtube.com/embed/ufp75XlTp-Q" },
+    { name: "Killers", year: "1981", cover: killers, video: "https://www.youtube.com/embed/io4ObwuO24w" },
+    { name: "The Number of the Beast", year: "1982", cover: thenumberofthebeast, video: "https://www.youtube.com/embed/WxnN05vOuSM" },
+    { name: "Piece of Mind", year: "1983", cover: pieceofmind, video: "https://www.youtube.com/embed/X4bgXH3sJ2Q" },
+    { name: "Powerslave", year: "1984", cover: powerslave, video: "https://www.youtube.com/embed/9qbRHY1l0vc" },
+    { name: "Somewhere in Time", year: "1986", cover: somewhereintime, video: "https://www.youtube.com/embed/Ij99dud8-0A" },
+    { name: "Seventh Son", year: "1988", cover: seventhson, video: "https://www.youtube.com/embed/s5Q_rbs9ul8" },
+    { name: "No Prayer", year: "1990", cover: noprayer, video: "https://www.youtube.com/embed/xPV4jlOlWjA" },
+    { name: "Fear of the Dark", year: "1992", cover: fearofthedark, video: "https://www.youtube.com/embed/L4EDWVbNKnM" },
+    { name: "The X Factor", year: "1995", cover: thexfactor, video: "https://www.youtube.com/embed/u5UqJWRV55E" },
+    { name: "Virtual XI", year: "1998", cover: virtualxi, video: "https://www.youtube.com/embed/t3ymU8rbEhw" },
+    { name: "Brave New World", year: "2000", cover: bravenewworld, video: "https://www.youtube.com/embed/-sQ3Af3DpeM" },
+    { name: "Dance of Death", year: "2003", cover: danceofdeath, video: "https://www.youtube.com/embed/XpV8yNNGiqI" },
+    { name: "A Matter of Life and Death", year: "2006", cover: amatteroflifeanddeath, video: "https://www.youtube.com/embed/fmx1usEg--k" },
+    { name: "The Final Frontier", year: "2010", cover: thefinalfrontier, video: "https://www.youtube.com/embed/xMlaFD3s-1s" },
+    { name: "The Book of Souls", year: "2015", cover: thebookofsouls, video: "https://www.youtube.com/embed/-F7A24f6gNc" },
+    { name: "Senjutsu", year: "2021", cover: senjutsu, video: "https://www.youtube.com/embed/FhBnW7bZHEE" }
+];
+
 const IronMaidenAlbunes = () => {
-
-    const albums = [
-        {
-            name: "Iron Maiden",
-            year: "1980",
-            cover: ironmaiden,
-            video: "https://www.youtube.com/embed/ufp75XlTp-Q"
-        },
-        {
-            name: "Killers",
-            year: "1981",
-            cover: killers,
-            video: "https://www.youtube.com/embed/io4ObwuO24w"
-        },
-        {
-            name: "The Number of the Beast",
-            year: "1982",
-            cover: thenumberofthebeast,
-            video: "https://www.youtube.com/embed/WxnN05vOuSM"
-        },
-        {
-            name: "Piece of Mind",
-            year: "1983",
-            cover: pieceofmind,
-            video: "https://www.youtube.com/embed/X4bgXH3sJ2Q"
-        },
-        {
-            name: "Powerslave",
-            year: "1984",
-            cover: powerslave,
-            video: "https://www.youtube.com/embed/9qbRHY1l0vc"
-        },
-        {
-            name: "Somewhere in Time",
-            year: "1986",
-            cover: somewhereintime,
-            video: "https://www.youtube.com/embed/Ij99dud8-0A"
-        },
-        {
-            name: "Seventh Son",
-            year: "1988",
-            cover: seventhson,
-            video: "https://www.youtube.com/embed/s5Q_rbs9ul8"
-        },
-        {
-            name: "No Prayer",
-            year: "1990",
-            cover: noprayer,
-            video: "https://www.youtube.com/embed/xPV4jlOlWjA"
-        },
-        {
-            name: "Fear of the Dark",
-            year: "1992",
-            cover: fearofthedark,
-            video: "https://www.youtube.com/embed/L4EDWVbNKnM"
-        },
-        {
-            name: "The X Factor",
-            year: "1995",
-            cover: thexfactor,
-            video: "https://www.youtube.com/embed/u5UqJWRV55E"
-        },
-        {
-            name: "Virtual XI",
-            year: "1998",
-            cover: virtualxi,
-            video: "https://www.youtube.com/embed/t3ymU8rbEhw"
-        },
-        {
-            name: "Brave New World",
-            year: "2000",
-            cover: bravenewworld,
-            video: "https://www.youtube.com/embed/-sQ3Af3DpeM"
-        },
-        {
-            name: "Dance of Death",
-            year: "2003",
-            cover: danceofdeath,
-            video: "https://www.youtube.com/embed/XpV8yNNGiqI"
-        },
-        {
-            name: "A Matter of Life and Death",
-            year: "2006",
-            cover: amatteroflifeanddeath,
-            video: "https://www.youtube.com/embed/fmx1usEg--k"
-        },
-        {
-            name: "The Final Frontier",
-            year: "2010",
-            cover: thefinalfrontier,
-            video: "https://www.youtube.com/embed/xMlaFD3s-1s"
-        },
-        {
-            name: "The Book of Souls",
-            year: "2015",
-            cover: thebookofsouls,
-            video: "https://www.youtube.com/embed/-F7A24f6gNc"
-        },
-        {
-            name: "Senjutsu",
-            year: "2021",
-            cover: senjutsu,
-            video: "https://www.youtube.com/embed/FhBnW7bZHEE"
-        }
-    ];
-
-    // VIDEO INICIAL AL ABRIR LA PÁGINA
-    const [currentVideo, setCurrentVideo] = useState(
-        "https://www.youtube.com/embed/Xg9aQvjMS60?si=hd5xtw3_-sGkLhl7"
-    );
-
-    const videoRef = useRef(null);
+    const [currentVideo, setCurrentVideo] = useState("https://www.youtube.com/embed/Xg9aQvjMS60");
 
     return (
         <div className={styles.maidenPage}>
-
             <header className={styles.header}>
                 <nav className={styles.maidenNav}>
                     <div className={styles.navContainer}>
-
                         <div className={styles.navLinks}>
-                            <Link to="/" className={styles.navItem}>
-                                INICIO
-                            </Link>
-
-                            <Link
-                                to="/ironmaiden"
-                                className={styles.navItem}
-                            >
-                                IRON MAIDEN
-                            </Link>
-
-                            <Link
-                                to="/ironmaiden/historia"
-                                className={styles.navItem}
-                            >
-                                HISTORIA
-                            </Link>
-
-                            <Link
-                                to="/ironmaiden/albunes"
-                                className={`${styles.navItem} ${styles.maidenActive}`}
-                            >
-                                ÁLBUMES
-                            </Link>
-
-                            <Link
-                                to="/ironmaiden/grupo"
-                                className={styles.navItem}
-                            >
-                                GRUPO
-                            </Link>
+                            <Link to="/" className={styles.navItem}>INICIO</Link>
+                            <Link to="/ironmaiden" className={styles.navItem}>IRON MAIDEN</Link>
+                            <Link to="/ironmaiden/historia" className={styles.navItem}>HISTORIA</Link>
+                            <Link to="/ironmaiden/albunes" className={`${styles.navItem} ${styles.maidenActive}`}>ÁLBUMES</Link>
+                            <Link to="/ironmaiden/grupo" className={styles.navItem}>GRUPO</Link>
                         </div>
-
-                        <div className={styles.navLogo}>
-                            IRON MAIDEN
-                        </div>
-
+                        <div className={styles.navLogo}>IRON MAIDEN</div>
                     </div>
                 </nav>
             </header>
 
             <main className={styles.mainContent}>
-
                 <div className={styles.galleryWrapper}>
-
                     {albums.map((album, index) => (
                         <div
                             key={index}
@@ -194,28 +69,15 @@ const IronMaidenAlbunes = () => {
                             onClick={() => setCurrentVideo(album.video)}
                         >
                             <div className={styles.vinylDisc}></div>
-
                             <div className={styles.vinylCover}>
-                                <img
-                                    src={album.cover}
-                                    alt={album.name}
-                                />
+                                <img src={album.cover} alt={album.name} />
                             </div>
-
-                            <h3 className={styles.albumTitle}>
-                                {album.name}
-                            </h3>
-
-                            <span className={styles.albumYear}>
-                                {album.year}
-                            </span>
+                            <h3 className={styles.albumTitle}>{album.name}</h3>
+                            <span className={styles.albumYear}>{album.year}</span>
                         </div>
                     ))}
 
-                    <div
-                        className={styles.centerVideo}
-                        ref={videoRef}
-                    >
+                    <div className={styles.centerVideo}>
                         <iframe
                             width="100%"
                             height="100%"
@@ -226,11 +88,8 @@ const IronMaidenAlbunes = () => {
                             allowFullScreen
                         />
                     </div>
-
                 </div>
-
             </main>
-
         </div>
     );
 };

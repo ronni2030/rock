@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './OzzyHistoria.module.css';
 
+/* IMPORTACIÓN DE IMÁGENES */
 import img4 from '../../images/ozzy/4.jpg';
 import img5 from '../../images/ozzy/5.jpg';
 import img6 from '../../images/ozzy/6.jpg';
@@ -65,13 +66,7 @@ const scenes = [
     }
 ];
 
-const OzzyHistoria = () => {
-
-    const [shake, setShake] = useState(false);
-
-    const [news, setNews] = useState([]);
-
-    const newsSamples = [
+const newsSamples = [
     "EL PRÍNCIPE DE LAS TINIEBLAS VUELVE A ROMPER EL SILENCIO",
     "OZZY OSBOURNE CAMBIÓ LA HISTORIA DEL METAL",
     "OZZY OSBOURNE: CAOS, GENIO Y CONTROVERSIA",
@@ -81,28 +76,29 @@ const OzzyHistoria = () => {
     "EL METAL NACE DEL DESORDEN DE OZZY"
 ];
 
+const OzzyHistoria = () => {
+    const [shake, setShake] = useState(false);
+    const [news, setNews] = useState([]);
     const prevScroll = useRef(0);
 
+    /* Lógica de vibración al hacer scroll */
     useEffect(() => {
         const handleScroll = () => {
             const y = window.scrollY;
-
             if (Math.abs(y - prevScroll.current) > 500) {
                 setShake(true);
                 setTimeout(() => setShake(false), 300);
             }
-
             prevScroll.current = y;
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    /* Lógica de noticias flash aleatorias */
     useEffect(() => {
         const interval = setInterval(() => {
             const id = Math.random().toString(36).substring(2, 9);
-
             setNews(prev => [
                 ...prev,
                 {
@@ -112,37 +108,29 @@ const OzzyHistoria = () => {
                     left: Math.random() * 80 + 10
                 }
             ]);
-
             setTimeout(() => {
                 setNews(prev => prev.filter(n => n.id !== id));
             }, 1800);
-
         }, 2500);
-
         return () => clearInterval(interval);
     }, []);
 
     return (
         <div className={`${styles.historiaContainer} ${shake ? styles.shake : ''}`}>
-
-            {/* NAV */}
+            {/* NAVBAR */}
             <nav className={styles.navbar}>
-    <Link className={styles.navLink} to="/">INICIO</Link>
-    <span className={styles.separator}>|</span>
+                <Link className={styles.navLink} to="/">INICIO</Link>
+                <span className={styles.separator}>|</span>
+                <Link className={styles.navLink} to="/ozzy">OZZY</Link>
+                <span className={styles.separator}>|</span>
+                <Link className={styles.navLink} to="/ozzy/historia">HISTORIA</Link>
+                <span className={styles.separator}>|</span>
+                <Link className={styles.navLink} to="/ozzy/albunes">ÁLBUMES</Link>
+                <span className={styles.separator}>|</span>
+                <Link className={styles.navLink} to="/ozzy/grupo">GRUPO</Link>
+            </nav>
 
-    <Link className={styles.navLink} to="/ozzy">OZZY</Link>
-    <span className={styles.separator}>|</span>
-
-    <Link className={styles.navLink} to="/ozzy/historia">HISTORIA</Link>
-    <span className={styles.separator}>|</span>
-
-    <Link className={styles.navLink} to="/ozzy/albunes">ÁLBUMES</Link>
-    <span className={styles.separator}>|</span>
-
-    <Link className={styles.navLink} to="/ozzy/grupo">GRUPO</Link>
-</nav>
-
-            {/* ESCENAS */}
+            {/* ESCENAS CINEMATOGRÁFICAS */}
             <div className={styles.cinemaContainer}>
                 {scenes.map((scene, i) => (
                     <section
@@ -151,15 +139,8 @@ const OzzyHistoria = () => {
                         style={{ backgroundImage: `url(${scene.bg})` }}
                     >
                         <div className={styles.overlay}></div>
-
-                        <span className={styles.sceneNumber}>
-                            ESCENA {i + 1}
-                        </span>
-
-                        <h1 className={styles.sceneTitle}>
-                            {scene.year} — {scene.title}
-                        </h1>
-
+                        <span className={styles.sceneNumber}>ESCENA {i + 1}</span>
+                        <h1 className={styles.sceneTitle}>{scene.year} — {scene.title}</h1>
                         <div className={styles.sceneText}>
                             {scene.text.map((t, index) => (
                                 <p key={index}>{t}</p>
@@ -169,20 +150,16 @@ const OzzyHistoria = () => {
                 ))}
             </div>
 
-            {/* NOTICIAS */}
+            {/* NOTICIAS FLASH */}
             {news.map(n => (
                 <div
                     key={n.id}
                     className={styles.newsFlash}
-                    style={{
-                        top: `${n.top}%`,
-                        left: `${n.left}%`
-                    }}
+                    style={{ top: `${n.top}%`, left: `${n.left}%` }}
                 >
                     {n.text}
                 </div>
             ))}
-
         </div>
     );
 };
